@@ -1,0 +1,36 @@
+SWEN-250 Activity Reflection
+Python - WordCount
+
+Name: Aidan Sawyer
+
+================================================================
+Start
+Estimated Time	00 35
+Plan:
+(Order of implementation, testing approach, etc.)
+
+OI: 
+  -get file input and scrolling through the file to work using 
+   'for line in fileName'.
+  -count number of lines by adding incrementor on above for loop.
+  -test and compare with first number in wc output
+  -add for loop for words in line and an incrementer for numWords
+  -test and compare with second number in wc output
+  -add for loop for character in word and an incrememnter for numChars
+  -test and compare with third number in wc output
+  -check with shell scripting that i/o works well and overall output fits.
+
+TA:
+  -print out the simple text file to check 'for line in fileName' works
+  -use bash script to call wc and ritwc.py after the other to visually
+   compare.
+  -use edited bash script to do a 'diff' between the two outputs.
+
+Complete
+Actual Time	HH MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+
+
+================================================================
+
