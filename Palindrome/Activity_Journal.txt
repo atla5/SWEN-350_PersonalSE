@@ -1,0 +1,30 @@
+SWEN-250 Activity Reflection
+Python - Palindrome
+
+Name: Aidan Sawyer
+
+================================================================
+Start
+Estimated Time	00 50
+Plan:
+(Order of implementation, testing approach, estimation technique)
+
+OI: 
+  - create test input file with known palindromes and nonpalindromes
+  - create test script 
+
+TA:
+  - bash script to compare output of palindrome.py and the file
+    itself. if any known palindromes show up in the diff, the program has
+    missed it and needs to be edited.
+  - i'll have to write some print-outs in the code itself to make
+    sure that no non-palindromes are incorrectly marked as palindromes.
+
+Complete
+Actual Time	HH MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+
+
+================================================================
+
