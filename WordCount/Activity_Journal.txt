@@ -27,10 +27,18 @@ TA:
   -use edited bash script to do a 'diff' between the two outputs.
 
 Complete
-Actual Time	HH MM
+Actual Time	HH 45
 Observations:
 (Lessons learned, problems encountered, obstacles overcome, etc.)
 
+LL:
+  -testing is easy to forget or disregard, but especially in this activity
+   it was very easy to write and saved a fair amount of typing.
+
+PE: 
+  -had a bit of a difficult time remembering how to get the '<' to work, but 
+   once i had that worked out it went pretty smoothly
 
 ================================================================
+
 
