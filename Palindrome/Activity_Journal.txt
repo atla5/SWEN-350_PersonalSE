@@ -12,6 +12,9 @@ Plan:
 OI: 
   - create test input file with known palindromes and nonpalindromes
   - create test script 
+  - write is_palindrome() and its helper functions to take a line and 
+    test returns
+  - write functionality to take in whole files
 
 TA:
   - bash script to compare output of palindrome.py and the file
@@ -21,10 +24,14 @@ TA:
     sure that no non-palindromes are incorrectly marked as palindromes.
 
 Complete
-Actual Time	HH MM
+Actual Time	HH 45
 Observations:
 (Lessons learned, problems encountered, obstacles overcome, etc.)
 
+PE:
+  - had a bit of trouble with the newline character at the end of each line
+  - had some problems writing the shell script, but i'm convinced it's working
+    correctly looking at the printout.
 
 ================================================================
 
