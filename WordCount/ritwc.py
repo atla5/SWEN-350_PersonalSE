@@ -20,7 +20,7 @@ for line in f:     #for every line in the file...
 	numWords += len(lsFromLine)#add number of items in list to sum
 
 #print result in 'wc' format:
-print(" " + str(numLines) + " " + str(numWords) + " " + str(numChars))
+print(" " + str(numLines) + "  " + str(numWords) + " " + str(numChars))
 
 #close the file to free up memory
 f.close()
