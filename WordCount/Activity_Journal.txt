@@ -2,7 +2,7 @@ SWEN-250 Activity Reflection
 Python - WordCount
 
 Name: Aidan Sawyer
-
+LOC/hr: 26/.75 = 34.67
 ================================================================
 Start
 Estimated Time	00 35
