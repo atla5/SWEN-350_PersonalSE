@@ -1,0 +1,9 @@
+decomposition: breaking down a complex problem into simpler, more managable
+parts.
+
+importance/benefits:
+    - learn about your proficiency in different areas
+    - make testing easier
+    - spreads out risk
+    - decrease stress
+    - allow you future estimates on similar problems
