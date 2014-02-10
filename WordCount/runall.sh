@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo DarkAndStormyNight.txt
 ./runtest.sh DarkAndStormyNight.txt
