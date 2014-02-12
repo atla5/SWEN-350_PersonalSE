@@ -12,12 +12,12 @@ import sys
 
 def bracket(original):
     # The final bracketed string.
-    bracketed = ''
+    bracketed = ""
     vowels = ["a","e","i","o","u"]
     digits = ["1","2","3","4","5","6","7","8","9","0"]
 
     for c in original:
-        if c in vowels:
+        if c.lower() in vowels:
             bracketed += "[" + c + "]"
         elif c in digits: 
             bracketed += "<" + c + ">"
