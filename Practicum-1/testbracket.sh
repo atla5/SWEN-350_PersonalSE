@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-# #!/bin/bash
-# Extend the following script to run tests that confirm your program is
-# working correctly. You are not required to create PyUnit tests.
 
 #Testing original sample
 echo "I think February 29, 2024 will be sunny." | python3 Bracket.py > out.txt
@@ -25,7 +22,8 @@ echo "1234567890" | python3 Bracket.py >> out.txt
 echo "" | python3 Bracket.py >> out.txt
 #output should be: ""
 
-#####
+## -- end writing to out.txt -- ##
 
 #look at difference between actual and desired output
 diff out.txt testOut.txt
+#test is successful when diff outputs nothing
