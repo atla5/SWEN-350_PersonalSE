@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# #!/bin/bash
 # Extend the following script to run tests that confirm your program is
 # working correctly. You are not required to create PyUnit tests.
-# 
 
 #Testing original sample
 echo "I think February 29, 2024 will be sunny." | python3 Bracket.py > out.txt
