@@ -8,7 +8,6 @@
 # Example: bracket("I think February 29, 2024 will be sunny.")
 #    returns "[I] th[i]nk F[e]br[u][a]ry <2><9>, <2><0><2><4> w[i]ll b[e] s[u]nny."
 
-import fileinput
 import sys
 
 def bracket(original):
@@ -20,7 +19,7 @@ def bracket(original):
     for c in original:
         if c in vowels:
             bracketed += "[" + c + "]"
-        if c in digits: 
+        elif c in digits: 
             bracketed += "<" + c + ">"
         else:
             bracketed += c
@@ -31,8 +30,7 @@ def bracket(original):
 if __name__ == '__main__':
     # Replace this next line with your own implementation. Do not include tests here.
     
-   
+    #get standard input from sis. print out bracketed version.
     for line in sys.stdin:
         print(bracket(line))
     
-	#print(bracket("I think February 29, 2024 will be sunny."))
