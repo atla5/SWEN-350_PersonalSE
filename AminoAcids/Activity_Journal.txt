@@ -5,7 +5,7 @@ Name: Aidan Sawyer
 
 ================================================================
 Start
-Estimated Time	HH MM
+Estimated Time	00 45
 Plan:
 (Order of implementation, testing approach, etc.)
 
@@ -19,9 +19,22 @@ TA:
   -redirect output (echo) to file and compare outputs
 
 Complete
-Actual Time	HH MM
+Actual Time	01 15
 Observations:
 (Lessons learned, problems encountered, obstacles overcome, etc.)
+
+LL: 
+  -Be accurate and thorough with understanding the problem and given
+   sample code. 
+  -Don't assume.
+  -Double check everything.
+  -Bash scripts are really nice
+
+
+PE:
+  -I got stuck putting "if(codon in STOP_CODONS)" inside the conditional
+   for if it was in the dictionary of RNA_TO_AAs. it's not. it was never
+   finding the stop condition and therefore wasn't printing anything. 
 
 
 ================================================================
