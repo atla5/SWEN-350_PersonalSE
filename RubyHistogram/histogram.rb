@@ -23,7 +23,11 @@ $stdin.each{ |line|
     #for each individual 'word' in line
     lsWords.each{ |word|
 
-        #print word
-        puts(word)
+        #add word to bag and increment count
+        bag[word] += 1
     }
+
 }
+
+#print the bag contents  after end of input
+bag.each{ |k,v| puts("#{k}: #{v}") }
