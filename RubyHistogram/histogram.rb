@@ -2,18 +2,22 @@
 #language: ruby
 #activity:ruby histogram
 
-    
+#for each line in standard input
 $stdin.each{ |line| 
 
-    #get line from standard input. chomp off any terminating characters (\n)
-    line = line.chomp()
+    #chomp off any terminating characters (\n)
+    lsWords = line.chomp().split(/ +/)
 
-    #remove all non-alphabetic or non-space characters
-    line = line.gsub(/\p{^Alpha}/,"")
+    #for each individual 'word' in line
+    lsWords.each{ |word|
 
-    #remove any leading spaces
-    line = line.sub(/ +/,"")
+        #remove all non-alphabetic or non-space characters
+        word = word.gsub(/\p{^Alpha}/,"")
 
+        #remove any leading spaces
+        word = word.sub(/ +/,"")
 
-    puts(line)
+        #print word
+        puts(word)
+    }
 }
