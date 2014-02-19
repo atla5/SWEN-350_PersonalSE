@@ -2,7 +2,16 @@
 #language: ruby
 #activity:ruby histogram
 
+#create new hash 'bag' to store words
+bag = Hash.new(0)
 
+#set cutoff occurence minimum for printout
+minCountCutoff = 2
+unless ARGV[0].nil?
+    minCountCutoff = ARGV[0]
+end
+
+#create new hash 'bag' to store words
 bag = Hash.new(0)
 
 #for each line in standard input
@@ -29,8 +38,8 @@ $stdin.each{ |line|
 
 }
 
-#select those in hash with value >=2
-lsSelect = bag.select{|k,v| v>=2}
+#select those in hash with value >= cutoff
+lsSelect = bag.select{|k,v| v>=minCountCutoff}
 
 #sort bag by value (primarily) and then key (secondarily)
 lsSelect = lsSelect.sort{|k,v| 
@@ -46,5 +55,28 @@ lsSelect = lsSelect.sort{|k,v|
 
 }
 
-#print the bag contents  after end of input
-lsSelect.each{ |k,v| puts("#{k}: #{v}") }
+#find max key word-length and value in abbreviated list
+maxLen = 0;
+maxVal = 0;
+
+lsSelect.each{ |k,v|
+
+    #if current entry's key is longer than others so far, update it
+    if k.length() > maxLen
+        maxLen = k.length()
+    end
+
+    #if current entry's value is greater than others so far, update it
+    if v > maxVal
+        maxVal = v
+    end
+}
+
+
+#print the bag contents after end of input
+lsSelect.each do |k,v|   
+    #printf("%-#{maxLen}.#{maxLen}s\n","#{k}: #{"*"*v}") 
+    spaces = " "*(maxLen-k.length())
+    stars = "*"*v
+    puts("#{k}#{spaces}: #{stars}")
+end 
