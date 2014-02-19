@@ -4,11 +4,12 @@
 
     
 $stdin.each{ |line| 
+
     #get line from standard input. chomp off any terminating characters (\n)
-    line = STDIN.gets.chomp()
+    line = line.chomp()
 
     #remove all non-alphabetic or non-space characters
-    line = line.gsub(/ /,"")
+    line = line.gsub(/\p{^Alpha}/,"")
 
     #remove any leading spaces
     line = line.sub(/ +/,"")
