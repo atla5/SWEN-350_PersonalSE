@@ -32,5 +32,19 @@ $stdin.each{ |line|
 #select those in hash with value >=2
 lsSelect = bag.select{|k,v| v>=2}
 
+#sort bag by value (primarily) and then key (secondarily)
+lsSelect = lsSelect.sort{|k,v| 
+    
+    #use comparison 
+    comp = k.last <=> v.last
+
+    if comp==0
+        k.first <=> v.first
+    else
+        comp*-1
+    end
+
+}
+
 #print the bag contents  after end of input
 lsSelect.each{ |k,v| puts("#{k}: #{v}") }
