@@ -29,5 +29,8 @@ $stdin.each{ |line|
 
 }
 
+#select those in hash with value >=2
+lsSelect = bag.select{|k,v| v>=2}
+
 #print the bag contents  after end of input
-bag.each{ |k,v| puts("#{k}: #{v}") }
+lsSelect.each{ |k,v| puts("#{k}: #{v}") }
