@@ -5,7 +5,11 @@
 
 def factorial(n)
   # Write the factorial code here per the activity
-  if n==0
+  if n<0
+    raise ArgumentError, "Argument is less than 0"
+  elsif not n.is_a? Integer
+    raise ArgumentError, "Argument is not an integer"
+  elsif n==0
     return 1
   elsif n == 1
     return 1
