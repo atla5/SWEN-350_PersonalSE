@@ -1,0 +1,36 @@
+SWEN-250 Activity Reflection
+[Language] - [Activity Name]
+
+Name: Aidan Sawyer
+
+================================================================
+Start
+Estimated Time	02 00
+Plan:
+(Order of implementation, testing approach, estimation technique)
+
+OI:
+  -go through steps outlined in write-up.
+  -get lines of file/stdin
+  -parse through line, removing all of the unwanted characters and print
+  -break line into list of words and print each
+  -put words into a dictionary, print word and occurence
+  -change occurence number to appropriate number of *s
+
+TA:
+  -accept a few prescribed input files
+  -test with general input using 'CTRL-D' to stop stream
+
+ET:
+  -i've not done ruby in a while and the list of steps is rather long
+  -i know regexs and ruby stdin got me last semester, so i'm anticipating
+   relearning it to take a while.
+
+Complete
+Actual Time	HH MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+
+
+================================================================
+
