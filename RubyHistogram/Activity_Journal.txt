@@ -1,5 +1,5 @@
 SWEN-250 Activity Reflection
-[Language] - [Activity Name]
+Ruby - RubyHistogram
 
 Name: Aidan Sawyer
 
@@ -27,10 +27,21 @@ ET:
    relearning it to take a while.
 
 Complete
-Actual Time	HH MM
+Actual Time	03 30
 Observations:
 (Lessons learned, problems encountered, obstacles overcome, etc.)
 
+PE:
+  -as expected, i had some trouble with the regex removing non-alpha chars
+  -had a few problems with stdin as well, but that was resolved
+  -had a two second problem with not converting the argument to an integer.
+
+LL:
+  -the '!' for the smaller functions make a lot of difference.
+
+ETC:
+  -i probably should have refactored everything into a couple functions,
+   but wasn't sure where or how and it didn't seem entirel necessary. 
 
 ================================================================
 

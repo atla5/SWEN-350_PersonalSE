@@ -1,0 +1,46 @@
+the        : ******************
+and        : *************
+in         : ******
+he         : *****
+jabberwock : ***
+my         : ***
+through    : ***
+           : **
+allmimsy   : **
+bewarethe  : **
+borogoves  : **
+did        : **
+gimble     : **
+gyre       : **
+his        : **
+it         : **
+mome       : **
+outgrabe   : **
+raths      : **
+slithy     : **
+stood      : **
+that       : **
+thought    : **
+toves      : **
+twasbrillig: **
+vorpal     : **
+wabe       : **
+went       : **
+were       : **
+with       : **
+the   : *************
+of    : *********
+was   : *********
+it    : ********
+we    : ***
+age   : **
+all   : **
+before: **
+direct: **
+epoch : **
+going : **
+had   : **
+itwas : **
+period: **
+times : **
+us    : **

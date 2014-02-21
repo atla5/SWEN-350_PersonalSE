@@ -20,9 +20,6 @@ $stdin.each{ |line|
     #chomp off any terminating characters (\n)
     line = line.chomp().downcase()
 
-    #remove all non-alphabetic or non-space characters
-    #line = line.gsub(/\p{^Alpha}/,"")
-
     #remove any leading spaces
     line = line.sub(/ +/,"")
 
