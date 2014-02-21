@@ -21,7 +21,7 @@ $stdin.each{ |line|
     line = line.chomp().downcase()
 
     #remove any leading spaces
-    line = line.sub(/ +/,"")
+    #line = line.sub(/ +/,"")
 
     #split line into a list of words, remove non-alpha characters
     lsWords = line.split(/ +/)
