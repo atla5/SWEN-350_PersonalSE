@@ -8,7 +8,7 @@ bag = Hash.new(0)
 #set cutoff occurence minimum for printout
 minCountCutoff = 2
 unless ARGV[0].nil?
-    minCountCutoff = ARGV[0]
+    minCountCutoff = ARGV[0].to_i()
 end
 
 #create new hash 'bag' to store words
@@ -18,19 +18,21 @@ bag = Hash.new(0)
 $stdin.each{ |line| 
 
     #chomp off any terminating characters (\n)
-    line = line.chomp()
+    line = line.chomp().downcase()
 
     #remove all non-alphabetic or non-space characters
-    line = line.gsub(/\p{^Alpha}/,"")
+    #line = line.gsub(/\p{^Alpha}/,"")
 
     #remove any leading spaces
     line = line.sub(/ +/,"")
 
-    #split line into a list of words
+    #split line into a list of words, remove non-alpha characters
     lsWords = line.split(/ +/)
 
     #for each individual 'word' in line
     lsWords.each{ |word|
+
+        word.gsub!(/\p{^Alpha}/, "")
 
         #add word to bag and increment count
         bag[word] += 1
