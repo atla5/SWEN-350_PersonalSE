@@ -22,12 +22,16 @@ class FactorialTest < Test::Unit::TestCase #This is a class. (It's ok if you don
 
   #Test that negative values don't compute
   def test_negative
-    assert_raise ArgumentError factorial(-1),"negative int input should raise error"
+    assert_raise ArgumentError do 
+      factorial(-1)
+    end
   end
 
   #Test that non-integer input raises error
   def test_string
-    assert_raise ArgumentError factorial("helloWorld"),"non-int input should raise error"
+    assert_raise ArgumentError do 
+      factorial("helloWorld")
+    end
   end
 
 
