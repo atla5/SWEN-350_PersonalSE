@@ -1,0 +1,5 @@
+RUBY:
+
+everything is an object:
+    3.times{puts "hello"}
+    "Mike is smart".sub(/Mike/,"Peter")
