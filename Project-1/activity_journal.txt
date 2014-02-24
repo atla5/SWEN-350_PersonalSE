@@ -1,0 +1,123 @@
+SWEN-250 Activity Journal
+Ruby – Grades CSV
+
+Name: Aidan Sawyer
+
+RELEASE 1 - grades_util.rb & test_grades.rb
+================================================================
+Release 1 Implement & Test get_CSV_line() - Start
+Estimated Time	HH MM
+Plan for this level:
+  
+
+Level 1 – Complete
+Actual Time	HH MM
+Notes: Lessons learned, problems encountered, obstacles overcome, etc.
+
+================================================================
+
+================================================================
+Release 1 Implement & Test numeric_to_letter() - Start
+Estimated Time	HH MM
+Plan for this level:
+
+Level 1 – Complete
+Actual Time	HH MM
+Notes: Lessons learned, problems encountered, obstacles overcome, etc.
+
+================================================================
+
+================================================================
+Release 1 Implement & Test sum_weights() - Start
+Estimated Time	HH MM
+Plan for this level:
+
+Level 1 – Complete
+Actual Time	HH MM
+Notes: Lessons learned, problems encountered, obstacles overcome, etc.
+
+================================================================
+
+================================================================
+Release 1 Implement & Test compute_grade() - Start
+Estimated Time	HH MM
+Plan for this level:
+
+Level 1 – Complete
+Actual Time	HH MM
+Notes: Lessons learned, problems encountered, obstacles overcome, etc.
+
+================================================================
+
+RELEASE 2 - grades.rb
+================================================================
+Release 2 -Level 1 – Start
+Estimated Time	HH MM
+Plan for this level:
+
+Level 1 – Complete
+Actual Time	HH MM
+Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+
+================================================================
+
+================================================================
+Release 2 -Level 2 – Start
+Estimated Time	HH MM
+Plan for this level:
+
+Level 1 – Complete
+Actual Time	HH MM
+Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+
+================================================================
+
+================================================================
+Release 2 -Level 3 – Start
+Estimated Time	HH MM
+Plan for this level:
+
+Level 1 – Complete
+Actual Time	HH MM
+Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+
+================================================================
+
+================================================================
+Release 2 -Level 4 – Start
+Estimated Time	HH MM
+Plan for this level:
+
+Level 1 – Complete
+Actual Time	HH MM
+Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+
+================================================================
+
+================================================================
+Release 2 -Level 5 – Start
+Estimated Time	HH MM
+Plan for this level:
+
+Level 1 – Complete
+Actual Time	HH MM
+Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+
+================================================================
+
+================================================================
+Release 2 -Level 6 – Start
+Estimated Time	HH MM
+Plan for this level:
+
+Level 1 – Complete
+Actual Time	HH MM
+Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+
+================================================================
+
+OVERALL SUMMARY
+================================================================
+Estimated Total Time	HH MM
+Actual Total Time	HH MM
+Project reflection:
