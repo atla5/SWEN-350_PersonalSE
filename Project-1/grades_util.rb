@@ -40,9 +40,47 @@ end
 # Method to convert a raw numeric grade to a letter A - F.
 
 def numeric_to_letter(numeric)
-  
-  ### YOUR CODE HERE ###
-  
+
+  #catch incorrect arguments
+  if not numeric.is_a? Integer or numeric.is_a? Float
+    raise ArgumentError, "Argument must be a number"
+  elsif numeric > 100 or numeric < 0
+    raise ArgumentError, "cannot have grade > 100 or < 0"
+
+  #return the correct Letter grade based on range.
+  elsif numeric >= 0 and numeric < 40
+    return "F-"
+  elsif numeric >= 40 and numeric < 55
+    return "F"
+  elsif numeric >= 55 and numeric < 60
+    return "F+"
+  elsif numeric >= 60 and numeric < 64
+    return "D-"
+  elsif numeric >= 64 and numeric <= 66
+    return "D"
+  elsif numeric > 66 and numeric < 70
+    return "D+"
+  elsif numeric >= 70 and numeric < 74
+    return "C-"
+  elsif numeric >= 74 and numeric <= 76
+    return "C"
+  elsif numeric > 76 and numeric < 80
+    return "C+"
+  elsif numeric >= 80 and numeric < 84
+    return "B-"
+  elsif numeric >= 84 and numeric <= 86
+    return "B"
+  elsif numeric > 86 and numeric < 90
+    return "B+"
+  elsif numeric >= 90 and numeric < 94
+    return "A-"
+  elsif numeric >= 94 and numeric <= 96
+    return "A"
+  elsif numeric > 96 and numeric <= 100
+    return "A+"
+  else
+    raise "a number 0<n<100 was not caught"
+  end
 end
 
   
@@ -56,7 +94,8 @@ end
 
 def get_CSV_line( line )
    
-   ### YOUR CODE HERE ###
+  ls = line.split(",")
+  return ls
    
 end
 
@@ -91,6 +130,12 @@ def print_summary(lettercount)
   end
 
   printf "Class GPA = %1.2f", qualty_points.to_f / grade_count.to_f
-  puts
+  puts " "
 end
+
+def test()
+  numeric_to_letter(24)
+end
+
+test()
 

@@ -19,7 +19,34 @@ class TestGrades < Test::Unit::TestCase
 	assert_equal headers, ["Name","ID","Grade"] # return an array of header words
   end
   
-  ####  YOUR ADDITIONAL UNIT TESTS START HERE  ####
+ ## test numeric_to_letter()
+
+  #check invalid arguments are handled correctly
+  def test_numToLet_invalidArgs
+    
+    #string arguments raise errors
+    assert_raise ArgumentError do
+      numeric_to_letter("helloWorld")
+    end
+
+    #negative input raises error
+    assert_raise ArgumentError do
+      numeric_to_letter(-12)
+    end
+
+    #numbers exceeding 100 raise error
+    assert_raise ArgumentError do
+      numeric_to_letter(102)
+    end
+
+  end
+
+  #check boundaries and correct output of valid args
+  def test_numToLet_chkBounds
+    assert_equal "F-", numeric_to_letter(0)
+    assert_equal "A", numeric_to_letter(96)
+    assert_equal "A+", numeric_to_letter(100)
+  end
   
 end
   
