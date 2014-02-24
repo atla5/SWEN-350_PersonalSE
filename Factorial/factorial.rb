@@ -16,5 +16,9 @@ def factorial(n)
   else
     return n*factorial(n-1)
   end
+end
 
+unless ARGV[0].nil?
+  num = ARGV[0].to_i()
+  puts factorial(num)
 end
