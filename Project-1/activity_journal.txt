@@ -8,7 +8,11 @@ RELEASE 1 - grades_util.rb & test_grades.rb
 Release 1 Implement & Test get_CSV_line() - Start
 Estimated Time	HH MM
 Plan for this level:
-  
+  -read docs for each function to get oriented
+  -write tests for get_CSV_line(), numeric_to_letter(), sum_weights(), and 
+   compute_grade()
+  -write code for each function
+  -test, debug, and refactor.
 
 Level 1 – Complete
 Actual Time	HH MM
