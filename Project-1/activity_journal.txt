@@ -6,7 +6,7 @@ Name: Aidan Sawyer
 RELEASE 1 - grades_util.rb & test_grades.rb
 ================================================================
 Release 1 Implement & Test get_CSV_line() - Start
-Estimated Time	HH MM
+Estimated Time	02 00
 Plan for this level:
   -read docs for each function to get oriented
   -write tests for get_CSV_line(), numeric_to_letter(), sum_weights(), and 

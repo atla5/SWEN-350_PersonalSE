@@ -79,7 +79,7 @@ def numeric_to_letter(numeric)
   elsif numeric > 96 and numeric <= 100
     return "A+"
   else
-    raise "a number 0<n<100 was not caught"
+    raise "a number 0<=n<=100 was not caught"
   end
 end
 
@@ -109,7 +109,15 @@ end
 
 def compute_grade( weight, field)
    
-   ### YOUR CODE HERE ###
+  if field.is_a? String
+    if field (LETTER_TO_NUMERIC.keys).include?
+      field = LETTER_TO_NUMERIC[field]
+    else
+      raise ArgumentError, "field string not in dictionary"
+    end
+  end
+
+  return weight*field
    
 end
 
@@ -132,10 +140,3 @@ def print_summary(lettercount)
   printf "Class GPA = %1.2f", qualty_points.to_f / grade_count.to_f
   puts " "
 end
-
-def test()
-  numeric_to_letter(24)
-end
-
-test()
-

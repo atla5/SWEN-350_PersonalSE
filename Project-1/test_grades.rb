@@ -11,17 +11,46 @@ require 'test/unit'
 
 class TestGrades < Test::Unit::TestCase
    
-  # Tests get_CSV_line to insure the entered input line
-  # is correctly be parsed to an array of string words
-  #
-  def test_header_line
-	headers = get_CSV_line("Name,ID,Grade")		# pass in an input string 
-	assert_equal headers, ["Name","ID","Grade"] # return an array of header words
-  end
+ ## Test get_CSV_line to ensure the entered input line ##
+  # is correctly parsed to an array of string words
   
- ## test numeric_to_letter()
+  #test that get_CSV_line works with the header line + expected input
+  def test_getCSV_headerLine
+	headers = get_CSV_line("Name,ID,Grade")		#in: input string 
+	assert_equal headers, ["Name","ID","Grade"] #out: array headerWords
+  end
 
-  #check invalid arguments are handled correctly
+  #test that get_CSV_line works with value line and expected input
+  def test_getCSV_valueLines
+    values = get_CSV_line("Samantha,25,92")
+    assert_equal values, ["Samantha","25","92"] 
+  end
+
+  #test that get_CSV_line works with empty string parts
+  def test_getCSV_emptyValue
+    
+    #empty field at last slot
+    emptyAtEnd = get_CSV_line("Samantha,25,")
+    assert_equal emptyAtEnd, ["Samantha","25",]
+    
+    #empty field in middle slot
+    emptyAtMid = get_CSV_line("Samantha,,92")
+    assert_equal emptyAtMid, ["Samantha","","92"]
+    
+    #empty field in first slot (beginning)
+    emptyAtBeg = get_CSV_line(",25,92")
+    assert_equal emptyAtBeg, ["","25","92"]
+
+    #empty field in all slots
+    emptyAtAll = get_CSV_line(",,") 
+    assert_equal emptyAtAll, ["","",""]
+  
+  end
+
+ ## test numeric_to_letter() to ensure correct letter grade ##
+  # from a given number grade [0-100]
+
+  #check invalid arguments are raise errors
   def test_numToLet_invalidArgs
     
     #string arguments raise errors
@@ -41,12 +70,14 @@ class TestGrades < Test::Unit::TestCase
 
   end
 
-  #check boundaries and correct output of valid args
+  #check boundaries and correct output of valid inputs
   def test_numToLet_chkBounds
     assert_equal "F-", numeric_to_letter(0)
     assert_equal "A", numeric_to_letter(96)
     assert_equal "A+", numeric_to_letter(100)
   end
+
+ ## test sum_weights to see if weights are summed correctly
   
 end
   
