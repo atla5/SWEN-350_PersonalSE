@@ -50,8 +50,8 @@ class TestGrades < Test::Unit::TestCase
  ## test numeric_to_letter() to ensure correct letter grade ##
   # from a given number grade [0-100]
 
-  #check invalid arguments are raise errors
-  def test_numToLet_invalidArgs
+  #check arguments to see if they raise errors
+  def test_numToLet_Args
     
     #string arguments raise errors
     assert_raise ArgumentError do
@@ -66,6 +66,11 @@ class TestGrades < Test::Unit::TestCase
     #numbers exceeding 100 raise error
     assert_raise ArgumentError do
       numeric_to_letter(102)
+    end
+
+    #ensure that it does not take floats
+    assert_raise ArgumentError do 
+       numeric_to_letter(89.9)
     end
 
   end

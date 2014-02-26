@@ -42,7 +42,7 @@ end
 def numeric_to_letter(numeric)
 
   #catch incorrect arguments
-  if not numeric.is_a? Integer or numeric.is_a? Float
+  if not numeric.is_a? Integer #or not numeric.is_a? Float
     raise ArgumentError, "Argument must be a number"
   elsif numeric > 100 or numeric < 0
     raise ArgumentError, "cannot have grade > 100 or < 0"
