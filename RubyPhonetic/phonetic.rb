@@ -37,10 +37,14 @@ class Phonetic
     
     s = "" #return string
 
-    word.each { |c|
-      LETTERS[0].each_index{ |i|
-        if c == LETTERS[0][i]
-          s+= LETTERS[i][1]
+    ls = word.split("")
+
+    ls.each { |c|
+      @LETTERS.each{ |letter|
+        a = letter[0]
+        p = letter[1]
+        if c == a
+          s+= p + " "
         end
       }
     } 
@@ -59,7 +63,17 @@ class Phonetic
     
     #add each translated character to return string
     ls.each { |w|
+
+      #go through array of arrays looking for word, adding char
+      @LETTERS.each { |letter|
+        a = letter[0]
+        p = letter[1]
+
+        if w == p
+          s+=a
+        end
       }
+    }
        
     return s
   end
