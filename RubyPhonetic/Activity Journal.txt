@@ -1,0 +1,32 @@
+
+SWEN-250 Activity Reflection
+Ruby - Phonetic
+ 
+Name: Aidan Sawyer (aks5238)
+ 
+================================================================
+Start
+Estimated Time 01 30
+Plan:
+(Order of implementation, testing approach, estimation technique)
+
+OI:
+  -run each file to see what we're starting with.
+  -read tests and documention. 
+  -write some more tests.
+  -write code.
+  -test and debug as necessary
+  -refactor
+
+TA:
+  -ruby unit testing
+
+Complete
+Actual Time    HH MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+ 
+ 
+================================================================
+ 
+ 
