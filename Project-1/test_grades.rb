@@ -17,13 +17,13 @@ class TestGrades < Test::Unit::TestCase
   #test that get_CSV_line works with the header line + expected input
   def test_getCSV_headerLine
 	headers = get_CSV_line("Name,ID,Grade")		#in: input string 
-	assert_equal headers, ["Name","ID","Grade"] #out: array headerWords
+	assert_equal ["Name","ID","Grade"], headers #out: array headerWords
   end
 
   #test that get_CSV_line works with value line and expected input
   def test_getCSV_valueLines
     values = get_CSV_line("Samantha,25,92")
-    assert_equal values, ["Samantha","25","92"] 
+    assert_equal ["Samantha","25","92"], values
   end
 
   #test that get_CSV_line works with empty string parts
@@ -31,19 +31,19 @@ class TestGrades < Test::Unit::TestCase
     
     #empty field at last slot
     emptyAtEnd = get_CSV_line("Samantha,25,")
-    assert_equal emptyAtEnd, ["Samantha","25",]
+    assert_equal ["Samantha","25",], emptyAtEnd
     
     #empty field in middle slot
     emptyAtMid = get_CSV_line("Samantha,,92")
-    assert_equal emptyAtMid, ["Samantha","","92"]
+    assert_equal ["Samantha","","92"], emptyAtMid
     
     #empty field in first slot (beginning)
     emptyAtBeg = get_CSV_line(",25,92")
-    assert_equal emptyAtBeg, ["","25","92"]
+    assert_equal ["","25","92"], emptyAtBeg
 
     #empty field in all slots
     emptyAtAll = get_CSV_line(",,") 
-    assert_equal emptyAtAll, ["","",""]
+    assert_equal ["","",""], emptyAtAll
   
   end
 
@@ -72,9 +72,12 @@ class TestGrades < Test::Unit::TestCase
 
   #check boundaries and correct output of valid inputs
   def test_numToLet_chkBounds
-    assert_equal "F", numeric_to_letter(0)
-    assert_equal "90", numeric_to_letter(96)
-    assert_equal "A", numeric_to_letter(100)
+    assert_equal numeric_to_letter(0), "F"
+    assert_equal numeric_to_letter(60), "D"
+    assert_equal numeric_to_letter(70), "C"
+    assert_equal numeric_to_letter(80), "B"
+    assert_equal numeric_to_letter(90), "A"
+    assert_equal numeric_to_letter(100), "A"
   end
 
  ## test sum_weights to see if weights are summed correctly

@@ -74,7 +74,7 @@ end
 
 def get_CSV_line( line )
    
-  ls = line.split(",")
+  ls = line.chomp().split(",")
   return ls
    
 end
