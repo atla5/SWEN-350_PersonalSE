@@ -3,6 +3,9 @@
 
 class Phonetic
 
+
+#  attr_accessor :Letters
+
   Letters = [
              ['A', 'ALPHA'],
              ['B', 'BRAVO'],
@@ -31,16 +34,18 @@ class Phonetic
              ['Y', 'YANKEE'],
              ['Z', 'ZULU'],
             ]
+
+#  attr_accessor :Letters
  
   # Translate a word to its phonetic alphabet equivalent
   def self.to_phonetic(word)
     
     s = "" #return string
 
-    ls = word.split("")
+    ls = word.upcase().split("")
 
     ls.each { |c|
-      @LETTERS.each{ |letter|
+      Letters.each{ |letter|
         a = letter[0]
         p = letter[1]
         if c == a
@@ -48,7 +53,7 @@ class Phonetic
         end
       }
     } 
-    return s
+    return s.chomp(" ")
 
   end
 
@@ -65,7 +70,7 @@ class Phonetic
     ls.each { |w|
 
       #go through array of arrays looking for word, adding char
-      @LETTERS.each { |letter|
+      Letters.each { |letter|
         a = letter[0]
         p = letter[1]
 

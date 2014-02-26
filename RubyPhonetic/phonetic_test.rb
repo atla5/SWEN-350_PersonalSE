@@ -23,7 +23,7 @@ class PhoneticTest < Test::Unit::TestCase
 
     #check that it can handle numbers
     withDigitsOut = "ALPHA 12 ALPHA"
-    assert_equal Phonetic.translate("A2P a12a")
+    assert_equal Phonetic.translate("A2P a12a"), withDigitsOut
 
   end
 
@@ -47,7 +47,7 @@ class PhoneticTest < Test::Unit::TestCase
  
   #test with good input
   def test_rit_to_phonetic
-    assort_equal 'ALPHA BRAVO CHARLIE', Phonetic.to_phonetic("ABC")
+    assert_equal 'ALPHA BRAVO CHARLIE', Phonetic.to_phonetic("ABC")
     assert_equal 'ROMEO INDIA TANGO', Phonetic.to_phonetic('RIT')
   end
 
