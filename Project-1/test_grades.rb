@@ -72,9 +72,9 @@ class TestGrades < Test::Unit::TestCase
 
   #check boundaries and correct output of valid inputs
   def test_numToLet_chkBounds
-    assert_equal "F-", numeric_to_letter(0)
-    assert_equal "A", numeric_to_letter(96)
-    assert_equal "A+", numeric_to_letter(100)
+    assert_equal "F", numeric_to_letter(0)
+    assert_equal "90", numeric_to_letter(96)
+    assert_equal "A", numeric_to_letter(100)
   end
 
  ## test sum_weights to see if weights are summed correctly

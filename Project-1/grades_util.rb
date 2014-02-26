@@ -48,36 +48,16 @@ def numeric_to_letter(numeric)
     raise ArgumentError, "cannot have grade > 100 or < 0"
 
   #return the correct Letter grade based on range.
-  elsif numeric >= 0 and numeric < 40
-    return "F-"
-  elsif numeric >= 40 and numeric < 55
+  elsif numeric >= 0 and numeric < 60
     return "F"
-  elsif numeric >= 55 and numeric < 60
-    return "F+"
-  elsif numeric >= 60 and numeric < 64
-    return "D-"
-  elsif numeric >= 64 and numeric <= 66
+  elsif numeric >= 60 and numeric < 70
     return "D"
-  elsif numeric > 66 and numeric < 70
-    return "D+"
-  elsif numeric >= 70 and numeric < 74
-    return "C-"
-  elsif numeric >= 74 and numeric <= 76
+  elsif numeric >= 70 and numeric < 80
     return "C"
-  elsif numeric > 76 and numeric < 80
-    return "C+"
-  elsif numeric >= 80 and numeric < 84
-    return "B-"
-  elsif numeric >= 84 and numeric <= 86
+  elsif numeric >= 80 and numeric < 90
     return "B"
-  elsif numeric > 86 and numeric < 90
-    return "B+"
-  elsif numeric >= 90 and numeric < 94
-    return "A-"
-  elsif numeric >= 94 and numeric <= 96
+  elsif numeric >= 90 and numeric <= 100
     return "A"
-  elsif numeric > 96 and numeric <= 100
-    return "A+"
   else
     raise "a number 0<=n<=100 was not caught"
   end
