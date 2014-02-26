@@ -20,5 +20,5 @@ end
 
 unless ARGV[0].nil?
   num = ARGV[0].to_i()
-  puts factorial(num)
+  factorial(num)
 end
