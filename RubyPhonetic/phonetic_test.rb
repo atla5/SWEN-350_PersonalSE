@@ -56,4 +56,18 @@ class PhoneticTest < Test::Unit::TestCase
     assert_equal Phonetic.to_phonetic("RIT"), Phonetic.to_phonetic("rit")
   end
 
+ ## - TEST A2P functionality - ##
+
+  #test with good input
+  def test_rit_from_phonetic
+    assert_equal Phonetic.from_phonetic("ALPHA BRAVO CHARLIE"), "ABC"
+    assert_equal Phonetic.from_phonetic("ROMEO INDIA TANGO"), "RIT"
+  end
+
+  #ensure case insensitive
+  def test_A2P_case
+    assert_equal Phonetic.from_phonetic("alpha"), Phonetic.from_phonetic("ALPHA")
+  end
+
+
 end
