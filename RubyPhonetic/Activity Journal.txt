@@ -22,11 +22,25 @@ TA:
   -ruby unit testing
 
 Complete
-Actual Time    HH MM
+Actual Time    02 00
 Observations:
 (Lessons learned, problems encountered, obstacles overcome, etc.)
  
- 
+LL:
+  -don't hesitate to clarify things with the customer
+  -testing takes a really long time, but catches some interesting errors
+  -don't just do unit tests. you also need to test overall functionality 
+   afterwards as well. almost forgot to do file input tests and found an
+   error i wouldn't have if i just tested helper functions
+
+PE:
+  -wasn't sure how to handle digits. asked and it was fixed
+  -spent a really long time with tests.
+  -really figured there would be a string.each{ |char| } function. there 
+   wasn't. 
+  -chomp() is kind of finnicky. you have to be careful with it.
+  -'\n' character is important to remember
+
 ================================================================
  
  
