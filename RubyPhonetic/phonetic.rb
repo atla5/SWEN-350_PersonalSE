@@ -42,17 +42,23 @@ class Phonetic
     
     s = "" #return string
 
+    #create a list of all the characters in the word
     ls = word.upcase().split("")
 
     ls.each { |c|
       Letters.each{ |letter|
-        a = letter[0]
-        p = letter[1]
+        a = letter[0] #alpha character
+        p = letter[1] #phonetic word
+        
+        #if character is an alpha character
         if c == a
+          #append relevant phonetic word with a space separator
           s+= p + " "
         end
       }
     } 
+
+    #return the return string without the extra space
     return s.chomp(" ")
 
   end
@@ -71,11 +77,12 @@ class Phonetic
 
       #go through array of arrays looking for word, adding char
       Letters.each { |letter|
-        a = letter[0]
-        p = letter[1]
+        a = letter[0] #alpha 
+        p = letter[1] #phonetic
 
-        if w == p
-          s+=a
+        #if the word is equal to the phonetic
+        if w.chomp("\n") == p
+          s+=a #append that letter to return string
         end
       }
     }
@@ -96,7 +103,7 @@ class Phonetic
     end
 
     #ensure all characters are upcased
-    line = line.upcase()
+    line = line.upcase()+ " "
 
     #look for 'A2P' or 'P2A' tag.
     tag = line[0..2]

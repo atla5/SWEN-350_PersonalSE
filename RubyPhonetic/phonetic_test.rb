@@ -22,7 +22,7 @@ class PhoneticTest < Test::Unit::TestCase
     assert_equal allCapsOut, noCapsOut
 
     #check that it can handle numbers
-    withDigitsOut = "ALPHA 12 ALPHA"
+    withDigitsOut = "ALPHA ALPHA"
     assert_equal Phonetic.translate("A2P a12a"), withDigitsOut
 
   end
