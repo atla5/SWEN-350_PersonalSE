@@ -1,0 +1,37 @@
+SWEN-250 Activity Reflection
+Ruby - Git Repository Metrics
+
+Name: Aidan Sawyer (aks5238)
+
+================================================================
+Start
+Estimated Time	00 55
+
+Plan:
+(Order of implementation, testing approach, etc.)
+
+OI:
+  -write unit tests
+  -write code for num_commits
+  -debug and refactor
+  -write code for num_developers
+  -debug and refactor
+  -write code for days_of_devolopment
+  -debug and refactor
+  -test whole 
+
+TA:
+  -unit tests for each function
+  -bash script to test full functionality
+
+ET:
+  -days_of_develpment may take some time. i haven't done much with dates before
+
+Complete
+Actual Time	HH MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+
+
+================================================================
+
