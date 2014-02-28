@@ -10,6 +10,27 @@ end
 # Given an array of git log lines, count the number of different authors
 #   (Don't double-count!)
 def num_developers(lines)
+
+  #initialize counter at zero and an empty list
+  numDevs = 0
+  emails = []
+
+  lines.each{ |line|
+    if line.start_with?("Author: ")
+      
+      #email is always the last string in the line
+      email = line.split(" ")[-1]
+
+      #increment numDevs only if its a novel developer email
+      if not emails.include?(email)
+        numDevs += 1
+        lsDevs << devName
+      end
+    end
+  }
+
+  return numDevs
+
 end
 
 # Given an array of Git log lines, compute the number of days this was in development

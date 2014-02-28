@@ -7,6 +7,13 @@ class TestGitMetrics < Test::Unit::TestCase
   	assert_equal 2, num_commits(["commit abc", "commit 123"]), "Should have counted two commits"
   end
 
+
+  #test num_developers
+  def test_num_developers
+    lsAuthorLine = ["Au: Je Fe <email1>","Au: Eu Ko <email2>","Au: Je Fe <email1>"]
+    assert_equal 2, num_developers(lsAuthorLine); 
+  end
+
   def test_dates_with_three_days
   	exp = [ "Date:  Sun Jan 26 21:25:22 2014 -0600", \
   			"Date:  Sun Jan 23 21:25:22 2014 -0600", \
