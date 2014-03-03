@@ -3,7 +3,7 @@
 # Given an array of git log lines, count the number of commits in the log
 def num_commits(lines)
   numCommits = 0
-  lines.each{ |line| numCommits += 1 if line.start_with?("commit") }
+  lines.each{ |line| numCommits += 1 if line.start_with?("commit ") }
   return numCommits
 end
 
@@ -19,15 +19,17 @@ def num_developers(lines)
     if line.start_with?("Author: ")
       
       #email is always the last string in the line
-      email = line.split(" ")[-1]
+      email = line.split(" ")[3]
 
       #increment numDevs only if its a novel developer email
       if not emails.include?(email)
         numDevs += 1
-        lsDevs << devName
+        emails << email
       end
     end
   }
+
+  #emails.each{|e| puts(e) }
 
   return numDevs
 
@@ -36,6 +38,13 @@ end
 # Given an array of Git log lines, compute the number of days this was in development
 # Note: you cannot assume any order of commits (e.g. you cannot assume that the newest commit is first).
 def days_of_development(lines)
+
+  numDays = 0
+
+  
+
+  return numDays 
+
 end
 
 # This is ruby idiom that allows us to use both unit testing and command line processing

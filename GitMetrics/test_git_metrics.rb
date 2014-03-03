@@ -7,9 +7,21 @@ class TestGitMetrics < Test::Unit::TestCase
   	assert_equal 2, num_commits(["commit abc", "commit 123"]), "Should have counted two commits"
   end
 
+  def test_commit_middle
+    assert_equal 1, num_commits(["commit abc", "this commit"])
+  end
+
+  def test_commit_beginRedHerring
+    assert_equal 1, num_commits(["commit abc","committing this..."])
+  end
 
   #test num_developers
-  def test_num_developers
+  def test_num_devs_norm
+    lsAuthorLine = ["Au: Je Fe <email1>","Au: Eu Ko <email2>"]
+    assert_equal 2, num_developers(lsAuthorLine); 
+  end
+
+  def test_num_devs_duplicate
     lsAuthorLine = ["Au: Je Fe <email1>","Au: Eu Ko <email2>","Au: Je Fe <email1>"]
     assert_equal 2, num_developers(lsAuthorLine); 
   end
@@ -22,5 +34,15 @@ class TestGitMetrics < Test::Unit::TestCase
   end
 
   #Add more tests here
- 
+  def test_dates_one_day
+    exp = ["Date:  Sun Jan 25 21:25:22 2014 -0600"]
+    assert_equal 1, days_of_development(exp)
+  end
+
+  def test_dates_empty
+    exp = []
+    assert_equal 0, days_of_development(exp)
+  end
+
+
 end
