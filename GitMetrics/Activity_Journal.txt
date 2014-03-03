@@ -28,10 +28,22 @@ ET:
   -days_of_develpment may take some time. i haven't done much with dates before
 
 Complete
-Actual Time	HH MM
+Actual Time	01 15
 Observations:
 (Lessons learned, problems encountered, obstacles overcome, etc.)
 
+LL:
+  -make your .start_with?() as specific as possible
+  -don't put off looking up new documentation
+  -ruby has a method for pretty much anything
+  -triple-check validity of tests before proceeding
+
+PE:
+  -took a while to get used to 'Dates', but once i reread the 
+   documentation provided in the assignment it wasn't hard at all.
+   (wasn't using DateTime.parse() to begin with)
+  -had a couple tests that weren't written well. don't forget to
+   question those when you're pretty sure the code's fine.
 
 ================================================================
 
