@@ -1,3 +1,5 @@
+require 'date'
+
 # Script that obtains various git metrics from a basic git log file
 
 # Given an array of git log lines, count the number of commits in the log
@@ -40,9 +42,41 @@ end
 def days_of_development(lines)
 
   numDays = 0
+  dates = []
 
-  
+  lines.each{ |line| 
+    if line.start_with?("Date: ")
 
+      #line formatted such that all date info starts at char 8 
+      date = DateTime.parse(line[8..-1])
+      
+      if not dates.include?(date)
+        numDays+=1
+        dates << date
+      end
+    end
+  }
+
+  if dates.size == 0
+    return 0
+  elsif dates.size == 1
+    return 1
+  else 
+    newest = dates[0]
+    oldest = dates[1]
+    dates.each{ |date|
+      
+      if date > newest
+        newest = date
+      end
+
+      if date < oldest
+        oldest = date
+      end
+
+    }
+    return newest-oldest
+  end
   return numDays 
 
 end
