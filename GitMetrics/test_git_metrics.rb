@@ -17,12 +17,12 @@ class TestGitMetrics < Test::Unit::TestCase
 
   #test num_developers
   def test_num_devs_norm
-    lsAuthorLine = ["Au: Je Fe <email1>","Au: Eu Ko <email2>"]
+    lsAuthorLine = ["Author: J F <em1>","Author: E K <em2>"]
     assert_equal 2, num_developers(lsAuthorLine); 
   end
 
   def test_num_devs_duplicate
-    lsAuthorLine = ["Au: Je Fe <email1>","Au: Eu Ko <email2>","Au: Je Fe <email1>"]
+    lsAuthorLine = ["Author: J F <e1>","Author: E K <e2>","Author: J F <e1>"]
     assert_equal 2, num_developers(lsAuthorLine); 
   end
 
