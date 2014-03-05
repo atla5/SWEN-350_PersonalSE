@@ -89,7 +89,7 @@ if __FILE__ == $PROGRAM_NAME
     #  conversions of both types
     res = compute( ls[0], convert( ls[1], ls[2] ), convert( ls[3], ls[4] ) )  
   
-    printf("Result = %.2f USD", res)  
+    printf("Result = %.2f USD\n", res)  
 	
   end
 end
