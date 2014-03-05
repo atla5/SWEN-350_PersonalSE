@@ -18,9 +18,9 @@ class CurrencyTest < Test::Unit::TestCase
   end
 
   def test_parse_line
-    ls = ["op","type1","int1","type2","int2"]
-    assert_equal ls, parse_line("op,type1,int1,type2,int2\n")
-    assert_equal ls, parse_line("op,type1,int1,type2,int2")
+    ls = ["op","type1",12,"type2",15]
+    assert_equal ls, parse_line("op,type1,12,type2,15\n")
+    assert_equal ls, parse_line("op,type1,12,type2,15")
   end
   
 end

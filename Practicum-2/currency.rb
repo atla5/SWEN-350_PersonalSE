@@ -14,8 +14,12 @@
 # return the equivalent USD as a floating point value.
 def convert( currency_code, value )
 
-	## FILL IN ##
-	return 0.0    # place holder
+	#use currency code with RATES to get conversion factor.
+    k = RATES[currency_code]
+    
+    #compute and return conversion factor times the number of units of that
+    #  currency
+	return k*value;
 end
 
 # Return the floating point result of the given operation ('+'/'-') 
@@ -30,8 +34,15 @@ end
 # of values.
 def parse_line( line )
 
+    #chomp newline character and split into list of strings
     line.chomp!("\n")	
-	return line.split(",")
+	ls = line.split(",")
+
+    #convert both values to integers
+    ls[2] = ls[2].to_i()
+    ls[4] = ls[4].to_i()
+    
+    return ls
 	
 end
 
@@ -50,7 +61,8 @@ end
 if __FILE__ == $PROGRAM_NAME
   $stdin.each do |line|
     
-	## FILL IN ##
+	ls = parse_line(line)
+     
 	
   end
 end
