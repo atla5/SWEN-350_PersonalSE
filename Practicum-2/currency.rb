@@ -14,12 +14,12 @@
 # return the equivalent USD as a floating point value.
 def convert( currency_code, value )
 
-    #check that currency_code is in RATES
+    #check that currency_code is in RATES [raise error if it is not]
     if not RATES.keys.include?(currency_code)
       raise ArgumentError, "unknown currency_code"
     end
 
-    #check that 'value' is a float
+    #check that 'value' is a float [raise error if it's not]
     if not value.is_a? Float
       raise ArgumentError, "value is not a float"
     end
@@ -36,12 +36,12 @@ end
 # using the two floating point value parameters. 
 def compute( operator, value_1, value_2 )
 
-    #check the type of values 1 and 2
+    #check the type of values 1 and 2 [if either is not a float, raise error]
     if not value_1.is_a? Float or not value_2.is_a? Float
       raise ArgumentError, "value_1 or value_2 is not a float"
     end
 
-    #check operator and run command
+    #check operator and run command. [if not +/- raise error]
     if operator == "+"
       return value_1 + value_2
     elsif operator == "-"
@@ -63,7 +63,8 @@ def parse_line( line )
     #convert both values to floats
     ls[2] = ls[2].to_f()
     ls[4] = ls[4].to_f()
-    
+   
+    #return the correctly parsed list 
     return ls
 	
 end
@@ -82,7 +83,8 @@ end
 
 if __FILE__ == $PROGRAM_NAME
   $stdin.each do |line|
-    
+   
+    #create a list of the correctly interpreted values from line of stdin 
 	ls = parse_line(line)
     
     #calculate result as the computation with op ls[0] with values of the 

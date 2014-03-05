@@ -1,0 +1,3 @@
+Result = 77.53 USD
+Result = 22.91 USD
+Result = 60.31 USD
