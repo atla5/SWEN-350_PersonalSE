@@ -27,7 +27,7 @@ end
 def compute( operator, value_1, value_2 )
 
     #check the type of values 1 and 2
-    if not value_1.is_a? Float or not value_2.is_? Float
+    if not value_1.is_a? Float or not value_2.is_a? Float
       raise ArgumentError, "value_1 or value_2 is not a float"
     end
 
@@ -50,9 +50,9 @@ def parse_line( line )
     line.chomp!("\n")	
 	ls = line.split(",")
 
-    #convert both values to integers
-    ls[2] = ls[2].to_i()
-    ls[4] = ls[4].to_i()
+    #convert both values to floats
+    ls[2] = ls[2].to_f()
+    ls[4] = ls[4].to_f()
     
     return ls
 	

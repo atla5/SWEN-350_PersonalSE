@@ -22,5 +22,34 @@ class CurrencyTest < Test::Unit::TestCase
     assert_equal ls, parse_line("op,type1,12,type2,15\n")
     assert_equal ls, parse_line("op,type1,12,type2,15")
   end
+
+  def test_compute
+    
+   ##check incorrect arguments
+    
+    #operator not +/-
+    assert_raise ArgumentError do
+      compute("4",2.0,2.0)
+    end
+
+    #val1 not a float
+    assert_raise ArgumentError do
+      compute("+","two",2.0)
+    end
+
+    #val2 not a float
+    assert_raise ArgumentError do
+      compute("+",2.0,"two")
+    end
+
+   ##check valid input
+    
+    #2.0+2.0=4
+    assert_equal 4.0, compute("+",2.0,2.0)
+    
+    #4.0-2.0=2.0
+    assert_equal 2.0, compute("-",4.0,2.0)
+
+  end
   
 end
