@@ -1,4 +1,7 @@
 # Currency Calculator
+# Aidan Sawyer - aks5238
+# Language: ruby
+# Assignment: SWEN-250 Practicum-2
 
   # Currency conversion rates for one USD
   RATES = Hash[
@@ -91,6 +94,7 @@ if __FILE__ == $PROGRAM_NAME
     #  conversions of both types
     res = compute( ls[0], convert( ls[1], ls[2] ), convert( ls[3], ls[4] ) )  
   
+    #print result for that line in desired format
     printf("Result = %.2f USD\n", res)  
 	
   end

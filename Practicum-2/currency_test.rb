@@ -3,8 +3,6 @@ require 'test/unit'
 
 class CurrencyTest < Test::Unit::TestCase 
 
-  ### Add your tests here ###
-
   # assert_in_delta() is used to compare two floating point
   # values within a tolerance, or delta, to account for potential
   # rounding errors when performing floating point computations.
