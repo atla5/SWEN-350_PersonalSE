@@ -14,6 +14,16 @@
 # return the equivalent USD as a floating point value.
 def convert( currency_code, value )
 
+    #check that currency_code is in RATES
+    if not RATES.keys.include?(currency_code)
+      raise ArgumentError, "unknown currency_code"
+    end
+
+    #check that 'value' is a float
+    if not value.is_a? Float
+      raise ArgumentError, "value is not a float"
+    end
+
 	#use currency code with RATES to get conversion factor.
     k = RATES[currency_code]
     
@@ -78,8 +88,8 @@ if __FILE__ == $PROGRAM_NAME
     #calculate result as the computation with op ls[0] with values of the 
     #  conversions of both types
     res = compute( ls[0], convert( ls[1], ls[2] ), convert( ls[3], ls[4] ) )  
-    
-    
+  
+    printf("Result = %.2f USD", res)  
 	
   end
 end
