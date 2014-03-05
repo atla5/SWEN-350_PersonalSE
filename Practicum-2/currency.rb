@@ -26,8 +26,20 @@ end
 # using the two floating point value parameters. 
 def compute( operator, value_1, value_2 )
 
-	## FILL IN ##
-	return 0.0	 # place holder
+    #check the type of values 1 and 2
+    if not value_1.is_a? Float or not value_2.is_? Float
+      raise ArgumentError, "value_1 or value_2 is not a float"
+    end
+
+    #check operator and run command
+    if operator == "+"
+      return value_1 + value_2
+    elsif operator == "-"
+      return value_1 - value_2
+    else
+      raise ArgumentError, "operator not a +/-"
+    end
+
 end
 
 # Given an input string in CSV format, return an array
@@ -62,7 +74,12 @@ if __FILE__ == $PROGRAM_NAME
   $stdin.each do |line|
     
 	ls = parse_line(line)
-     
+    
+    #calculate result as the computation with op ls[0] with values of the 
+    #  conversions of both types
+    res = compute( ls[0], convert( ls[1], ls[2] ), convert( ls[3], ls[4] ) )  
+    
+    
 	
   end
 end
