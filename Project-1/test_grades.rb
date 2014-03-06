@@ -116,6 +116,7 @@ class TestGrades < Test::Unit::TestCase
     assert_raise ArgumentError do
       compute_grade(0.20,-12)
     end
-    
+  end 
+   
 end
   

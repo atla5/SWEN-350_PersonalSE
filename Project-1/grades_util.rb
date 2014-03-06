@@ -105,11 +105,15 @@ def compute_grade( weight, field)
  
   #if field is a string, convert letter to numeric or raise error
   if field.is_a? String
-    if field (LETTER_TO_NUMERIC.keys).include?
+    if(LETTER_TO_NUMERIC.keys).include?
       field = LETTER_TO_NUMERIC[field]
     else
       raise ArgumentError, "field string not in dictionary"
     end
+  end
+
+  if field < 0 or field > 100
+    raise ArgumentError, "field (grade) > 100 or grade < 0"
   end
 
   #return the field value (integer) times the weight (%) 
