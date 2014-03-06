@@ -6,36 +6,51 @@ Name: Aidan Sawyer
 RELEASE 1 - grades_util.rb & test_grades.rb
 ================================================================
 Release 1 Implement & Test get_CSV_line() - Start
-Estimated Time	02 00
+Estimated Time	00 20
 Plan for this level:
-  -read docs for each function to get oriented
-  -write tests for get_CSV_line(), numeric_to_letter(), sum_weights(), and 
-   compute_grade()
-  -write code for each function
+  -read docs
+  -write tests for get_CSV_line()
+  -write code 
   -test, debug, and refactor.
 
 Level 1 – Complete
-Actual Time	HH MM
+Actual Time	00 15
 Notes: Lessons learned, problems encountered, obstacles overcome, etc.
+
+LL:
+  -tests take a lot more time than code if you're doing it "right".
+   especially for really simple, basic functions
 
 ================================================================
 
 ================================================================
 Release 1 Implement & Test numeric_to_letter() - Start
-Estimated Time	HH MM
+Estimated Time	00 30
 Plan for this level:
 
+Plan for this level:
+  -read docs
+  -write tests
+  -write code
+  -test, debug, and refactor
+
 Level 1 – Complete
-Actual Time	HH MM
+Actual Time	01 00
 Notes: Lessons learned, problems encountered, obstacles overcome, etc.
 
+PE:
+  -had to double check on some of the requirements and edit to fill them
+
+LL:
+  -writing to tests can really simplify the coding process, even though
+   it has the tendency to prolong it.
 ================================================================
 
 ================================================================
 Release 1 Implement & Test sum_weights() - Start
 Estimated Time	HH MM
 Plan for this level:
-
+ 
 Level 1 – Complete
 Actual Time	HH MM
 Notes: Lessons learned, problems encountered, obstacles overcome, etc.
@@ -44,12 +59,24 @@ Notes: Lessons learned, problems encountered, obstacles overcome, etc.
 
 ================================================================
 Release 1 Implement & Test compute_grade() - Start
-Estimated Time	HH MM
+Estimated Time	00 45
 Plan for this level:
+  -read docs
+  -write tests
+  -write code
+  -test, debug and refactor
 
 Level 1 – Complete
-Actual Time	HH MM
+Actual Time	00 50
 Notes: Lessons learned, problems encountered, obstacles overcome, etc.
+
+LL:
+  -coding the helper functions can be made more difficult when you don't
+   have a full grasp of what they're going to be called for/with. i 
+   anticipate that i'll have to edit it later with the full implementation
+  -if you're going to make robust and unbreakable software, you have a 
+   lot of messy input to handle
+
 
 ================================================================
 

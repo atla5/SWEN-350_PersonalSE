@@ -86,6 +86,36 @@ class TestGrades < Test::Unit::TestCase
   end
 
  ## test sum_weights to see if weights are summed correctly
-  
+ 
+
+ ## test compute_grade
+  def test_compute_inputs
+
+    #incorrect string (letter grade) for field
+    assert_raise ArgumentError do
+      compute_grade(0.2,"Z")
+    end
+
+    #non-float input for weight
+    assert_raise ArgumentError do
+      compute_grade("20%","A")
+    end
+
+    #out-of-bounds float value for weight
+    assert_raise ArgumentError do
+      compute_grade(1.2,82)
+    end
+    assert_raise ArgumentError do
+      compute_grade(-0.2,82)
+    end
+
+    #out-of-bounds int value for grade
+    assert_raise ArgumentError do
+      compute_grade(0.20,130)
+    end
+    assert_raise ArgumentError do
+      compute_grade(0.20,-12)
+    end
+    
 end
   

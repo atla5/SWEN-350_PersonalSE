@@ -88,7 +88,22 @@ end
 # score or letter score in the field. 
 
 def compute_grade( weight, field)
-   
+  
+  #if weight is not a float, make it one or raise error
+  if not weight.is_a? Float
+    if weight.is_a? Integer
+      weight.to_f
+    else
+      raise ArgumentError, "weight is not a float"
+    end
+  end 
+
+  #if weight is > 1 (100%) or weight < 0, raise error
+  if weight > 1.0 or weight < 0
+    raise ArgumentError, "incorrect value for weight (0<=weight<=1)"
+  end
+ 
+  #if field is a string, convert letter to numeric or raise error
   if field.is_a? String
     if field (LETTER_TO_NUMERIC.keys).include?
       field = LETTER_TO_NUMERIC[field]
@@ -97,6 +112,7 @@ def compute_grade( weight, field)
     end
   end
 
+  #return the field value (integer) times the weight (%) 
   return weight*field
    
 end
