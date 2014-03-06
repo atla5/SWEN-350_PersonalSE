@@ -68,10 +68,10 @@ class TestGrades < Test::Unit::TestCase
       numeric_to_letter(102)
     end
 
-    #ensure that it does not take floats
-    assert_raise ArgumentError do 
-       numeric_to_letter(89.9)
-    end
+#    #ensure that it does not take floats
+#    assert_raise ArgumentError do 
+#       numeric_to_letter(89.9)
+#    end
 
   end
 
@@ -86,14 +86,43 @@ class TestGrades < Test::Unit::TestCase
   end
 
  ## test sum_weights to see if weights are summed correctly
- 
+  def test_sum_weight_input 
+    
+    lsHead   = ["these","are","headers"]
+    lsString = [20,30,"12"] #string in weights list
+    lsEmpty  = [20,30,]     #empty field in weights list
+    lsNorm   = [20,30]    
+
+    #test that error is raised with string field in weights
+    assert_raise ArgumentError do
+      sum_weights(lsHead, lsString)
+    end
+
+    #ensure that method skips over empty fields
+    assert_equal sum_weights(lsHead,lsNorm), sum_weights(lsHead,lsEmpty)
+
+  end
+
+  def test_sum_weight_output
+
+    lsHead   = ["these","are","headers"] #list of headers
+    ls100    = [20,30,50] 
+    ls110    = [20,30,50,10] 
+    ls0      = [0,0,0,0]
+
+    assert_equal 100, sum_weights(lsHead,ls100)
+    assert_equal 110, sum_weights(lsHead,ls110)
+    assert_equal   0, sum_weights(lsHead,ls0)
+
+  end
+
 
  ## test compute_grade
   def test_compute_inputs
 
     #incorrect string (letter grade) for field
     assert_raise ArgumentError do
-      compute_grade(0.2,"Z")
+      compute_grade(20,"Z")
     end
 
     #non-float input for weight
@@ -103,18 +132,18 @@ class TestGrades < Test::Unit::TestCase
 
     #out-of-bounds float value for weight
     assert_raise ArgumentError do
-      compute_grade(1.2,82)
+      compute_grade(120,82)
     end
     assert_raise ArgumentError do
-      compute_grade(-0.2,82)
+      compute_grade(-20,82)
     end
 
     #out-of-bounds int value for grade
     assert_raise ArgumentError do
-      compute_grade(0.20,130)
+      compute_grade(20,130)
     end
     assert_raise ArgumentError do
-      compute_grade(0.20,-12)
+      compute_grade(20,-12)
     end
   end 
    

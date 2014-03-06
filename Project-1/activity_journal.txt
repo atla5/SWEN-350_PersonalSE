@@ -48,12 +48,24 @@ LL:
 
 ================================================================
 Release 1 Implement & Test sum_weights() - Start
-Estimated Time	HH MM
+Estimated Time	00 25
 Plan for this level:
- 
+  -read docs
+  -write tests
+  -write code
+  -test, debug, refactor
+
 Level 1 – Complete
-Actual Time	HH MM
+Actual Time	00 30
 Notes: Lessons learned, problems encountered, obstacles overcome, etc.
+
+PE:
+  -i did weights wrong in compute_grade(). not looking for floats,
+   i'm creating them
+
+LL:
+  -reading the requirements document and example runs is pretty 
+   important. don't assume things. especially when testing
 
 ================================================================
 

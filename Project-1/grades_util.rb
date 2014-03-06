@@ -29,7 +29,21 @@ QUALITY_POINTS = { 'A' => 4, 'B' => 3, 'C' => 2, 'D' => 1, 'F' => 0 }
 
 def sum_weights(headers, weights)
   
-  ### YOUR CODE HERE ###
+  sum = 0
+
+  weights.each{|w| 
+    
+    #ensure correct weight type
+    if w.nil?
+      sum += 0
+    elsif not w.is_a? Integer and not w.is_a? Float
+      raise ArgumentError, "non-numeric weight in weights[]"
+    else
+      sum+=w
+    end
+  }
+
+  return sum
   
 end
 
@@ -42,7 +56,7 @@ end
 def numeric_to_letter(numeric)
 
   #catch incorrect arguments
-  if not numeric.is_a? Integer #or not numeric.is_a? Float
+  if not numeric.is_a? Integer and not numeric.is_a? Float
     raise ArgumentError, "Argument must be a number"
   elsif numeric > 100 or numeric < 0
     raise ArgumentError, "cannot have grade > 100 or < 0"
@@ -99,8 +113,8 @@ def compute_grade( weight, field)
   end 
 
   #if weight is > 1 (100%) or weight < 0, raise error
-  if weight > 1.0 or weight < 0
-    raise ArgumentError, "incorrect value for weight (0<=weight<=1)"
+  if weight > 100 or weight < 0
+    raise ArgumentError, "incorrect value for weight (0<=weight<=100)"
   end
  
   #if field is a string, convert letter to numeric or raise error
@@ -117,7 +131,7 @@ def compute_grade( weight, field)
   end
 
   #return the field value (integer) times the weight (%) 
-  return weight*field
+  return weight*(field/100)
    
 end
 
