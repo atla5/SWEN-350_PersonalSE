@@ -1,0 +1,31 @@
+4010-250 Activity Reflection
+Python - Baseball
+
+Name: Aidan Sawyer (aks5238)
+
+================================================================
+Start
+Estimated Time	00 55
+Plan:
+(Order of implementation, testing approach, estimation technique)
+
+OI:
+  -review slides and docs on sqlite commands/syntax
+  -read documentation for each function
+  -begin with add functions
+  -
+
+TA:
+  -pyunit unittests.
+
+ET:
+  -i've had some experience with sqlite before and wasn't great at it, but 
+   the familiarity will help
+
+Complete
+Actual Time	HH MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+
+
+================================================================
