@@ -108,7 +108,7 @@ def compute_grade( weight, field)
     if weight.is_a? Integer
       weight.to_f
     else
-      raise ArgumentError, "weight is not a float"
+      raise ArgumentError, "weight is not a number"
     end
   end 
 

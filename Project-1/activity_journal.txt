@@ -95,12 +95,28 @@ LL:
 RELEASE 2 - grades.rb
 ================================================================
 Release 2 -Level 1 – Start
-Estimated Time	HH MM
+Estimated Time	00 45
 Plan for this level:
+  -set up incrementor to differentiate between header line and the
+   ones that follow it.
+  -store list of values in a bigger list such that i'll have a 
+   list of students with each students values with basic formating
+  -beginning printout/checks
+  -add a way to handle the '% symbols'
 
 Level 1 – Complete
-Actual Time	HH MM
+Actual Time	01 00
 Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+
+PE:
+  -'%' took some extra time i didn't expect. formatting for printf
+   was weird and it took me a while to think of looking at the last
+   character in the printout for adding it.
+
+LL:
+  -programming it this way and not in a way that would just solve the
+   immediate issue should save me time in the long run. looking ahead
+   is important.
 
 ================================================================
 
