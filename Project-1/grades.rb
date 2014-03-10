@@ -87,18 +87,16 @@ end
 # lettercount hash that is keeping track of the number of occurrences of each letter grade
 # for the class.
 
-
-# Now print the summary information - the number of students at each 
-# letter grade level and the class GPA using print_summary(). 
-
 #for every student entry...
 lsStudents.each{|s|
 
+  #a sum of all the separate fields for each student
   finNumeric = 0
 
   #s is a student containing lsValues
   lsHeaders.each_index{|i|
 
+    #store header and value in more-readable format
     header = lsHeaders[i]
     value  = s[i]
 

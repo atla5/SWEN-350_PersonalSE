@@ -130,14 +130,8 @@ def compute_grade( weight, field)
     raise ArgumentError, "field (grade) > 100 or grade < 0"
   end
 
-     #printf("weight: %d, value: %d\n",weight.to_i,field)
-
   #return the field value (integer) times the weight (%) 
-  res = (weight.to_i)*(field/100.0)
-   
-     #printf("finGrade: %d\n",res)
-
-  return res
+  return (weight.to_i)*(field/100.0)
 end
 
 # print_summary(lettercount)  - !!! DO NOT MODIFY !!!

@@ -186,8 +186,18 @@ Plan for this level:
   -try to only commit one "level complete"
 
 Level 4 – Complete
-Actual Time	HH MM
+Actual Time	00 40
 Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+
+PE: 
+  -was doing some integer division unknowingly when dividing by 100 and 
+   not 100.0 to get percentage.
+
+LL:
+  -print statements work really well to see what's going on so long
+   as there aren't too many of them to clutter it
+  -always look ahead when doing unittests. i had to keep editing it and it
+   was really annoying.
 
 ================================================================
 
