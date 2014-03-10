@@ -177,7 +177,7 @@ PE:
 
 ================================================================
 Release 2 -Level 4 – Start
-Estimated Time	HH MM
+Estimated Time	00 25
 Plan for this level:
   -add call to compute_grade and test
   -add call to numeric_to_letter() and test
