@@ -51,7 +51,6 @@ end
 
 #list of digits to check '%' symbol
 lsDigits = ["1","2","3","4","5","6","7","8","9","0"]
-
 printf("Summary information for grades file\n\n")
 
 #for every header, print out the header and, if present, its weight
@@ -95,6 +94,8 @@ end
 #for every student entry...
 lsStudents.each{|s|
 
+  finNumeric = 0
+
   #s is a student containing lsValues
   lsHeaders.each_index{|i|
 
@@ -106,8 +107,18 @@ lsStudents.each{|s|
       value = LETTER_TO_NUMERIC[s[i].upcase()]
     end
 
+    #print out "#{header}: #{value}:
     printf("%s: %s\n", header, value)
+
+    #calculate student's final numeric and letter grade
+    finNumeric += compute_grade(lsWeights[i],value)
+    
   }
+
+  #print out final and letter grade
+  finLetter = numeric_to_letter(finNumeric)
+  printf("Final Numeric Grade = %d Letter = %s\n",finNumeric,finLetter)
+
   #print a newline after every student's entry
   printf("\n")
 }

@@ -39,17 +39,6 @@ def sum_weights(headers, weights)
     rescue 
       sum+=0
     end
-
-    """
-    #ensure correct weight type
-    if w.nil?
-      sum += 0
-    elsif not w.is_a? Integer and not w.is_a? Float
-      #raise ArgumentError, 'non-numeric weight in weights[]'
-    else
-      sum+=w
-    end
-    """
   }
 
   return sum
@@ -113,25 +102,27 @@ end
 def compute_grade( weight, field)
   
   #if weight is not a float, make it one or raise error
-  if not weight.is_a? Float
-    if weight.is_a? Integer
-      weight.to_f
-    else
-      raise ArgumentError, "weight is not a number"
-    end
-  end 
+  #if not weight.is_a? Float
+  #  if weight.is_a? Integer
+  #    weight.to_f
+  #  else
+  #    raise ArgumentError, "weight is not a number"
+  #  end
+  #end 
 
   #if weight is > 1 (100%) or weight < 0, raise error
-  if weight > 100 or weight < 0
+  if weight.to_i > 100 or weight.to_i < 0
     raise ArgumentError, "incorrect value for weight (0<=weight<=100)"
   end
  
   #if field is a string, convert letter to numeric or raise error
   if field.is_a? String
-    if(LETTER_TO_NUMERIC.keys).include?( field.upcase() )
-      field = LETTER_TO_NUMERIC[field]
+    if field == ""
+      return 0
+    elsif(LETTER_TO_NUMERIC.keys).include?( field.upcase() )
+      field = LETTER_TO_NUMERIC[field].to_i
     else
-      raise ArgumentError, "field string not in dictionary"
+      field = field.to_i
     end
   end
 
@@ -139,9 +130,14 @@ def compute_grade( weight, field)
     raise ArgumentError, "field (grade) > 100 or grade < 0"
   end
 
+     #printf("weight: %d, value: %d\n",weight.to_i,field)
+
   #return the field value (integer) times the weight (%) 
-  return weight*(field/100)
+  res = (weight.to_i)*(field/100.0)
    
+     #printf("finGrade: %d\n",res)
+
+  return res
 end
 
 # print_summary(lettercount)  - !!! DO NOT MODIFY !!!
