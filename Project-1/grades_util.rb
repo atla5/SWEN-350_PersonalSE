@@ -31,8 +31,10 @@ def sum_weights(headers, weights)
   
   sum = 0
 
+  #for every weight is the list add to sum
   weights.each{|w| 
     
+    #try converting it to an integer. if it fails, add nothing
     begin 
       w = w.to_i
       sum+=w
@@ -41,6 +43,7 @@ def sum_weights(headers, weights)
     end
   }
 
+  #return the sum of the weights
   return sum
   
 end
@@ -71,8 +74,10 @@ def numeric_to_letter(numeric)
   elsif numeric >= 90 and numeric <= 100
     return "A"
   else
+    #mostly for testing purposes. ideally never run.
     raise "a number 0<=n<=100 was not caught"
   end
+
 end
 
   
@@ -85,8 +90,11 @@ end
 # Create arrays for the headers, weights and fields by splitting on commas.
 
 def get_CSV_line( line )
-   
+
+  #chomp off the newline character and split the line by commas into a list. 
   ls = line.chomp().split(",")
+
+  #return the list
   return ls
    
 end
@@ -101,15 +109,6 @@ end
 
 def compute_grade( weight, field)
   
-  #if weight is not a float, make it one or raise error
-  #if not weight.is_a? Float
-  #  if weight.is_a? Integer
-  #    weight.to_f
-  #  else
-  #    raise ArgumentError, "weight is not a number"
-  #  end
-  #end 
-
   #if weight is > 1 (100%) or weight < 0, raise error
   if weight.to_i > 100 or weight.to_i < 0
     raise ArgumentError, "incorrect value for weight (0<=weight<=100)"
@@ -117,21 +116,25 @@ def compute_grade( weight, field)
  
   #if field is a string, convert letter to numeric or raise error
   if field.is_a? String
+    #if the field is empty: return zero
     if field == ""
       return 0
+    #if the string is a letter grade, convert it to a numeric one
     elsif(LETTER_TO_NUMERIC.keys).include?( field.upcase() )
       field = LETTER_TO_NUMERIC[field].to_i
     else
+      #this will create an integer out of any digits in the string
       field = field.to_i
     end
   end
 
+  #check that value of field is within valid range (0 <= grade <= 100)
   if field < 0 or field > 100
     raise ArgumentError, "field (grade) > 100 or grade < 0"
   end
 
   #return the field value (integer) times the weight (%) 
-  return (weight.to_i)*(field/100.0)
+  return (weight.to_i)*(field/100.0) #note 100.0 makes this a float.
 end
 
 # print_summary(lettercount)  - !!! DO NOT MODIFY !!!

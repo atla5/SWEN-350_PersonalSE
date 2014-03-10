@@ -19,3 +19,10 @@ Exam: 75
 Homework: D
 Attendance: 60
 Final Numeric Grade = 69 Letter = D
+ 
+A = 1
+B = 0
+C = 0
+D = 1
+F = 0
+Class GPA = 2.50

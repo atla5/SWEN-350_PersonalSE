@@ -68,21 +68,16 @@ class TestGrades < Test::Unit::TestCase
       numeric_to_letter(102)
     end
 
-#    #ensure that it does not take floats
-#    assert_raise ArgumentError do 
-#       numeric_to_letter(89.9)
-#    end
-
   end
 
   #check boundaries and correct output of valid inputs
   def test_numToLet_chkBounds
-    assert_equal numeric_to_letter(0), "F"
-    assert_equal numeric_to_letter(60), "D"
-    assert_equal numeric_to_letter(70), "C"
-    assert_equal numeric_to_letter(80), "B"
-    assert_equal numeric_to_letter(90), "A"
-    assert_equal numeric_to_letter(100), "A"
+    assert_equal "F", numeric_to_letter(0)
+    assert_equal "D", numeric_to_letter(60)
+    assert_equal "C", numeric_to_letter(70)
+    assert_equal "B", numeric_to_letter(80)
+    assert_equal "A", numeric_to_letter(90)
+    assert_equal "A", numeric_to_letter(100)
   end
 
  ## test sum_weights to see if weights are summed correctly
@@ -118,15 +113,11 @@ class TestGrades < Test::Unit::TestCase
  ## test compute_grade
   def test_compute_inputs
 
-    #incorrect string (letter grade) for field
-    assert_raise ArgumentError do
-      compute_grade(20,"Z")
-    end
+    #incorrect string (letter grade) for field results in return of 0
+    assert_equal 0, compute_grade(20,"Zed")
 
-    #non-float input for weight
-    assert_raise ArgumentError do
-      compute_grade("20%","A")
-    end
+    #non-float input for weight results in return of zero
+    assert_equal 0, compute_grade("twenty","A")
 
     #out-of-bounds float value for weight
     assert_raise ArgumentError do
@@ -144,5 +135,12 @@ class TestGrades < Test::Unit::TestCase
       compute_grade(20,-12)
     end
   end 
+
+  def test_compute_output
+    assert_equal 20, compute_grade(20,100)
+    assert_equal 10, compute_grade(10,100)
+    assert_equal 10, compute_grade(20,50)
+    assert_equal 10, compute_grade(40,25)
+  end
    
 end

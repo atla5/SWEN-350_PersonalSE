@@ -117,7 +117,12 @@ lsStudents.each{|s|
   finLetter = numeric_to_letter(finNumeric)
   printf("Final Numeric Grade = %d Letter = %s\n",finNumeric,finLetter)
 
+  #increment correct count for each grade using lettercount hash at top of file
+  lettercount[finLetter] += 1
+
   #print a newline after every student's entry
   printf("\n")
 }
+
+print_summary(lettercount)
 
