@@ -33,14 +33,23 @@ def sum_weights(headers, weights)
 
   weights.each{|w| 
     
+    begin 
+      w = w.to_i
+      sum+=w
+    rescue 
+      sum+=0
+    end
+
+    """
     #ensure correct weight type
     if w.nil?
       sum += 0
     elsif not w.is_a? Integer and not w.is_a? Float
-      raise ArgumentError, "non-numeric weight in weights[]"
+      #raise ArgumentError, 'non-numeric weight in weights[]'
     else
       sum+=w
     end
+    """
   }
 
   return sum
@@ -119,7 +128,7 @@ def compute_grade( weight, field)
  
   #if field is a string, convert letter to numeric or raise error
   if field.is_a? String
-    if(LETTER_TO_NUMERIC.keys).include?
+    if(LETTER_TO_NUMERIC.keys).include?( field.upcase() )
       field = LETTER_TO_NUMERIC[field]
     else
       raise ArgumentError, "field string not in dictionary"

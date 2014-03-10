@@ -122,12 +122,30 @@ LL:
 
 ================================================================
 Release 2 -Level 2 – Start
-Estimated Time	HH MM
+Estimated Time	00 35
 Plan for this level:
+  -edit util file to stop throwing errors and just not include irrelevant
+   fields in the summation
+  -edit my printing loop, because i misunderstood where the weights were 
+   coming from last submission
+  -add weights (second line from stdin) into a separate list and send that
+   list to sum_weights(). 
+  -add an if statement for if it's not equal to 100 (for whatever reason).
+   print and return if it's true. no else is needed as it will automatically
+   pass on
 
-Level 1 – Complete
-Actual Time	HH MM
+Level 2 – Complete
+Actual Time	00 40
 Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+
+LL:
+  -unittests can be very useful at the beginning, but sometimes exceptions
+   are more work than they're useful for and sometimes they're not needed 
+   at all.
+  -unittests have to change with new requirements and incremental releases.
+
+PE:
+  -hadn't ever heard of "exit" before. that's kind of cool, yet weird.
 
 ================================================================
 
@@ -136,7 +154,7 @@ Release 2 -Level 3 – Start
 Estimated Time	HH MM
 Plan for this level:
 
-Level 1 – Complete
+Level 3 – Complete
 Actual Time	HH MM
 Notes : Lessons learned, problems encountered, obstacles overcome, etc.
 
@@ -147,7 +165,7 @@ Release 2 -Level 4 – Start
 Estimated Time	HH MM
 Plan for this level:
 
-Level 1 – Complete
+Level 4 – Complete
 Actual Time	HH MM
 Notes : Lessons learned, problems encountered, obstacles overcome, etc.
 
@@ -158,7 +176,7 @@ Release 2 -Level 5 – Start
 Estimated Time	HH MM
 Plan for this level:
 
-Level 1 – Complete
+Level 5 – Complete
 Actual Time	HH MM
 Notes : Lessons learned, problems encountered, obstacles overcome, etc.
 
@@ -169,7 +187,7 @@ Release 2 -Level 6 – Start
 Estimated Time	HH MM
 Plan for this level:
 
-Level 1 – Complete
+Level 6 – Complete
 Actual Time	HH MM
 Notes : Lessons learned, problems encountered, obstacles overcome, etc.
 

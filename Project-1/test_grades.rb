@@ -43,7 +43,7 @@ class TestGrades < Test::Unit::TestCase
 
     #empty field in all slots
     emptyAtAll = get_CSV_line(",,") 
-    assert_equal ["","",""], emptyAtAll
+    assert_equal [], emptyAtAll
   
   end
 
@@ -89,14 +89,12 @@ class TestGrades < Test::Unit::TestCase
   def test_sum_weight_input 
     
     lsHead   = ["these","are","headers"]
-    lsString = [20,30,"12"] #string in weights list
-    lsEmpty  = [20,30,]     #empty field in weights list
+    lsString = [20,30,"twelve"] #string in weights list
+    lsEmpty  = [20,30,]         #empty field in weights list
     lsNorm   = [20,30]    
 
-    #test that error is raised with string field in weights
-    assert_raise ArgumentError do
-      sum_weights(lsHead, lsString)
-    end
+    #test that errors are skipped with string field in weights
+    assert_equal( sum_weights(lsHead, lsNorm), sum_weights(lsHead, lsString) )
 
     #ensure that method skips over empty fields
     assert_equal sum_weights(lsHead,lsNorm), sum_weights(lsHead,lsEmpty)
