@@ -203,8 +203,11 @@ LL:
 
 ================================================================
 Release 2 -Level 5 – Start
-Estimated Time	HH MM
+Estimated Time	00 05
 Plan for this level:
+  -kind of unknowingly used the letter input from the start of level 2,
+   so this should be taken care of. i'll double check it, but i'm pretty 
+   sure everything's all set
 
 Level 5 – Complete
 Actual Time	HH MM
