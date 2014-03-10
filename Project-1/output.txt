@@ -8,7 +8,7 @@ Attendance 20%
  
 Last: Awesome
 First: Abigail
-Exam: 98
+Exam: a+
 Homework: 95
 Attendance: 100
 Final Numeric Grade = 97 Letter = A
@@ -16,6 +16,6 @@ Final Numeric Grade = 97 Letter = A
 Last: Doofus
 First: Douglas
 Exam: 75
-Homework: 65
+Homework: D
 Attendance: 60
 Final Numeric Grade = 69 Letter = D

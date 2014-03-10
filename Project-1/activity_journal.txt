@@ -210,8 +210,16 @@ Plan for this level:
    sure everything's all set
 
 Level 5 – Complete
-Actual Time	HH MM
+Actual Time	00 07
 Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+
+PE:
+  -i was correct in doing it the other way before, but the printout seemed
+   to be the only thing the customer wanted to have change...
+
+LL:
+  -flexibility and changability are important. customers can change their mind
+   and want to seemingly revert while keeping some element of the old solution.
 
 ================================================================
 

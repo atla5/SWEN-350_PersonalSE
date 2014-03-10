@@ -106,7 +106,7 @@ lsStudents.each{|s|
     end
 
     #print out "#{header}: #{value}:
-    printf("%s: %s\n", header, value)
+    printf("%s: %s\n", header, s[i])
 
     #calculate student's final numeric and letter grade
     finNumeric += compute_grade(lsWeights[i],value)
