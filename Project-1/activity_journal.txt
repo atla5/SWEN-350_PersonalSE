@@ -155,13 +155,10 @@ PE:
 
 ================================================================
 Release 2 -Level 3 – Start
-Estimated Time	00 20
+Estimated Time	00 05
 Plan for this level:
-  -add call to compute_grade
-  -test
-  -add call to numeric_to_letter()
-  -test
-  -fix printout
+  -anticipating this as a next step, i already have this functionality 
+   complete. i'll double-check some things, test and see.
 
 Level 3 – Complete
 Actual Time	HH MM
@@ -173,6 +170,11 @@ Notes : Lessons learned, problems encountered, obstacles overcome, etc.
 Release 2 -Level 4 – Start
 Estimated Time	HH MM
 Plan for this level:
+  -add call to compute_grade and test
+  -add call to numeric_to_letter() and test
+  -edit printout
+  -double-check printout
+  -try to only commit one "level complete"
 
 Level 4 – Complete
 Actual Time	HH MM
