@@ -101,7 +101,7 @@ lsStudents.each{|s|
     #add a percent sign if that value ends in a digit
     if lsDigits.include?(s[i][-1])
       #print with percent sign for grade
-      printf("%s: %s%% \n", lsHeaders[i], s[i])
+      printf("%s: %s \n", lsHeaders[i], s[i])
     else
       #should print with no percent sign
       printf("%s: %s\n", lsHeaders[i], s[i])
