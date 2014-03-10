@@ -36,6 +36,7 @@ Plan for this level:
 
 Level 1 – Complete
 Actual Time	01 00
+
 Notes: Lessons learned, problems encountered, obstacles overcome, etc.
 
 PE:
@@ -234,13 +235,68 @@ Plan for this level:
   -complete project summary
 
 Level 6 – Complete
-Actual Time	HH MM
+Actual Time	00 35
 Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+
+LL:
+  -unittests give you important information on how each part of your code
+   is working.
+  -when you have the time to update/clean-up/comment/over-test your code
+   do so. polishing in the gaps is polishing.
+
+PE:
+  -I'd forgotten to test valid input into compute_grade(). 
 
 ================================================================
 
 OVERALL SUMMARY
 ================================================================
-Estimated Total Time	HH MM
-Actual Total Time	HH MM
+Estimated Total Time	04 00
+Actual Total Time	06 00
 Project reflection:
+
+-First off, how the estimations work out to be round is really weird. I swear
+that it wasn't on purpose.
+
+HELPERS and SEPARATION OF CONCERNS
+  -by far the majority of the project was spent on the beginning couple stages
+   and helper functions, and much of the time wasted in the end was on not 
+   looking far enough ahead with them. this plays in a bit with separation of
+   concerns. if you break up a problem into a bunch of very small problems,
+   you get much more managable and readable code.
+
+PLANNING AHEAD:
+  -a lot of my time was saved and wasted looking ahead and not looking ahead.
+   i essentially skipped over 2 levels because of reading the documentation,
+   but also spent a lot of my time having to edit my tests and helpers from 
+   what i half-blindly imagined they should do early on.
+
+INCREMENTAL DEV:
+  -i generally enjoyed using this model of development as it made change
+   and revisioning very simple, quick, and painless. at the same time, though
+   i do think it might have been faster and more direct to start out with a 
+   more direct approach.
+  -one of the things that -was- very beneficial was how easy it was to graft
+   on new ideas and features in very little time, keeping everything fairly 
+   light-weight and minimizing change cost
+
+UNITTESTING:
+  -can be hugely important. knowing that your smaller functions are working
+   is very important and lets you keep going without having to look too far
+   back very often. this being said, they must be done very carefully and 
+   with a significant focus on what is going to be
+
+SCRIPTING:
+  -my one bash script was very, very handy. all i had to do was switch the 
+   expected output in the output.txt file and i knew my second method of 
+   testing was ready.
+  -while unittesting can test individual parts, the overall functioning of
+   your program is what realy matters, even down to the printouts. using 
+   such simple bash scripts can save you a lot of typing and help make sure
+   that your over-arching requirements are met.
+
+GIT/VCS:
+  -my commit log is really gross for this project and it annoyed me. the 
+   indidivual levels were often so small that they could be done in very
+   little time and it was hard to remember to commit between them.
+  -
