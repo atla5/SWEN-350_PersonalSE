@@ -161,8 +161,17 @@ Plan for this level:
    complete. i'll double-check some things, test and see.
 
 Level 3 – Complete
-Actual Time	HH MM
+Actual Time	00 12
 Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+
+LL:
+  -the -w tag for diff calls is pretty useful.
+  -bash scripts are nice
+  -always develop smart, looking ahead with a quality focus.
+  -and always test
+
+PE:
+  -spent 7+ minutes trying to find random white space difference in my outputs
 
 ================================================================
 
