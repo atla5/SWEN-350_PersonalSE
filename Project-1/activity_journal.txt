@@ -105,7 +105,7 @@ Plan for this level:
   -add a way to handle the '% symbols'
 
 Level 1 – Complete
-Actual Time	01 00
+Actual Time	01 15
 Notes : Lessons learned, problems encountered, obstacles overcome, etc.
 
 PE:
