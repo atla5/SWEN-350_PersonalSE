@@ -225,8 +225,13 @@ LL:
 
 ================================================================
 Release 2 -Level 6 – Start
-Estimated Time	HH MM
+Estimated Time	00 20
 Plan for this level:
+  -add a line of code after the printout for finLetter for each student
+   to update the count on the provided lettercount hash.
+  -call print_summary() from grades_util.rb 
+  -test, debug, refactor
+  -complete project summary
 
 Level 6 – Complete
 Actual Time	HH MM
