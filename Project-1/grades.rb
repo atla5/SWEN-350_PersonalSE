@@ -24,6 +24,7 @@ lettercount = Hash.new(0)   # default count is 0.
 
 n = 0 #my way of looking out for the header file by counting numLines
 lsHeaders = []   #contains the headers that will be the same for each student
+lsWeights = []   #list of weights fed into the second line
 lsStudents  = [] #list of lists of grades.
 
 while line = gets
@@ -35,9 +36,11 @@ while line = gets
   fields = get_CSV_line(line)
 
   #edit appropriate list
-  if n==0 #header line
+  if n==0      #header line
     lsHeaders = fields
-  else
+  elsif n == 1 #weights line
+    lsWeights = fields
+  else         #student values line
     lsValues = fields
     lsStudents << lsValues
   end
@@ -46,38 +49,35 @@ while line = gets
 end
 
 
-# For each header, print the header and, if present, its weight.
-
 #list of digits to check '%' symbol
 lsDigits = ["1","2","3","4","5","6","7","8","9","0"]
 
 printf("Summary information for grades file\n\n")
 
-#for every student entry...
-lsStudents.each{|s|
-
-  #s is a student containing lsValues
-  lsHeaders.each_index{|i|
-
-    #add a percent sign if that value ends in a digit
-    if lsDigits.include?(s[i][-1])
-      #print with percent sign for grade
-      printf("%s %s%% \n", lsHeaders[i], s[i])
-    else
-      #should print with no percent sign
-      printf("%s %s\n", lsHeaders[i], s[i])
-    end
-
-  }
-  #print a newline after every student's entry
-  printf("\n")
+#for every header, print out the header and, if present, its weight
+lsHeaders.each_index{|i| 
+  
+  #print with or without % sign, depending.
+  if lsDigits.include?(lsWeights[i][-1])
+    printf("%s %s%%\n", lsHeaders[i], lsWeights[i]) 
+  else
+    printf("%s %s\n", lsHeaders[i], lsWeights[i])
+  end
+  
 }
 
+#print a new line after the header/weight stuff
+printf("\n")
 
 # Use sum_weights() to check if the weights do not sum to 100, output the error message:
 # "Weights add up to #{sum}, not 100" - where sum is the sum of input weights
 
-### YOUR CODE HERE ###
+sum = sum_weights(lsHeaders,lsWeights)
+if sum != 100
+  printf("Weights add up to %d, not 100\n",sum)
+  exit
+end
+
 
 # Get each of the remaining lines, representing grade information for an individual student.
 # Print the header for each column and whatever is in that column on the student grade line.
@@ -91,3 +91,24 @@ lsStudents.each{|s|
 
 # Now print the summary information - the number of students at each 
 # letter grade level and the class GPA using print_summary(). 
+
+#for every student entry...
+lsStudents.each{|s|
+
+  #s is a student containing lsValues
+  lsHeaders.each_index{|i|
+
+    #add a percent sign if that value ends in a digit
+    if lsDigits.include?(s[i][-1])
+      #print with percent sign for grade
+      printf("%s: %s%% \n", lsHeaders[i], s[i])
+    else
+      #should print with no percent sign
+      printf("%s: %s\n", lsHeaders[i], s[i])
+    end
+
+  }
+  #print a newline after every student's entry
+  printf("\n")
+}
+

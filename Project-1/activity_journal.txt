@@ -146,6 +146,8 @@ LL:
 
 PE:
   -hadn't ever heard of "exit" before. that's kind of cool, yet weird.
+   i was using return and was getting a weird "jump return" message.
+   quick fix.
 
 ================================================================
 
