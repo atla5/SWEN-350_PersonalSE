@@ -148,13 +148,20 @@ PE:
   -hadn't ever heard of "exit" before. that's kind of cool, yet weird.
    i was using return and was getting a weird "jump return" message.
    quick fix.
+  -i forgot first to fix the printout with the semicolons and '%'
+  -i then forgot to convert the letter grades to numerics. 
 
 ================================================================
 
 ================================================================
 Release 2 -Level 3 – Start
-Estimated Time	HH MM
+Estimated Time	00 20
 Plan for this level:
+  -add call to compute_grade
+  -test
+  -add call to numeric_to_letter()
+  -test
+  -fix printout
 
 Level 3 – Complete
 Actual Time	HH MM

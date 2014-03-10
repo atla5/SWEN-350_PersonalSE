@@ -98,15 +98,15 @@ lsStudents.each{|s|
   #s is a student containing lsValues
   lsHeaders.each_index{|i|
 
+    header = lsHeaders[i]
+    value  = s[i]
+
     #add a percent sign if that value ends in a digit
-    if lsDigits.include?(s[i][-1])
-      #print with percent sign for grade
-      printf("%s: %s \n", lsHeaders[i], s[i])
-    else
-      #should print with no percent sign
-      printf("%s: %s\n", lsHeaders[i], s[i])
+    if LETTER_TO_NUMERIC.keys.include?(s[i].upcase())
+      value = LETTER_TO_NUMERIC[s[i].upcase()]
     end
 
+    printf("%s: %s\n", header, value)
   }
   #print a newline after every student's entry
   printf("\n")
