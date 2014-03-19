@@ -21,7 +21,7 @@ aristotelian = Thought.create([{thinker: aristotle, thought: 'A friend to all is
 platonic = Thought.create([{thinker: plato, thought: 'A good decision is based on knowledge and not on numbers.'}]).first
 socratic = Thought.create([{thinker: socrates, thought: 'I know nothing except the fact of my ignorance.'}]).first
 cartesian = Thought.create([{thinker: descartes, thought: 'I think therefore I am. But I\'m nobody until my thoughts are shared on this website.'}]).first
-nietzschist = Thought.create([{thinker: nietzsche, thought: 'Nobody folows me!'}]).first
+nietzschist = Thought.create([{thinker: nietzsche, thought: 'Nobody follows me!'}]).first
 
 Follow.create([{follower: aristotle, followee: plato}])
 Follow.create([{follower: aristotle, followee: socrates}])
