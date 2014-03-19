@@ -1,0 +1,80 @@
+SWEN-250 Activity Journal
+Ruby/Rails – ThoughtShare
+
+Name: Aidan Sawyer [aks5238]
+
+================================================================
+================================================================
+Level 0 – Start
+Estimated Time	00 10
+Plan for this level:
+  -run server
+  -test general functionality
+  -look for typos
+  -look for appropriate view/seeds/etc.
+  -fix and refresh page
+
+Level 0 – Complete
+Actual Time	00 15
+Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+
+LL:
+  -look at the seeds before just editing the database itself (the seed will
+   populate the database every time with set objects)
+
+PE:
+  -index wasn't too hard to find, but the seed for the db took a bit more time.
+
+================================================================
+Level 1 – Start
+Estimated Time	HH MM
+Plan for this level:
+
+Level 1 – Complete
+Actual Time	HH MM
+Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+
+================================================================
+Level 2 – Start
+Estimated Time	HH MM
+Plan for this level:
+
+Level 2 – Complete
+Actual Time	HH MM
+Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+
+================================================================
+Level 3 – Start
+Estimated Time	HH MM
+Plan for this level:
+
+Level 3 – Complete
+Actual Time	HH MM
+Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+
+================================================================
+Level 4 <96> Start
+Estimated Time  HH MM
+Plan for this level:
+
+Level 4 <96> Complete
+Actual Time HH MM
+Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+
+================================================================
+Level 5 – Start
+Estimated Time	HH MM
+Plan for this level:
+
+Level 5 – Complete
+Actual Time	HH MM
+Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+
+================================================================
+================================================================
+
+OVERALL SUMMARY
+================================================================
+Estimated Total Time	HH MM
+Actual Total Time	HH MM
+Project reflection:
