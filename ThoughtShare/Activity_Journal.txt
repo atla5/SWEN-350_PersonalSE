@@ -27,8 +27,11 @@ PE:
 
 ================================================================
 Level 1 – Start
-Estimated Time	HH MM
+Estimated Time	00 35
 Plan for this level:
+  -go through ruby on rails active validations and compare with lvl1 tasks
+  -edit thought.rb, using the db schema to find fields.
+  -edit thinker.rb, using the db schema to find field names.
 
 Level 1 – Complete
 Actual Time	HH MM
