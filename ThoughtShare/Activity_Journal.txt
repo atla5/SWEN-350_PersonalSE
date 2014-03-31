@@ -62,8 +62,17 @@ Plan for this level:
  4: refactor
 
 Level 2 – Complete
-Actual Time	HH MM
+Actual Time	00 45
 Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+
+LL:
+  -asking for help is helpful
+  -'index' is the function that populated all of the different tabs by 
+   defining @thoughts.
+
+PE:
+  -i knew it had to be a database call and i knew it would be in one of
+   the controllers, but i couldn't find where.
 
 ================================================================
 Level 3 – Start

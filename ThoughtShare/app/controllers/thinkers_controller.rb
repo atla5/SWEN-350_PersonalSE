@@ -14,7 +14,7 @@ class ThinkersController < ApplicationController
   # GET /thinkers/1.json
   def show
     @thinker = Thinker.find(params[:id])
-
+	  
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @thinker }

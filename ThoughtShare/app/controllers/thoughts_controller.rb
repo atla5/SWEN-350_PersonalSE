@@ -11,8 +11,11 @@ class ThoughtsController < ApplicationController
 	then
 		@thoughts = Thought.joins(:thinker => :followed).where(:follows => {:follower_id => @active_thinker.id})
 	elsif session[:show] == 'popular'
-	     #Show all thoughts with at least one thumb, sorted by number of thumbs descendingly
-          @thoughts = Thought.joins(:thumbs).group(:thought).order("count(*) DESC")
+	    #Show all thoughts with at least one thumb, sorted by number of thumbs descendingly
+        @thoughts = Thought.joins(:thumbs).group(:thought).order("count(*) DESC")
+	elsif session[:show] == 'mine'
+		#show thoughts from current thinker
+		@thoughts = Thought.where(:thinker_id => @active_thinker.id)
     else
 		@thoughts = Thought.all
 	end
@@ -128,5 +131,10 @@ class ThoughtsController < ApplicationController
       format.json { render json: @thoughts }
     end
   end
+  
+  ### - level 3 addition - ###
+  def thumbers
+	"""display the thinkers who have thumbed the thought"""
 
+  end
 end
