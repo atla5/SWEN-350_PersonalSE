@@ -4,6 +4,7 @@ ThoughtShare::Application.routes.draw do
   post "thoughts/thumbup"
   
   resources :thoughts, :thinkers
+  match ':controller/:action/:id', :controller => :thoughts, :action => :thumbers
   
 # Route everything to the home controller with the index action
   root :to => 'thoughts#index'

@@ -135,6 +135,12 @@ class ThoughtsController < ApplicationController
   ### - level 3 addition - ###
   def thumbers
 	"""display the thinkers who have thumbed the thought"""
-
+	
+	#display thought
+	@thought = Thought.find(params[:id])
+	
+	#display all of the thinkers who have thumbed this
+	#@ToDo write the code for this in the view
+	
   end
 end

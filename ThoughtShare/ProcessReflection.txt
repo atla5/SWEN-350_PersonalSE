@@ -1,9 +1,8 @@
-SWEN-250 Activity Journal
-Ruby/Rails – ThoughtShare
+SWEN-250 Process & Reflection
+Rails – Thought Share
 
 Name: Aidan Sawyer [aks5238]
 
-================================================================
 ================================================================
 Level 0 – Start
 Estimated Time	00 10
@@ -84,11 +83,11 @@ Actual Time	HH MM
 Notes : Lessons learned, problems encountered, obstacles overcome, etc.
 
 ================================================================
-Level 4 <96> Start
+Level 4 - Start
 Estimated Time  HH MM
 Plan for this level:
 
-Level 4 <96> Complete
+Level 4 - Complete
 Actual Time HH MM
 Notes : Lessons learned, problems encountered, obstacles overcome, etc.
 
@@ -102,10 +101,7 @@ Actual Time	HH MM
 Notes : Lessons learned, problems encountered, obstacles overcome, etc.
 
 ================================================================
-================================================================
-
-OVERALL SUMMARY
-================================================================
+Overall Summary
 Estimated Total Time	HH MM
 Actual Total Time	HH MM
 Project reflection:
