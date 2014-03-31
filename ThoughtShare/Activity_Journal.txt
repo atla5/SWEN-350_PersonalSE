@@ -46,8 +46,20 @@ PE:
 
 ================================================================
 Level 2 – Start
-Estimated Time	HH MM
+Estimated Time	01 15
 Plan for this level:
+ 1: FIND FILE
+  -use grep to find occurrences of 'mine' recursively from front directory
+  -search through occurrences to see if any seem to match the description 
+   and investigate them.
+  -look up where this might be in general.
+ 2: EDIT FILE
+  -existing line of code will likely be a ruby/rails-cloaked database query
+   which i should just have to edit with something like a (where thinker=self) 
+   kind of tag.
+  -look up syntax for that in ruby 
+ 3: test and debug
+ 4: refactor
 
 Level 2 – Complete
 Actual Time	HH MM
