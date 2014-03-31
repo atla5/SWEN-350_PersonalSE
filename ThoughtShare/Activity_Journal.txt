@@ -34,8 +34,15 @@ Plan for this level:
   -edit thinker.rb, using the db schema to find field names.
 
 Level 1 – Complete
-Actual Time	HH MM
+Actual Time	00 45
 Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+
+LL:
+  -validations are not that difficult and easily ensure that the database
+   contains correct data from the front end before calling the back end.
+   
+PE:
+  -i have little to no familiarity with regexes. rubular was very helpful.
 
 ================================================================
 Level 2 – Start
