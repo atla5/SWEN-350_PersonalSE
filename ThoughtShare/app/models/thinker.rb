@@ -21,6 +21,9 @@ class Thinker < ActiveRecord::Base
   
   #ensure len(url)<=120
   validates :url, length: {maximum:120}
+  
+  #check URL format
+  validates :url, :format => { :with=> URI::regexp(%w(http https)) }
 
   ## - set foreign keys - ##
   has_many :follows, :foreign_key => "follower_id", :class_name => "Follow"
