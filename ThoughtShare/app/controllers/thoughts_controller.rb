@@ -142,5 +142,10 @@ class ThoughtsController < ApplicationController
 	#display all of the thinkers who have thumbed this
 	#@ToDo write the code for this in the view
 	
+	respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @thinkers }
+    end
+	
   end
 end

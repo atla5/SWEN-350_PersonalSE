@@ -1,5 +1,20 @@
-<h1>Thumbers</h1>
 
+<!--Display thought text as the first thing on the webpage-->
+<p>
+  <b>Thought:</b>
+  <%= @thought.thought %>
+</p>
+
+<!--Display 'a thought by #{thinker}-->
+<h3>
+  A thought by
+  <%= @thought.thinker.name %>
+</h3>
+
+<!--Display thinkers who 'thumb'-ed this thought -->
+<h2>
+  "Thumbers of this thought"
+</h2>
 
 <%= link_to 'Back', thoughts_path %>
 
