@@ -2,9 +2,10 @@
 
 <h1><%=@thinker.name%></h1>
 <h2><%=@thinker.url%></h2>
+<h2><%=@thinker.email%></h2>
 
 <div class=following>
-<h3>Following</h3>
+<h4>Following</h4>
 
 <% 
 following = Thinker.joins(:followed).where(:follows => {:follower_id => @thinker.id})
@@ -18,7 +19,7 @@ if following.empty? then %>
 </div>
 
 <div class=followed>
-<h3>Followed By</h3>
+<h4>Followed By</h4>
 <% followed = Thinker.joins(:follows).where(:follows => {:followee_id => @thinker.id})
 if followed.empty? %>
 	<div><%=@thinker.name%> is not followed by anybody.</div>

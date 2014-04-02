@@ -75,7 +75,7 @@ PE:
 
 ================================================================
 Level 3 – Start
-Estimated Time	HH MM
+Estimated Time	01 00
 Plan for this level:
 
 Level 3 – Complete
@@ -84,7 +84,7 @@ Notes : Lessons learned, problems encountered, obstacles overcome, etc.
 
 ================================================================
 Level 4 - Start
-Estimated Time  01 25
+Estimated Time  0 55
 Plan for this level:
   -write/run rails command to 'AddEmailToThinker' for the model
   -write validation
@@ -92,8 +92,15 @@ Plan for this level:
   -show email on the profile page
 
 Level 4 - Complete
-Actual Time HH MM
+Actual Time 00 45
 Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+
+Time: 45/55 = 0.81
+  -took less time than i allotted because i was able to get some help finding
+   where '_form' was.
+
+LL:
+  -again, help is helpful
 
 ================================================================
 Level 5 – Start
