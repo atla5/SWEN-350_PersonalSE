@@ -84,8 +84,12 @@ Notes : Lessons learned, problems encountered, obstacles overcome, etc.
 
 ================================================================
 Level 4 - Start
-Estimated Time  HH MM
+Estimated Time  01 25
 Plan for this level:
+  -write/run rails command to 'AddEmailToThinker' for the model
+  -write validation
+  -add email field to 'new thinker' and 'edit thinker' pages
+  -show email on the profile page
 
 Level 4 - Complete
 Actual Time HH MM
