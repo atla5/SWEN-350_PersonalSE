@@ -32,6 +32,9 @@ class Thinker < ActiveRecord::Base
   ## - set multiplicities - ##
   has_many :thoughts
   has_many :thumbs
+  
+  # - EMAIL - #
+  validates :email, :format => { :with=> /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/ }
 
   
 end
