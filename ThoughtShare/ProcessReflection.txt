@@ -17,6 +17,10 @@ Level 0 – Complete
 Actual Time	00 15
 Notes : Lessons learned, problems encountered, obstacles overcome, etc.
 
+TT: 15/10 = 1.5
+  -took a bit to think of the 'seed' instead of editing the raw database
+   entry.
+
 LL:
   -look at the seeds before just editing the database itself (the seed will
    populate the database every time with set objects)
@@ -36,6 +40,9 @@ Level 1 – Complete
 Actual Time	00 45
 Notes : Lessons learned, problems encountered, obstacles overcome, etc.
 
+TT: 45/35 = 1.26
+  -took a little bit longer than expected with the regexs
+  
 LL:
   -validations are not that difficult and easily ensure that the database
    contains correct data from the front end before calling the back end.
@@ -64,6 +71,10 @@ Level 2 – Complete
 Actual Time	00 45
 Notes : Lessons learned, problems encountered, obstacles overcome, etc.
 
+TT: 45/75 = 0.6
+  -I'm giving myself a lot of buffer time to find the errors. normally when
+   you get there the code doesn't take long to figure out.
+
 LL:
   -asking for help is helpful
   -'index' is the function that populated all of the different tabs by 
@@ -77,6 +88,12 @@ PE:
 Level 3 – Start
 Estimated Time	01 00
 Plan for this level:
+  -write the thoughts_controller 
+  -add thoughts view file. write as per instruction and in the same layout
+   as the other view files.
+  -fix the routing as per email
+  -use 'rails generate scaffold' and 'rake' to create new field in
+   Thought which holds a list of 'thinker_id's
 
 Level 3 – Complete
 Actual Time	HH MM
@@ -97,10 +114,13 @@ Notes : Lessons learned, problems encountered, obstacles overcome, etc.
 
 Time: 45/55 = 0.81
   -took less time than i allotted because i was able to get some help finding
-   where '_form' was.
+   where '_form' was. other than that i didn't have much trouble finding and
+   fixing what i needed
 
 LL:
-  -again, help is helpful
+  -again, help is helpful. helped to break down a wall much faster
+  -adding new fields to an existing table is a lot easier than it would seem 
+   at first, you just have to know where to go to do things with it afterward.
 
 ================================================================
 Level 5 – Start
