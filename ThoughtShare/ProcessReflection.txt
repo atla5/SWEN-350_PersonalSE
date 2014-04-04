@@ -144,15 +144,30 @@ LL:
 
 ================================================================
 Level 5 – Start
-Estimated Time	HH MM
+Estimated Time	00 05
 Plan for this level:
+  -since i wanted to already have this 'thought.thumbers' field which was a 
+   list of 'thinker_id's who had thumbed the thought already, all i would have
+   needed was to surround the existing 'thumbup' code in the conditional block 
+   below:
+	 'if not @thought.thumbers.include?(@active_thinker.thinker_id){ }'
+   this would have made it so that if the current thinker already thumbed-up
+   the thought, his id would already be in that list, and his 'thumbup' would
+   have no effect. would have been like 2 lines and 5 minutes.
+		
 
 Level 5 – Complete
 Actual Time	HH MM
 Notes : Lessons learned, problems encountered, obstacles overcome, etc.
 
+PE:
+  -couldn't get the integer list 'thought.thumbers' to work correctly in 
+   level 3. 
+  
 ================================================================
 Overall Summary
-Estimated Total Time	HH MM
-Actual Total Time	HH MM
+Estimated Total Time	04 00
+Actual Total Time	05 00
 Project reflection:
+
+
