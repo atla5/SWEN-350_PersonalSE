@@ -123,8 +123,13 @@ class ThoughtsController < ApplicationController
   end
 
   def thumbup
+  
   	load_active_thinker
-  	Thumb.create({thought_id: params[:thought][:id], thinker: @active_thinker})	
+  	Thumb.create({thought_id: params[:thought][:id], thinker: @active_thinker})
+	
+	#add active thinkers idea to current thought's 'thumbers'.
+	@thought = Thought.where(thought_id: params[:thought][:id])
+	#@thought.thumbers = @active_thinker.id
 
   	respond_to do |format|
       format.html { redirect_to :action => 'index' }
@@ -134,13 +139,13 @@ class ThoughtsController < ApplicationController
   
   ### - level 3 addition - ###
   def thumbers
-	"""display the thinkers who have thumbed the thought"""
+	"""display the thinker/s who have thumbed the thought"""
 	
 	#display thought
 	@thought = Thought.find(params[:id])
 	
 	#display all of the thinkers who have thumbed this
-	#@ToDo write the code for this in the view
+	#@thinker = @thought.thumbers
 	
 	respond_to do |format|
       format.html # index.html.erb

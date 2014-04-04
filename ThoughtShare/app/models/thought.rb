@@ -11,6 +11,6 @@ class Thought < ActiveRecord::Base
   #set multiplicities  
   belongs_to :thinker #many-to-one thinker->thought.
   has_many :thumbs    #many-to-one thought->thumbs.
-  has_many :thumbers  #one-to-many thought->thumbers
+  #has_many :thumbers  #one-to-many thought->thumbers
   
 end

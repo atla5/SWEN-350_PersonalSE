@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140402143111) do
+ActiveRecord::Schema.define(:version => 20140403181745) do
 
   create_table "follows", :force => true do |t|
     t.integer  "follower_id"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20140402143111) do
     t.text     "thought"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "thumbers"
   end
 
   create_table "thumbs", :force => true do |t|
