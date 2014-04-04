@@ -88,16 +88,36 @@ PE:
 Level 3 – Start
 Estimated Time	01 00
 Plan for this level:
-  -write the thoughts_controller 
-  -add thoughts view file. write as per instruction and in the same layout
+  *write the thoughts_controller 
+  *add thoughts view file. write as per instruction and in the same layout
    as the other view files.
-  -fix the routing as per email
-  -use 'rails generate scaffold' and 'rake' to create new field in
+  *fix the routing as per the write-up
+  -*use 'rails generate scaffold' and 'rake' to create new field in
    Thought which holds a list of 'thinker_id's
+  -edit 'thumbup' to add the active_thinker's id to the list of ids.
+  -write 'thumbers' to edit @thinkers to be displayed in the thumbers view.
 
 Level 3 – Complete
-Actual Time	HH MM
+Actual Time	02 30
 Notes : Lessons learned, problems encountered, obstacles overcome, etc.
+
+TT: 150/60 = 2.5
+  -i got hardcore stuck on figuring out this integer list thing with the rails
+   model. the field i created with the 'rails generate' and 'rake' command 
+   did effectively add to the table an integer field (as displayed in
+   SQLiteManager), but every time i tried to use it (thought.thumbers) i'd get 
+   a "method does not exist" or "no attribute 'thumbers' in nil class" and i 
+   couldn't figure out why. 
+   
+PE:
+  -finding the right 10 files to edit if i wanted to make a small change
+  -the lack of documentation i could find on how to make lists of things in 
+   a rails model
+
+LL:
+  -web development is much less straight-forward and more time-consuming 
+   than normal application development. it takes practice and a good memory
+   for what all you have to change per change.
 
 ================================================================
 Level 4 - Start
@@ -120,7 +140,7 @@ Time: 45/55 = 0.81
 LL:
   -again, help is helpful. helped to break down a wall much faster
   -adding new fields to an existing table is a lot easier than it would seem 
-   at first, you just have to know where to go to do things with it afterward.
+   at first, you just have to know where to go to do things with it afterwards.
 
 ================================================================
 Level 5 – Start
