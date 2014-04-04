@@ -168,6 +168,42 @@ PE:
 Overall Summary
 Estimated Total Time	04 00
 Actual Total Time	05 00
-Project reflection:
 
+Overall Time Ratio: 300/240 = 1.25
+  -if everything went smoothly and i hadn't hit that wall with the int[]
+   i would be under time, but that mistake/block hurt me.
+  -other than level 3 i was pretty accurate with my time estimates. i left
+   a fair amount of buffer space for learning the new stuff i didn't know
+   and sometimes i used it, sometimes i didn't. this general system is very
+   important and one i'll definitely try to use more in later courses. it's
+   very critical to know your weaknesses and strengths and how long things 
+   should take you given starting knowledge and aptitude for the problem arena.
+   
+
+Project reflection:
+  -This project was interesting. I did learn a fair amount about web dev from
+  it and i think it will be very good for my resume to say that i've dabbled in
+  both rails and django. 
+  -I wouldn't say I got all that more proficient with ruby, since a lot of what
+  I wrote/edited was in html and rails. the biggest things i learned from this 
+  projects was about how commands are passed with the url, how they're 
+  interpreted by the router, how the file structure is organized and why, and
+  the general process of small changes echoing around through the controllers,
+  models, views, etc. 
+    I'm not positive I'd say I really like web development as much as vanilla
+  coding at this point, but it was something new to try and the idea of what 
+  you create is really interesting and powerful. It's definitely something 
+  that's going to be important to my career later on and I'll try and learn not
+  to mind that as much as I kind of do right now. 
+  
+  -My biggest trouble with web dev is probably with the database stuff. I'm so
+  used to thinking in conventional data structures and this forces you back to
+  linking tables and using primitives and everything. Annoying, but 
+  understandable. Databases are extremely powerful and justified, it's just 
+  a pain at first.
+  
+  -In the future giving a little more explanation and hand-holding for the
+  data structure differences and how they need to be echoed throughout the 
+  system would be a big help. A more thorough description of views vs. 
+  controllers vs. models vs etc would be really helpful as well.
 
