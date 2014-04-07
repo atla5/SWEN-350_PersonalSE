@@ -23,8 +23,8 @@ int main() {
         //add the length of the line to num_chars
         tot_chars+=strlen(line);
 
-        //tokenize the line and add to num_words
-        
+        //tokenize the line and add to num_words;
+    
     }
 
     printf(" %d  %d %d\n",tot_lines,tot_words,tot_chars);
