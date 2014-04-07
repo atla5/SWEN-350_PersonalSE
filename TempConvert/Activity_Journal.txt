@@ -16,9 +16,16 @@ OI:
   -test/debug/refactor
 
 Complete
-Actual Time	HH MM
+Actual Time	00 35
 Observations:
 (Lessons learned, problems encountered, obstacles overcome, etc.)
+
+LL:
+  -pay very close attention to detail.
+  -always check spelling/spaces
+
+PE:
+  -had to look up how to fix the number of decimals shown.
 
 
 ================================================================

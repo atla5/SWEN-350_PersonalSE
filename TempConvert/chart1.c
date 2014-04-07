@@ -8,7 +8,7 @@ int convert(int faren){
 
 int main(){
  
-    printf("Farenheit-Celsium\n");
+    printf("Fahrenheit-Celsius\n");
  
     int f;
     for(f=0;f<=300;f+=20){
