@@ -1,0 +1,25 @@
+SWEN-250 Activity Reflection
+C - TempConvert
+
+Name: Aidan Sawyer
+
+================================================================
+Start
+Estimated Time	00 45
+Plan:
+(Order of implementation, testing approach, estimation technique)
+
+OI:
+  -get convert function to work
+  -write for loop
+  -format printout
+  -test/debug/refactor
+
+Complete
+Actual Time	HH MM
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+
+
+================================================================
+
