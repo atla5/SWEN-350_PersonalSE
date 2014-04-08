@@ -5,7 +5,7 @@
 
 #define FALSE (0)
 #define TRUE  (1)
-#define MAX_LINE (100)
+#define MAX_LINE (200)
 
 int main() {
 	int tot_chars = 0 ;	/* total characters */
