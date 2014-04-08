@@ -1,0 +1,22 @@
+1) review MVC
+2) intro to rails
+  I- rails new songs
+ II- cd songs
+III- rails server
+	 #run the server
+ IV- rails generate
+	 #generate a bunch of things ruby needs
+  V- rails generate scaffold song title:string year: integer
+	 #generate a given app with name 'song'
+ VI- rake db:migrate
+	 #create the tables that have had their formats (schemas) created before
+VII- rails generate scaffold author name:string
+ 
+------
+
+client    -> server
+(browser) -view-> webserver
+request   -> resource -> controller -> Model -> database
+
+MODEL:
+	ActiveRecord (knows about sql. returns the solution to sql call).
