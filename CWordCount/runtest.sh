@@ -1,9 +1,11 @@
 #!/bin/bash
 
-./ritwc < DarkAndStormyNight.txt > out.txt
-wc < DarkAndStormyNight.txt > testOut.txt
+#compile (update) ./ritwc
+gcc -o ritwc ritwc.c 
 
-./ritwc < GaltSpeech.txt >> out.txt
-wc < GaltSpeech.txt >> testOut.txt
+#redirect parameter (text file) into each, writing to txt files
+./ritwc < "$1" > out.txt
+wc < "$1" > output.txt
 
-diff out.txt testOut.txt
+#run diff comparison
+diff out.txt output.txt

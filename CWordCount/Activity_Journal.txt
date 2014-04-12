@@ -23,10 +23,19 @@ ET:
    i haven't used strtok() much before, so that might take some tweaking
 
 Complete
-Actual Time	HH MM
+Actual Time	00 45
 Observations:
 (Lessons learned, problems encountered, obstacles overcome, etc.)
 
+LL:
+  -having multiple test scripts, one for specific tests and one for
+   comprehensive functionality can be really helpful
+
+PE: 
+  -wc has strange formatting. with small files you can just do it by
+   spaces, but for larger ones it gets weird. had to look that up.
+
+failed compilations: 5 
 
 ================================================================
 
