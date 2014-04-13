@@ -33,6 +33,8 @@ TT:
   -could have hacked it out sooner, but i wanted to make it as simple
    and efficient as possible.
 
+failed compiles: 18
+
 ===========  Stage 2  ==========================================
 Start
 Estimated Time	HH MM

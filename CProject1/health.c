@@ -98,8 +98,8 @@ void main(){
         //---PRINT---//
       
         //print "#{time}: #{type} for PatientID = #"
-        printf("%s: %s for PatientID = %d",
-                time,"derp",id);
+        printf("%s: Type_%d for PatientID = %d",
+                time,type,id);
 
         //no 'is #{value}' for PRINT command
         if(type==6){ 
@@ -148,8 +148,8 @@ int read_line(int *id, char *time[], int *type, float *val){
         }else if(i==1){ *time = field; 
         }else if(i==2){ *type = (int) atoi(field); 
         }else if(i==3){ 
-            if(field >= 1000){ *val = atoi(field)/10.0; }
-            else{ *val  = (int) atoi(field); }
+            if( atoi(field) >= 1000){ *val = atoi(field)/10.0; }
+            else{ *val  = (float) atoi(field); }
         }else{ break; }
 
         //update field and counter
