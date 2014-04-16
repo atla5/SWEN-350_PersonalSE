@@ -5,6 +5,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 /*
  * Boolean here - just so we don't have to import a text file.
@@ -18,8 +19,9 @@ typedef enum { false, true } bool ;
 typedef char f_string[MAX_CHARS+1] ;	/* string for each field */
 
 /*
- * A parsed CSV line, with the number of fields and upto MAX_FIELDS themselves.
-*/
+ * A parsed CSV line, with the number of fields and upto MAX_FIELDS 
+ * themselves.
+ */
 typedef struct {
 	int nfields ;				    /* 0 => end of file */
 	f_string field[MAX_FIELDS] ;	/* array of strings for fields */
@@ -45,7 +47,15 @@ int min(int x, int y) {
  * stopped (terminated) the field.
  */
 int get_field(f_string field) {
-	/* FILL THIS IN */
+	
+    //get the terminating character
+    char terminator = field[strlen(field)];
+    
+    //replace terminator with null terminator
+    field[strlen(field)] = '\0';
+
+    return terminator;
+
 }
 
 /*
@@ -55,9 +65,34 @@ int get_field(f_string field) {
  * nfields is the count of the number of valid fields.
  * nfields == 0 means end of file was encountered.
  */
-
 csv_line get_line() {
-	/* FILL THIS IN */
+    
+    //declare and initialize a valid csv_line with
+    csv_line line;
+    f_string field;
+    int numFields = 0;
+    char c,t;
+
+    int i = 0;
+    while( (c=getchar()) != EOF ){
+        
+        //write character from getchar() to field
+        field[i] = c;
+
+        //if 'end_of_field' character is reached
+        if( is_end_of_field(c) ){ 
+
+            //send f_line to get_field(), then add to csv_line
+            t = get_field(field);
+            line.field[numFields] = field;
+
+            //clear field
+            field = "";
+
+            //increment numFields
+            numFields++; 
+        }
+    }                
 }
 
 /*
@@ -66,19 +101,19 @@ csv_line get_line() {
  * The minimum of the number of fields in the header and the data
  * determines how many fields are printed.
  */
-
 void print_csv(csv_line header, csv_line data) {
 
     //declare int to iterate with	
     int i;
 
-    //print header line
-    for(i=0;i<header.nFields;i++){ printf("%s, ", header.fields[i]); }
-    printf("%s\n", header.fields[i]);
+    //get the minimum number of fields
+    int minFields = min(header.nfields, data.nfields);
 
-    //print data line
-    for(i=0;i<data.nFields;i++){ printf("%s, ", data.fields[i]); }
-    printf("%s\n", data.fields[i]);
+    //print header line
+    for(i=0;i<minFields;i++){ 
+        printf("%s = ", header.field[i]);
+        printf("%s\n ", data.field[i]);
+    }
 
 }
 
@@ -86,7 +121,6 @@ void print_csv(csv_line header, csv_line data) {
  * Driver - read a CSV line for the header then read and print data lines
  * until end of file.
  */
-
 int main() {
 	csv_line header ;
 	csv_line current ;
