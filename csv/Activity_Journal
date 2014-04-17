@@ -1,0 +1,34 @@
+SWEN-250 Activity Reflection
+C - csv
+
+Name: Aidan Sawyer
+
+================================================================
+Start
+Estimated Time	00 55
+Plan:
+(Order of implementation, testing approach, estimation technique)
+
+OI:
+  -get to understand file structures and how everthing is meant to call
+   everything else
+  -write print function
+  -write get_line() and get_field() functions
+
+TA:
+  -bash script
+
+Complete
+Actual Time	01 25
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+
+PE:
+  -difficulty understanding documentation and how each function linked to
+   each other
+  -incompatible type error with char * and char[]
+  -really had to resist using fgets(line,MAXLINE,stdin) and strtok() which
+   would have taken 20 minutes and been prettier looking.
+
+================================================================
+

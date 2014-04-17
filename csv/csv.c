@@ -86,12 +86,15 @@ csv_line get_line() {
             t = get_field(field);
             line.field[numFields] = field;
 
-            //clear field
-            field = "";
+            //clear field and reset incrementor.
+            i=0;
 
             //increment numFields
             numFields++; 
         }
+        
+        //increment i
+        i++;
     }                
 }
 
@@ -135,3 +138,8 @@ int main() {
 
 	return 0 ;
 }
+
+int get_csv_line(){
+       
+}
+    
