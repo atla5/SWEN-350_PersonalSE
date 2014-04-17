@@ -68,8 +68,8 @@ int get_field(f_string field) {
 csv_line get_line() {
     
     //declare and initialize a valid csv_line with
-    csv_line line;
-    f_string field;
+    csv_line csvLine;
+    f_string f;
     int numFields = 0;
     char c,t;
 
@@ -77,14 +77,22 @@ csv_line get_line() {
     while( (c=getchar()) != EOF ){
         
         //write character from getchar() to field
-        field[i] = c;
+        f[i] = c;
 
         //if 'end_of_field' character is reached
         if( is_end_of_field(c) ){ 
 
             //send f_line to get_field(), then add to csv_line
-            t = get_field(field);
-            line.field[numFields] = field;
+            t = get_field(f);
+
+            //csvLine.field[numFields] = f
+            int j;
+            for(j=0;j<=strlen(f);j++){
+                csvLine.field[numFields][j] = f[j];
+            }
+            
+            //if new line is reached, stop editing csvLine
+            if(t=='\n'){ break; }
 
             //clear field and reset incrementor.
             i=0;
@@ -96,6 +104,9 @@ csv_line get_line() {
         //increment i
         i++;
     }                
+
+    csvLine.nFields = numFields;
+    return csvLine;
 }
 
 /*
@@ -138,8 +149,3 @@ int main() {
 
 	return 0 ;
 }
-
-int get_csv_line(){
-       
-}
-    
