@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #define MAXLINE 80   /* maximum input line size */
 
@@ -8,7 +9,6 @@ int readline( char line[], int max );
 void copy( char to[], char from[] );
 
 /* print longest input line */
-
 int main()
 {
 	int len;	       	   /* current line length */
@@ -26,9 +26,14 @@ int main()
 int readline( char s[], int lim )
 {
     int i;
-
-	/* your code here */
-	return i;
+    
+    //
+    if( fgets(s,MAXLINE,stdin) != NULL ){
+        return strlen(s);
+    }else{
+        return 0;
+    }
+    
 }
 
 /* copy: copy 'from' into 'to'; assume to is big enough */
