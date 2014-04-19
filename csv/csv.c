@@ -14,6 +14,7 @@ typedef enum { false, true } bool ;
 
 #define MAX_FIELDS	(15)	/* maximum fields on a CSV input line */
 #define MAX_CHARS	(20)	/* maximum characters in any one field */
+#define MAXLINE     (100)
 
 /*an array of characters representing a single filed.*/
 typedef char f_string[MAX_CHARS+1] ;	/* string for each field */
@@ -47,14 +48,23 @@ int min(int x, int y) {
  * stopped (terminated) the field.
  */
 int get_field(f_string field) {
-	
-    //get the terminating character
-    char terminator = field[strlen(field)];
-    
-    //replace terminator with null terminator
-    field[strlen(field)] = '\0';
 
-    return terminator;
+    //declare counter and character	
+    char c;
+    int i = 0;
+
+    //write getchar() to field until an end_of_field character.
+    while( !is_end_of_field(c=getchar()) ){
+
+        //add to field
+        field[i] = c;
+        i++;
+    }
+    //replace terminator with null terminator
+    field[i] = '\0';
+
+    //return the end_of_field character.
+    return c;
 
 }
 
@@ -69,43 +79,14 @@ csv_line get_line() {
     
     //declare and initialize a valid csv_line with
     csv_line csvLine;
-    f_string f;
-    int numFields = 0;
-    char c,t;
+    csvLine.nfields = 0;
+    char c;
 
-    int i = 0;
-    while( (c=getchar()) != EOF ){
-        
-        //write character from getchar() to field
-        f[i] = c;
+    //get and write field until it returns EOF
+    while( (c=get_field(csvLine.field[csvLine.nfields++])) == ',' ){ }
 
-        //if 'end_of_field' character is reached
-        if( is_end_of_field(c) ){ 
+    if(c==EOF){ csvLine.nfields = 0; }
 
-            //send f_line to get_field(), then add to csv_line
-            t = get_field(f);
-
-            //csvLine.field[numFields] = f
-            int j;
-            for(j=0;j<=strlen(f);j++){
-                csvLine.field[numFields][j] = f[j];
-            }
-            
-            //if new line is reached, stop editing csvLine
-            if(t=='\n'){ break; }
-
-            //clear field and reset incrementor.
-            i=0;
-
-            //increment numFields
-            numFields++; 
-        }
-        
-        //increment i
-        i++;
-    }                
-
-    csvLine.nFields = numFields;
     return csvLine;
 }
 
@@ -125,9 +106,11 @@ void print_csv(csv_line header, csv_line data) {
 
     //print header line
     for(i=0;i<minFields;i++){ 
-        printf("%s = ", header.field[i]);
+        printf("%5s = ", header.field[i]);
         printf("%s\n ", data.field[i]);
     }
+
+    printf("\n");
 
 }
 
@@ -140,7 +123,7 @@ int main() {
 	csv_line current ;
 
 	header = get_line() ;
-	current = get_line() ;
+	current= get_line() ;
 
 	while ( current.nfields > 0 ) {
 		print_csv(header, current) ;
@@ -149,3 +132,40 @@ int main() {
 
 	return 0 ;
 }
+
+/* using fgets and strtok 
+csv_line getLine(){
+
+    csv_line csvL;
+    csvL.nfields=0;
+ 
+    char line[MAXLINE+1];
+    char * result;  
+
+    fgets(line,MAXLINE,stdin);
+    result = strtok(line,",");
+
+    int n;
+    while(result != NULL){
+    
+        f_string f;        
+        
+        //create f_string 'f'
+        int i;
+        for(i=0;i<strlen(result)-1;i++){
+            f[i] = result[i];
+        }
+        f[i] = '\0'; 
+
+        //set field at nfields, then increment nfields
+        csvL.field[csvL.nfields][i] = f;
+        csvL.nfields++;
+
+        //move to next field
+        result=strtok(line,",");
+    }
+
+    printf("nfields: %d\n",csvL.nfields);
+    return csvL;
+}
+*/
