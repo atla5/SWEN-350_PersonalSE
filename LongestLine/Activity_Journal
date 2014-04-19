@@ -16,13 +16,21 @@ OI:
    to save to when it's bigger than what's stored
 
 TA:
-  -bash script 
+  -input files and direct input 
 
 Complete
-Actual Time	HH MM
+Actual Time	00 25
 Observations:
 (Lessons learned, problems encountered, obstacles overcome, etc.)
 
+LL:
+  -cannot write "\0" to character arrays. [it's a char * ]
+  -bash scripts can be overkill.
+
+PE:
+  -an incompatible type issue that didn't last long.
+
+failed compiles: 5
 
 ================================================================
 

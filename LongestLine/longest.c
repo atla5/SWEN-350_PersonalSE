@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define MAXLINE 80   /* maximum input line size */
+#define MAXLINE 100   /* maximum input line size */
 
 /* function declarations */
 int readline( char line[], int max );
@@ -13,13 +13,14 @@ int main(){
 	int len;	       	   /* current line length */
 	char line[MAXLINE];    /* current input line */
     char longest[MAXLINE]; /* longest input line */
-    //longest = "\0";
 
 	while ( (len = readline( line, MAXLINE )) > 0 ) {
 
+        //PART ONE
         //print the current line
 		//printf("%s", line);
  
+        //PART TWO
         //update longest if it's longer than longest
         if (len > strlen(longest)){
             copy(longest,line);
@@ -35,7 +36,6 @@ int main(){
 
 /* readline: read a line into s, return length */
 int readline( char s[], int lim ){
-    int i;
     
     //get line from stdin, return length(line) or 0 if EOF reached
     if( fgets(s,MAXLINE,stdin) != NULL ){
@@ -56,9 +56,4 @@ void copy( char to[], char from[] ){
         to[i] = from[i];
     }
 
-    return;
-	
 }
-
-
-

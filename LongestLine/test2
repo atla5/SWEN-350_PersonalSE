@@ -1,0 +1,33 @@
+this is the longest line in the longest file in this program. i can guarantee that it will be this way.
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+#define MAXLINE 80   /* maximum input line size */
+
+/* function declarations */
+int readline( char line[], int max );
+void copy( char to[], char from[] );
+
+/* print longest input line */
+int main(){
+    int len;               /* current line length */
+    char line[MAXLINE];    /* current input line */
+    char longest[MAXLINE]; /* longest input line */
+char line[MAXLINE];    /* current input line */
+    char longest[MAXLINE]; /* longest input line */
+    //longest = "\0";
+
+    while ( (len = readline( line, MAXLINE )) > 0 ) {
+
+        //print the current line
+        //printf("%s", line);
+
+        //update longest if it's longer than longest
+        if (len > strlen(longest)){
+            copy(longest,line);
+        }
+
+    }
+
+
