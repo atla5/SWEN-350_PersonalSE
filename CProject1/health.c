@@ -3,6 +3,7 @@
 */
 
 //imports
+#include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
@@ -51,21 +52,21 @@ Chart record[MAXPATIENTS];
 //break line for printout
 char brk[] = "--------------------------------------------------\n";
 
-//key for the type
-/*
-const char *typeKey[7];
-typeKey[0] = "<none>";
-typeKey[1] = "Temperature";
-typeKey[2] = "Heart Rate";
-typeKey[3] = "Systolic Pressure";
-typeKey[4] = "Diastolic Pressure";
-typeKey[5] = "Respiration Rate";
-typeKey[6] = "Print command entered";
-*/
-
 //----<main function>---//
 
 void main(){
+
+  //key for the type
+  char *typeKey[7];  // and array of char *
+    typeKey[0] = "<none>";
+    typeKey[1] = "Temperature";
+    typeKey[2] = "Heart Rate";
+    typeKey[3] = "Systolic Pressure";
+    typeKey[4] = "Diastolic Pressure";
+    typeKey[5] = "Respiration Rate";
+    typeKey[6] = "Print command entered";
+
+
     int i, j;
 
     /* initialize health data records for each patient */
@@ -90,7 +91,7 @@ void main(){
     //         TYPES: int,  char[] , int ,  int
     int id, type;
     float value;
-    char time[9]; time[9] = '\0';
+    char time[8+1] = "00:00:00";
 
     //read_line until EOF [CTRL-D]
     while( read_line(&id, &time, &type, &value) ){
@@ -98,8 +99,8 @@ void main(){
         //---PRINT---//
       
         //print "#{time}: #{type} for PatientID = #"
-        printf("%s: Type_%d for PatientID = %d",
-                time,type,id);
+        printf("%s: %s for PatientID = %d",
+                time, typeKey[type],id);
 
         //no 'is #{value}' for PRINT command
         if(type==6){ 
@@ -145,7 +146,24 @@ int read_line(int *id, char *time[], int *type, float *val){
         
         //write to appropriate field
         if(i==0){       *id   = (int) atoi(field);
-        }else if(i==1){ *time = field; 
+        }else if(i==1){ 
+            //printf("%s\n",field);
+            char src[40];
+            char dest[100];
+  
+            memset(dest, '\0', sizeof(dest));
+            strcpy(src, "This is tutorialspoint.com");
+            strcpy(dest, field);
+
+            printf("Final copied string : %s\n", dest);
+            *time = dest; 
+          
+           // printf("%s\n",f);
+
+            int j; char f[9];
+            //for( j=0; j<=strlen(field); j++){ f[j] = field[j]; }
+            //*time = f;
+            //printf("%s\n",f);
         }else if(i==2){ *type = (int) atoi(field); 
         }else if(i==3){ 
             if( atoi(field) >= 1000){ *val = atoi(field)/10.0; }
