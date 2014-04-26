@@ -144,26 +144,10 @@ int read_line(int *id, char *time[], int *type, float *val){
     field = strtok(line,", ");
     while(field != NULL){
         
-        //write to appropriate field
+         //write to appropriate field
         if(i==0){       *id   = (int) atoi(field);
         }else if(i==1){ 
-            //printf("%s\n",field);
-            char src[40];
-            char dest[100];
-  
-            memset(dest, '\0', sizeof(dest));
-            strcpy(src, "This is tutorialspoint.com");
-            strcpy(dest, field);
-
-            printf("Final copied string : %s\n", dest);
-            *time = dest; 
-          
-           // printf("%s\n",f);
-
-            int j; char f[9];
-            //for( j=0; j<=strlen(field); j++){ f[j] = field[j]; }
-            //*time = f;
-            //printf("%s\n",f);
+            strcpy(time, field);
         }else if(i==2){ *type = (int) atoi(field); 
         }else if(i==3){ 
             if( atoi(field) >= 1000){ *val = atoi(field)/10.0; }
