@@ -21,19 +21,21 @@ TA:
   
 
 Complete
-Actual Time	01 15
+Actual Time	02 15
 Observations:
 (Lessons learned, problems encountered, obstacles overcome, etc.)
 
 PE: 
   -had a bit of trouble with writing to the timestamp (char * time[]).
-   was an issue of...
+   needed to use strcpy() instead of '*time = field'
+  -typeKey was acting up because it wasn't inside of the main function
 
-TT:
+TT: 
   -could have hacked it out sooner, but i wanted to make it as simple
    and efficient as possible.
+  -problems with strcpy().
 
-failed compiles: 18
+failed compiles: 28
 
 ===========  Stage 2  ==========================================
 Start

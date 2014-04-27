@@ -114,15 +114,8 @@ void main(){
         //@ToDo
      
     }
-//
-/*
-*  YOUR CODE GOES HERE:
-*  (1) Read a csv line of health data from stdin 
-*  (2) Parse csv line into appropriate fields
-*  (3) Store health data in patient record or print if requested
-*  (4) Continue (1)-(3) until EOF
-*/
 
+//signify end of input reached
 printf("\nEnd of Input\n");
 
 }
@@ -144,7 +137,7 @@ int read_line(int *id, char *time[], int *type, float *val){
     field = strtok(line,", ");
     while(field != NULL){
         
-         //write to appropriate field
+        //write to appropriate field
         if(i==0){       *id   = (int) atoi(field);
         }else if(i==1){ 
             strcpy(time, field);
