@@ -14,47 +14,32 @@
 
 #include "read_data.h"
 
-#define MAX_LINE (80)
+#define MAX_LINE (25+1)
 
-void read_data( char *c, int *i, double *d ) {
+int read_data( char *c, int *i, double *d ) {
 
     //'line' for fgets(), 'field' for strtok
     char line[MAX_LINE];
-    char * field;
-
+    
     //get line from stdin using fgets(), return 'false' if EOF reached
-    if( fgets(line,MAX_LINE,stdin) == NULL){ return ; }
+    if( fgets(line,MAX_LINE,stdin) == NULL){ return 0; }
     
     //store c
-    *c = line[0];
+    if(line[0]==EOF){return 0;}
+    else{*c = line[0];}
     
-    char temp[MAX_LINE];
-    int j = 1; int k = 0; int t = 1;
-    while(line[j] != EOF && line[j] != '\n'){
-        temp[k] = line[j];
-        
-        //end of field reached
-        if(line[j] == '$'){
-
-            //terminate temp string
-            temp[k] = '\0';
-            
-            //write to appropraite field.
-            if(t==1){       *i = atoi(temp);
-            }else if(t==2){ *d = (double) atof(temp);
-            }else{ break; }
-
-            //reset k
-            k = 0;
-
-            //increment t
-            t++;
-        }
-
-        j++;
-                
-            
+    //use strtok with '$' 
+    char * field = NULL;
+    field = strtok(line,"$");
+    int nField = 0;
+    while(field != NULL){
+        if(nField == 0){      *c = field[0]; }
+        else if(nField == 1){ *i = atoi(field); }
+        else if(nField == 2){ *d = (double) atof(field); }
+        else{ break; }
+        field = strtok(NULL, "$");
+        nField++;
     }
-
-    return;
+    
+    return 1;
 }

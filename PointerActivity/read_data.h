@@ -41,6 +41,6 @@
 #ifndef READ_DATA_H
 #define READ_DATA_H
 
-extern void read_data( char *c, int *i, double *d ) ;
+extern int read_data( char *c, int *i, double *d ) ;
 
 #endif

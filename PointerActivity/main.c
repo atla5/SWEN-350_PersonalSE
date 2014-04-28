@@ -21,7 +21,15 @@
 
 int main() {
 
-/* your declarations and statements REPLACE this comment */
+    //declare variables
+    char c;
+    int i;
+    double d;
 
-	return 0 ;
+    
+    while( read_data(&c, &i, &d) ){
+        printf("Character %c Integer %d Floating point %.f\n",c,i,d);
+    }
+
+	return 1 ;
 }
