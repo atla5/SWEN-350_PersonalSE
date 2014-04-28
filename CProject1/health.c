@@ -147,6 +147,7 @@ void main(){
 
         //change cBuff's start/end, and reading.
         
+        /*
         //update |cBuff.start| (if start==0 or if time < start)
         if(cBuff->start == 0 || compareTimes(time,cBuff->start)<0){
             cBuff->start = time;
@@ -158,13 +159,17 @@ void main(){
             cBuff->end = time;
             //strcpy(cBuff.end,time);
         }
+        */
         
         //update |cBuff.reading[]| with new element
         Element element;
         strcpy(element.timestamp,time);
         element.value = value;
 
-        cBuff->reading[0] = element;
+        //scroll to last 
+        i=0;
+        while(cBuff->reading[i].value != 0 && i<MAXREADINGS){ i++; }
+        cBuff->reading[i] = element;
 
         //TEST STORAGE//
         //printf("|CHART| id: %d, record[id-1].id: %d\n",id,chart->id);
@@ -229,28 +234,40 @@ void printPatient(int id){
     typeKey[6] = "Print command entered";
 
 
-    Chart chart = record[id-1];
+    Chart * chart = &(record[id-1]);
 
-    int i;
-    for(i=1;i<=MAXTYPES;i++){
-        Element e = chart.buffer[i-1].reading[0];
-        printf("%s:\n",typeKey[i]);
+    int i, j = 0;
     
-        if(i==1){
-            double val = (double) e.value;
-            if(e.value>=200){ val = e.value / 10.0; }
-            printf("%s: %.1f\n", e.timestamp, val);
-        }else{
-            printf("%s: %d\n", e.timestamp, e.value);
+    //for every type 
+    for(i=0;i<=MAXTYPES-1;i++){
+        
+        //print type header
+        printf("%s:\n",typeKey[i+1]);
+
+        //print all readings per type
+        while(chart->buffer[i].reading[j].value != 0 
+                    && j<MAXREADINGS){
+            Element e = chart->buffer[i].reading[j];
+            printElement(e,i);
+            j++;
         }
+
+        if(j==0){ printf("<none>\n"); }
+    
+        j = 0;
             
     }
     printf("%s\n",brk);
 }
 
-/*print a list of Elements*/
-void printReadings(Element e[]){
-    printf("printReadings called\n");
+/*print an Element*/
+void printElement(Element e, int type){
+    if(type+1==1){
+        double val = (double) e.value/10.0;
+        printf("%s: %.1f\n", e.timestamp, val);
+    }else{
+        printf("%s: %d\n", e.timestamp, e.value);
+    }
 }
 
 /*
@@ -263,12 +280,14 @@ int compareTimes(char t1[], char t2[]){
 
     //check the length of each character array. 
     //  [strlen("##:##:##") = 8]
+    
     if(strlen(t1) != 8 || strlen(t2) != 8){
         printf("timestamp is of incorrect length\n");
         return 0;
     }
     
     else{
+    
         if(convertTime(t1) >= convertTime(t2)) { return 1; }
         else { return -1; }
     }

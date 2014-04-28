@@ -103,10 +103,16 @@ TA:
   -bash script with input file
 
 Complete
-Actual Time	HH MM
+Actual Time	00 40
 Observations:
 (Lessons learned, problems encountered, obstacles overcome, etc.)
 
+PE:
+  -mostly keeping track of +1 -1 for indexes again.
+
+LL:
+  -break up functions to make them more readable, even if the 
+   small functions are wicked small.
 
 ===========  Stage 4  ==========================================
 Start
