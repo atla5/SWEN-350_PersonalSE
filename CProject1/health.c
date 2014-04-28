@@ -104,8 +104,7 @@ void main(){
     //read_line until EOF [CTRL-D]
     while( read_line(&id, &time, &type, &value) ){
 
-      if(type==6){
-      //---PRINT---//
+      if(type==6){  //---PRINT---//
 
         printPatient(id);
       
@@ -124,56 +123,54 @@ void main(){
 
       }
        
-      else{
-      //---STORE---//
+      else{  //---STORE---//
 
         //find/create appropriate chart
-        Chart chart;
+        Chart * chart;
 
         if(id-1>MAXPATIENTS || id < 0){ 
-            printf("please enter valid id (1-%d)",MAXPATIENTS+1);
+            printf("#ERROR#: invalid id (must be 1-%d)",MAXPATIENTS+1);
             break;
         }else{
-            chart = record[id-1];
+            chart = &record[id-1];
         }
 
         //get appropriate CircularBuffer
-        CircularBuffer cBuff;
+        CircularBuffer * cBuff;
 
         if(type-1>MAXTYPES || type<0){
-            printf("please enter valid type (1-%d)",MAXTYPES+1);
+            printf("#ERROR#: invalid type (must be 1-%d)",MAXTYPES+1);
             break;
         }else{
-            cBuff = chart.buffer[type-1];
+            cBuff = &(chart->buffer[type-1]);
         }
 
         //change cBuff's start/end, and reading.
         
         //update |cBuff.start| (if start==0 or if time < start)
-        if(cBuff.start == 0 || compareTimes(time,cBuff.start)<0){
-            cBuff.start = time;
+        if(cBuff->start == 0 || compareTimes(time,cBuff->start)<0){
+            cBuff->start = time;
             //strcpy(cBuff.start,time);
         }
 
         //update |cBuff.start| end (if end==0 or time > end)
-        if(cBuff.end == 0 || compareTimes(time,cBuff.end)>0){
-            cBuff.end = time;
+        if(cBuff->end == 0 || compareTimes(time,cBuff->end)>0){
+            cBuff->end = time;
             //strcpy(cBuff.end,time);
         }
         
         //update |cBuff.reading[]| with new element
         Element element;
         strcpy(element.timestamp,time);
-        //element.timestamp = time;
         element.value = value;
 
-        cBuff.reading[0] = element;
+        cBuff->reading[0] = element;
 
         //TEST STORAGE//
-        //printf("|CHART| id: %d, record[id-1].id: %d\n",id,chart.id);
-        //printf("|CBUFF| start: %d, end: %d\n",cBuff.start,cBuff.end);
-        //printf("|ELEMENT| time: %s, value: %d\n",
-        //        element.timestamp, element.value);
+        printf("|CHART| id: %d, record[id-1].id: %d\n",id,chart->id);
+        printf("|CBUFF| start: %d, end: %d\n",cBuff->start,cBuff->end);
+        printf("|ELEMENT| time: %s, value: %d\n",
+                element.timestamp, element.value);
       }
     }
 
