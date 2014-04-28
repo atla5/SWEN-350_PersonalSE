@@ -39,9 +39,25 @@ failed compiles: 28
 
 ===========  Stage 2  ==========================================
 Start
-Estimated Time	HH MM
+Estimated Time	01 45
 Plan:
 (Order of implementation, testing approach, estimation technique)
+
+OI:
+  -add a bunch of code for storing values using the correct sturctures
+  -write any helpers necessary to ensure things are stored in the right
+   place each time.
+  -write a printChart() function that takes in an ID and call it 
+   within the main while loop.
+
+TA:
+  -input file
+  -bash script (?)
+
+ET:
+  -represents a very large change to the system, and some more in-depth
+   looks into the structures. 
+  -lot of code to write.
 
 Complete
 Actual Time	HH MM
