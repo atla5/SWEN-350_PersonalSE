@@ -60,10 +60,28 @@ ET:
   -lot of code to write.
 
 Complete
-Actual Time	HH MM
+Actual Time	02 15
 Observations:
 (Lessons learned, problems encountered, obstacles overcome, etc.)
 
+PE:
+  -didn't use pointers to start with for the storage section,
+   causing me to create and edit a copy of the blank chart in
+   record, writing to the copy, and then doing nothing with it.
+   took very little time to recognize it after i did the print 
+   function
+  -when to add/subtract the one to account for the zeroth
+   indexing and 1-5 things. 
+
+LL:
+  -ensure you're always editing where things are stored and not
+   just copying over what's there and changing the new thing. 
+   pointers, pointers, pointers.
+
+failed compiles: 17
+
+TT: 135/105 = 1.28
+  -mostly the pointer issue caught me up a bit. 
 
 ===========  Stage 3  ==========================================
 Start

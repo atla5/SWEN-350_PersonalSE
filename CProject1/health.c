@@ -142,7 +142,7 @@ void main(){
             printf("#ERROR#: invalid type (must be 1-%d)",MAXTYPES+1);
             break;
         }else{
-            cBuff = &(chart->buffer[type]);
+            cBuff = &(chart->buffer[type-1]);
         }
 
         //change cBuff's start/end, and reading.
@@ -216,7 +216,7 @@ int read_line(int *id, char *time[], int *type, float *val){
 /*print all information in a chart, taking in its id*/
 void printPatient(int id){
     printf("%s\n",brk);
-    printf("Readings for Patient ID = %d are: \n",id);
+    printf("Readings for Patient ID = %d are:\n",id);
 
     //key for the type
     char *typeKey[7];  // and array of char *
@@ -233,9 +233,17 @@ void printPatient(int id){
 
     int i;
     for(i=1;i<=MAXTYPES;i++){
-        Element e = chart.buffer[i].reading[0];
+        Element e = chart.buffer[i-1].reading[0];
         printf("%s:\n",typeKey[i]);
-        printf("%s: %d\n", e.timestamp, e.value);
+    
+        if(i==1){
+            double val = (double) e.value;
+            if(e.value>=200){ val = e.value / 10.0; }
+            printf("%s: %.1f\n", e.timestamp, val);
+        }else{
+            printf("%s: %d\n", e.timestamp, e.value);
+        }
+            
     }
     printf("%s\n",brk);
 }
