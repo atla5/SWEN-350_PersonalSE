@@ -124,19 +124,19 @@ void main(){
 
         //change cBuff's start/end, and reading.
         
-        /*
+        
         //update |cBuff.start| (if start==0 or if time < start)
         if(cBuff->start == 0 || compareTimes(time,cBuff->start)<0){
-            cBuff->start = time;
-            //strcpy(cBuff.start,time);
+            //cBuff->start = time;
+            //strcpy(cBuff->start,time);
         }
 
         //update |cBuff.start| end (if end==0 or time > end)
         if(cBuff->end == 0 || compareTimes(time,cBuff->end)>0){
-            cBuff->end = time;
-            //strcpy(cBuff.end,time);
+            //cBuff->end = time;
+            //strcpy(cBuff->end,time);
         }
-        */
+        
         
         //update |cBuff.reading[]| with new element
         Element element;
@@ -312,9 +312,6 @@ int convertTime(char time[]){
     int t = atoi(time) * 10000; 
     t += atoi(time + 3) * 100; 
     t += atoi(time + 6); 
-
-    //temporary printout to check that this works correctly
-    //printf("timestamp: %s, converted: %d\n",time,t);
 
     return t;
 
