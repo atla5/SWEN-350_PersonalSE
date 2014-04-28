@@ -15,7 +15,7 @@
 #define MAXTIME 8
 
 //own defines
-#define MAX_LINE (25)   //'#, ##:##:##, #, #####'
+#define MAXLINE (25)   //'#, ##:##:##, #, #####'
 
 
 //------<structs>------//
@@ -160,11 +160,11 @@ printf("\nEnd of Input\n");
 int read_line(int *id, char *time[], int *type, float *val){
 
     //'line' and 'field' for fgets() and strtok()
-    char line[MAX_LINE];
+    char line[MAXLINE];
     char * field;     
 
     //get line from stdin using fgets(), return 'false' if EOF reached
-    if( fgets(line,MAX_LINE,stdin) == NULL){ return 0; }
+    if( fgets(line,MAXLINE,stdin) == NULL){ return 0; }
     
     //tokenize line and write to appropriate fields
     int i = 0;
@@ -204,8 +204,10 @@ void printPatient(int id){
     typeKey[6] = "Print command entered";
 
 
+    //create chart pointer to appropriate chart
     Chart * chart = &(record[id-1]);
 
+    //indexes for type and element respectively
     int i, j = 0;
     
     //for every type 
@@ -222,11 +224,15 @@ void printPatient(int id){
             j++;
         }
 
+        //if there were no readings for this type, print "<none>"
         if(j==0){ printf("<none>\n"); }
     
+        //reset element index
         j = 0;
             
     }
+
+    //print break line
     printf("%s\n",brk);
 }
 
@@ -247,13 +253,19 @@ void printElement(Element e, int type){
 *   the l1[1..] 
 */ 
 void addToReading(Element reading[], Element e){
- 
+
+    //scroll to last reading in list 
     int i = 0;
     while(reading[i].value != 0 && i<=MAXREADINGS){ i++; }
 
+    //if you're not at the end of the list, just append
     if(i <= MAXREADINGS){ reading[i] = e; }
+
+    //if you are at the maximum index, shift all valuse back one, 
+    //  then append
     else{
 
+        //indexes for reading and writing respectively
         i=0;
         int j=1;
 
@@ -285,7 +297,7 @@ int compareTimes(char t1[], char t2[]){
     }
     
     else{
-    
+        //return comparison
         if(convertTime(t1) >= convertTime(t2)) { return 1; }
         else { return -1; }
     }
@@ -296,8 +308,8 @@ int compareTimes(char t1[], char t2[]){
 */
 int convertTime(char time[]){
     
-    int t = 0;
-    t += atoi(time) * 10000; 
+    //multiply by factors of ten to maintain hierarchy of hour/min
+    int t = atoi(time) * 10000; 
     t += atoi(time + 3) * 100; 
     t += atoi(time + 6); 
 

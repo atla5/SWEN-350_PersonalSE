@@ -171,15 +171,38 @@ ET:
    projects like this, it really shouldn't take too long.
 
 Complete
-Actual Time	HH MM
+Actual Time	00 10
 Observations:
 (Lessons learned, problems encountered, obstacles overcome, etc.)
 
+PE: none
+
+LL:
+  -smart programming/design at the beginning saves time.
+
+TT: 10/15 = .6667
+  -as expected, didn't need any new code. just added/removed comments
 
 ===========  PROJECT PART 1 SUMMARY REFLECTION  =======================
-(Replace this text with a couple of paragraphs summarizing your
-experience with this project. What is too easy or too hard? What
-was the most challenging technical problem you faced? How
-did your estimated and actual time compare? Did your estimates
-improve as you advanced to later stages? Why or why not?)
+
+  My experience with this project was very positive. The data structure
+took a bit of getting used to, but was reasonable (though start/end were
+unnecessary). It was a healthy level of difficulty and it was staggered
+well enough so that you knew what was coming and what to plan for. The
+only real issue I would take with it would be grading if I hadn't gotten
+the later stages figured out. Level 1 and 2 are huge and required a lot
+of code. Levels 3-5 were all pretty simple, but are weighted about the 
+same.
+
+  I didn't face that many monolithic technical problems, the biggest 
+barrier that I did successfully work through was just familiarity with
+the language and a bit with pointers. 
+
+  My estimates came out pretty accurately minus the first where I ran
+into trouble with my list of strings 'typeKey' being outside of the main
+function. other than that things were pretty smooth and predictable. My
+estimates did improve across the levels, but i think it was mostly 
+due to their simplicity. I did get into a bit of a rhythm which helped
+as well. 
+
 ================================================================
