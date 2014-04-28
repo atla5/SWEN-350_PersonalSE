@@ -142,7 +142,7 @@ void main(){
             printf("#ERROR#: invalid type (must be 1-%d)",MAXTYPES+1);
             break;
         }else{
-            cBuff = &(chart->buffer[type-1]);
+            cBuff = &(chart->buffer[type]);
         }
 
         //change cBuff's start/end, and reading.
@@ -167,10 +167,10 @@ void main(){
         cBuff->reading[0] = element;
 
         //TEST STORAGE//
-        printf("|CHART| id: %d, record[id-1].id: %d\n",id,chart->id);
-        printf("|CBUFF| start: %d, end: %d\n",cBuff->start,cBuff->end);
-        printf("|ELEMENT| time: %s, value: %d\n",
-                element.timestamp, element.value);
+        //printf("|CHART| id: %d, record[id-1].id: %d\n",id,chart->id);
+        //printf("|CBUFF| start: %d, end: %d\n",cBuff->start,cBuff->end);
+        //printf("|ELEMENT| time: %s, value: %d\n",
+        //        element.timestamp, element.value);
       }
     }
 
@@ -184,7 +184,7 @@ printf("\nEnd of Input\n");
 /*read a line of csv and write to remote variables*/ 
 int read_line(int *id, char *time[], int *type, float *val){
 
-    //'line' for fgets()
+    //'line' and 'field' for fgets() and strtok()
     char line[MAX_LINE];
     char * field;     
 
