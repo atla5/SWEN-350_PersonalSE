@@ -40,6 +40,8 @@ typedef struct{
 }Chart;
 
 
+//-----<variables>------//
+
 /*
 * Health records for all patients defined here.
 * The variable record is visible to all functions
@@ -47,7 +49,11 @@ typedef struct{
 */
 Chart record[MAXPATIENTS];	
 
-//-----<variables>------//
+/*
+ *number of charts in record
+ *
+*/
+int numCharts = 0;
 
 //break line for printout
 char brk[] = "--------------------------------------------------\n";
@@ -70,7 +76,6 @@ void main(){
     int i, j;
 
     /* initialize health data records for each patient */
-
     for( i=0; i < MAXPATIENTS; i++ ){
         
         //increment id for each index
@@ -108,11 +113,42 @@ void main(){
         }else{
             printf(" is %.1f\n",value); 
         }
-      
-    
+       
+        //--TEMP--//
+        //convertTime(time);        
+ 
         //---STORE---//
-        //@ToDo
-     
+
+        //find/create appropriate chart
+        Chart chart;
+
+        i = 0;
+        if(id-1>MAXPATIENTS || id < 0){ 
+            printf("please enter valid id (1-%d)",MAXPATIENTS+1);
+            break;
+        }else{
+            chart = record[id-1];
+        }
+
+        //get appropriate CircularBuffer
+        CircularBuffer cBuff;
+
+        if(type-1>MAXTYPES || type<0){
+            printf("please enter valid type (1-%d)",MAXTYPES+1);
+            break;
+        }else{
+            cBuff = chart.buffer[type-1];
+        }
+
+        //change cBuff's start/end, and reading.
+        
+
+        //create/store element
+        /*
+        Element element;
+        element.timestamp = time;
+        element.value = value;
+        */
     }
 
 //signify end of input reached
@@ -154,5 +190,45 @@ int read_line(int *id, char *time[], int *type, float *val){
 
     //return true after successful run
     return 1;
+
+}
+
+/*print all information in a chart, taking in its id*/
+void printPatient(int id){
+    printf("printPatient(%d) called\n",id);
+}
+
+/*
+* converts timestamps into integers, compares, returns + if t1>t2
+*   and - if t1<t2. return 0 if timestamp is an incorrent length
+* 
+*  |note: atoi() stops converting to an integer at first non-digit|
+*/
+int compareTimes(char t1[], char t2[]){
+
+    //check the length of each character array. 
+    //  [strlen("##:##:##") = 8]
+    if(strlen(t1) != 8 || strlen(t2) != 8){
+        printf("timestamp is of incorrect length\n");
+        return 0;
+    }
+    
+    else{
+        
+    }
+}
+
+/* convert a char[] "##:##:##" to an int ###### */
+int convertTime(char time[]){
+    
+    int t = 0;
+    t += atoi(time) * 10000; 
+    t += atoi(time + 3) * 100; 
+    t += atoi(time + 6); 
+
+    //temporary printout to check that this works correctly
+    //printf("timestamp: %s, converted: %d\n",time,t);
+
+    return t;
 
 }
