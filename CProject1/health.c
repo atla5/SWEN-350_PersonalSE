@@ -116,7 +116,7 @@ void main(){
     while( read_line(&id, &time, &type, &value) ){
 
     //if(type==6){
-      //---PRINT---//
+      //---PRINT (level1)---//
       
         //print "#{time}: #{type} for PatientID = #"
         printf("%s: %s for PatientID = %d",
@@ -207,8 +207,7 @@ int read_line(int *id, char *time[], int *type, float *val){
         
         //write to appropriate field
         if(i==0){       *id   = (int) atoi(field);
-        }else if(i==1){ 
-            strcpy(time, field);
+        }else if(i==1){       strcpy(time, field);
         }else if(i==2){ *type = (int) atoi(field); 
         }else if(i==3){ *val  = (int) atoi(field);
         }else{ break; }
@@ -226,6 +225,11 @@ int read_line(int *id, char *time[], int *type, float *val){
 /*print all information in a chart, taking in its id*/
 void printPatient(int id){
     printf("printPatient(%d) called\n",id);
+}
+
+/*print a list of Elements*/
+void printReadings(Element e[]){
+    printf("printReadings called\n");
 }
 
 /*
