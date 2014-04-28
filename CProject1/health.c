@@ -56,7 +56,7 @@ Chart record[MAXPATIENTS];
 int numCharts = 0;
 
 //break line for printout
-char brk[] = "--------------------------------------------------\n";
+char brk[] = "--------------------------------------------------";
 
 //----<main function>---//
 
@@ -64,17 +64,6 @@ void main(){
 
   //--INITIALIZATIONS--//
     
-    //key for the type
-    char *typeKey[7];  // and array of char *
-    typeKey[0] = "<none>";
-    typeKey[1] = "Temperature";
-    typeKey[2] = "Heart Rate";
-    typeKey[3] = "Systolic Pressure";
-    typeKey[4] = "Diastolic Pressure";
-    typeKey[5] = "Respiration Rate";
-    typeKey[6] = "Print command entered";
-
-
     int i, j;
 
     /* initialize health data records for each patient */
@@ -115,9 +104,12 @@ void main(){
     //read_line until EOF [CTRL-D]
     while( read_line(&id, &time, &type, &value) ){
 
-    //if(type==6){
-      //---PRINT (level1)---//
+      if(type==6){
+      //---PRINT---//
+
+        printPatient(id);
       
+        /* LEVEL ONE 
         //print "#{time}: #{type} for PatientID = #"
         printf("%s: %s for PatientID = %d",
                 time, typeKey[type],id);
@@ -128,9 +120,11 @@ void main(){
         }else{
             printf(" is %.1f\n",value); 
         }
-      //}
+        */
+
+      }
        
-    //else{
+      else{
       //---STORE---//
 
         //find/create appropriate chart
@@ -176,11 +170,11 @@ void main(){
         cBuff.reading[0] = element;
 
         //TEST STORAGE//
-        printf("|CHART| id: %d, record[id-1].id: %d\n",id,chart.id);
-        printf("|CBUFF| start: %d, end: %d\n",cBuff.start,cBuff.end);
-        printf("|ELEMENT| time: %s, value: %d\n",
-                element.timestamp, element.value);
-    //}
+        //printf("|CHART| id: %d, record[id-1].id: %d\n",id,chart.id);
+        //printf("|CBUFF| start: %d, end: %d\n",cBuff.start,cBuff.end);
+        //printf("|ELEMENT| time: %s, value: %d\n",
+        //        element.timestamp, element.value);
+      }
     }
 
 //signify end of input reached
@@ -224,7 +218,29 @@ int read_line(int *id, char *time[], int *type, float *val){
 
 /*print all information in a chart, taking in its id*/
 void printPatient(int id){
-    printf("printPatient(%d) called\n",id);
+    printf("%s\n",brk);
+    printf("Readings for Patient ID = %d are: \n",id);
+
+    //key for the type
+    char *typeKey[7];  // and array of char *
+    typeKey[0] = "<none>";
+    typeKey[1] = "Temperature";
+    typeKey[2] = "Heart Rate";
+    typeKey[3] = "Systolic Pressure";
+    typeKey[4] = "Diastolic Pressure";
+    typeKey[5] = "Respiration Rate";
+    typeKey[6] = "Print command entered";
+
+
+    Chart chart = record[id-1];
+
+    int i;
+    for(i=1;i<=MAXTYPES;i++){
+        Element e = chart.buffer[i].reading[0];
+        printf("%s:\n",typeKey[i]);
+        printf("%s: %d\n", e.timestamp, e.value);
+    }
+    printf("%s\n",brk);
 }
 
 /*print a list of Elements*/

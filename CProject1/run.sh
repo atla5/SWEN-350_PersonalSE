@@ -2,4 +2,4 @@
 
 rm health
 make
-./health
+./health < input2.txt
