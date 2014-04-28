@@ -79,16 +79,6 @@ void main(){
         }
     }
 
-    //TEMPORARY - prints records and IDs to 
-    /*
-    printf("-printing record ids-\n");
-
-    for(i=0;i<MAXPATIENTS;i++){
-        printf("chart with id: %d\n",record[i].id);
-    }
-    */
-    
-
   //--RUNNING--//
 
     //print Welcome line
@@ -107,19 +97,6 @@ void main(){
       if(type==6){  //---PRINT---//
 
         printPatient(id);
-      
-        /* LEVEL ONE 
-        //print "#{time}: #{type} for PatientID = #"
-        printf("%s: %s for PatientID = %d",
-                time, typeKey[type],id);
-
-        //no 'is #{value}' for PRINT command
-        if(type==6){ 
-            printf("\n");
-        }else{
-            printf(" is %.1f\n",value); 
-        }
-        */
 
       }
        
@@ -166,16 +143,9 @@ void main(){
         strcpy(element.timestamp,time);
         element.value = value;
 
-        //scroll to last 
-        i=0;
-        while(cBuff->reading[i].value != 0 && i<MAXREADINGS){ i++; }
-        cBuff->reading[i] = element;
+        //add element to reading 
+        addToReading(cBuff->reading, element);
 
-        //TEST STORAGE//
-        //printf("|CHART| id: %d, record[id-1].id: %d\n",id,chart->id);
-        //printf("|CBUFF| start: %d, end: %d\n",cBuff->start,cBuff->end);
-        //printf("|ELEMENT| time: %s, value: %d\n",
-        //        element.timestamp, element.value);
       }
     }
 
@@ -262,7 +232,9 @@ void printPatient(int id){
 
 /*print an Element*/
 void printElement(Element e, int type){
-    if(type+1==1){
+    
+    //print out 
+    if(type+1==1 && e.value >= 200){
         double val = (double) e.value/10.0;
         printf("%s: %.1f\n", e.timestamp, val);
     }else{
@@ -270,6 +242,32 @@ void printElement(Element e, int type){
     }
 }
 
+/*
+* adds an element to a full list by making a new list, adding 
+*   the l1[1..] 
+*/ 
+void addToReading(Element reading[], Element e){
+ 
+    int i = 0;
+    while(reading[i].value != 0 && i<=MAXREADINGS){ i++; }
+
+    if(i <= MAXREADINGS){ reading[i] = e; }
+    else{
+
+        i=0;
+        int j=1;
+
+        //shift reading's elements back one slot
+        while(j<MAXREADINGS){
+            reading[i] = reading[j];
+            i++; j++;
+        }
+    
+        //add new element to the now-empty end slot
+        reading[i] = e;
+    }
+}
+    
 /*
 * converts timestamps into integers, compares, returns + if t1>t2
 *   and - if t1<t2. return 0 if timestamp is an incorrent length

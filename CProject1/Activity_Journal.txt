@@ -137,10 +137,17 @@ TA:
   -bash script with input file
 
 Complete
-Actual Time	HH MM
+Actual Time	00 45
 Observations:
 (Lessons learned, problems encountered, obstacles overcome, etc.)
 
+PE:
+  -'<' vs '<=' in conditionals.
+  -didn't notice that MAXREADINGS was 10 and not 5 for way
+   too long
+
+TT: 45/30 = 1.25
+  -conditional and refactor took longer than expected
 
 ===========  Stage 5  ==========================================
 Start
