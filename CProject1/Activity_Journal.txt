@@ -85,9 +85,22 @@ TT: 135/105 = 1.28
 
 ===========  Stage 3  ==========================================
 Start
-Estimated Time	HH MM
+Estimated Time	00 45
 Plan:
 (Order of implementation, testing approach, estimation technique)
+
+OI:
+  -edit storage code just after creating the new element
+  -write printout nearby to make it stand out.
+  -edit printChart(id) function to match desired output
+
+ET:
+  -should just be a problem of adding a few lines to my storage
+   and then adding a few to match that in my print. nothing big
+   is changing here.
+
+TA:
+  -bash script with input file
 
 Complete
 Actual Time	HH MM
@@ -97,9 +110,25 @@ Observations:
 
 ===========  Stage 4  ==========================================
 Start
-Estimated Time	HH MM
+Estimated Time	00 30
 Plan:
 (Order of implementation, testing approach, estimation technique)
+
+OI:
+  -write helper function to take a full list and an element to
+   add. have it create a list of the same size as the first,
+   copy the elements of the original (ls[1..]) and then set
+   its last index to the value to be added.
+  -test the helper function by itself.
+  -write a couple lines to call helper with relevant data and
+   then test. 
+
+ET:
+  -again, shouldn't be a major change. printout shouldn't even
+   change, just the data structure itself.
+
+TA:
+  -bash script with input file
 
 Complete
 Actual Time	HH MM
@@ -109,9 +138,24 @@ Observations:
 
 ===========  Stage 5  ==========================================
 Start
-Estimated Time	HH MM
+Estimated Time	00 15
 Plan:
 (Order of implementation, testing approach, estimation technique)
+
+ET:
+  -hoping all goes well, it should already do this, and no code
+   will have to be written. 
+
+OI:
+  -reformat the code
+  -write and run some more extensive tests
+
+TA:
+  -bash script with input file.
+
+ET:
+  -minor changes (if any), refactoring is important, but in
+   projects like this, it really shouldn't take too long.
 
 Complete
 Actual Time	HH MM

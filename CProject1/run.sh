@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#$fName = input + "$1" + .txt
+
 rm health
 make
-./health < input2.txt
+./health < "$1"
