@@ -162,9 +162,17 @@ int main(){
         add_book(in_title, in_rating);
     }
 
+    printf("Books as entered:\n");
     print_books();
-    printf("Mean rating = %.1f\n",(float) mean_rating());
+    printf("\nMean rating = %.1f\n\n",(float) mean_rating());
 
-	
+    sort_by_rating();
+    printf("Books sorted by rating:\n");
+    print_books();
+
+    sort_by_title();
+    printf("Books sorted by title:\n");
+    print_books();
+
 	return 0;
 	}
