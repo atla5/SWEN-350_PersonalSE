@@ -81,6 +81,8 @@ void print_books(){
  */
 int add_book( char title[], int rating ){
 
+    printf("title: %s, rating: %d\n",title,rating);
+
     //return 0 if there is no room in the list
     if(num_books>=MAXBOOKS){ return 0; }
 
@@ -105,8 +107,9 @@ int add_book( char title[], int rating ){
  *  If the list is empty, return 0.0.
  */
 double mean_rating(){
+   
+    // sum of ratings for all books in book_list
     int sum = 0;
-    double mean = 0.0 ;     /* mean rating */
     
     //for every book, access and add 
     int i;
@@ -114,9 +117,7 @@ double mean_rating(){
         sum += book_list[i].rating;
     }
 
-    mean = (sum*1.0)/num_books;
-
-    return mean;
+    return (sum*1.0)/num_books;
 
 }
 
@@ -157,6 +158,7 @@ int main(){
 
 	char in_title[MAXTITLE+1];
 	char in_rating[MAXCHARS+1];
+    
 
 	/*
 	 *  (1) - Use read_book to get a book entry from stdin
@@ -171,7 +173,7 @@ int main(){
 
     //1-3. reads and adds book from stdin
     while( !(read_book(in_title,in_rating)) ){
-        add_book(in_title, in_rating);
+        add_book(in_title, atoi(in_rating));
     }
 
     printf("Books as entered:\n");
