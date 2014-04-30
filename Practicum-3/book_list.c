@@ -81,8 +81,6 @@ void print_books(){
  */
 int add_book( char title[], int rating ){
 
-    printf("title: %s, rating: %d\n",title,rating);
-
     //return 0 if there is no room in the list
     if(num_books>=MAXBOOKS){ return 0; }
 
@@ -117,6 +115,7 @@ double mean_rating(){
         sum += book_list[i].rating;
     }
 
+    //return the double of the mean
     return (sum*1.0)/num_books;
 
 }
@@ -130,7 +129,15 @@ double mean_rating(){
  */
 void swap( int i, int j ){
 
-	/* YOUR CODE HERE */
+    //create temporary holder and store second value
+    Book temp;
+    temp = book_list[j];
+
+    //store first value in second slot
+    book_list[j] = book_list[i];
+
+    //store temp value in first slot
+    book_list[i] = temp;
 
 }
 
@@ -139,8 +146,22 @@ void swap( int i, int j ){
  */
 void sort_by_rating(){
 
-	/* YOUR CODE HERE */
-
+    /*
+    for i ranging from 0 to the size of list - 1
+        for j ranging from i to the size of the list - 1
+            if list element i is out of order with respect to list element j
+                swap list elements i and j
+    */
+    
+    int i,j;
+    for(i=0;i<num_books;i++){
+        for(j=i;j<num_books;j++){
+            if( (book_list[i].rating)<(book_list[j].rating) ){
+                swap(i,j);
+            }
+        }
+    }
+    
 }
 
 /* 
@@ -150,7 +171,16 @@ void sort_by_rating(){
  */
 void sort_by_title() {
 
-	/* YOUR CODE HERE */
+    int i,j;
+    for(i=0;i<num_books;i++){
+        for(j=i;j<num_books;j++){
+            if( strcmp( (book_list[i].title),(book_list[j].title) ) > 0 ){
+                swap(i,j);
+            }
+        }
+    }
+
+
 }
 
 
@@ -183,10 +213,12 @@ int main(){
     sort_by_rating();
     printf("Books sorted by rating:\n");
     print_books();
+    printf("\n");
 
     sort_by_title();
     printf("Books sorted by title:\n");
     print_books();
+    printf("\n");
 
 	return 0;
 }
