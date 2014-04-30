@@ -218,7 +218,6 @@ int main(){
     sort_by_title();
     printf("Books sorted by title:\n");
     print_books();
-    printf("\n");
 
 	return 0;
 }

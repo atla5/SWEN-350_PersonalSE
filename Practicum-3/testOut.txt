@@ -1,0 +1,19 @@
+Books as entered:
+4 Gone With The Wind
+1 SE For Dummies
+5 The Soul Of A New Machine
+3 Tale of Two Cities
+
+Mean rating = 3.2
+
+Books sorted by rating:
+5 The Soul Of A New Machine
+4 Gone With The Wind
+3 Tale of Two Cities
+1 SE For Dummies
+
+Books sorted by title:
+4 Gone With The Wind
+1 SE For Dummies
+3 Tale of Two Cities
+5 The Soul Of A New Machine
