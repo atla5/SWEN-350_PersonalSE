@@ -80,11 +80,23 @@ void print_books(){
  *  HINT: use strcpy when adding a new title to the book_list
  */
 int add_book( char title[], int rating ){
-	int status = 0;
 
-    /* YOUR CODE HERE */
+    //return 0 if there is no room in the list
+    if(num_books>=MAXBOOKS){ return 0; }
 
-	return status;
+    //create new book with passed information
+    Book newBook;
+    strcpy(newBook.title,title);
+    newBook.rating = rating;
+
+    //add new book to book_list
+    book_list[num_books] = newBook;
+
+    //increment num_books
+    num_books++;
+
+    //return 1
+	return 1;
 }
 
 
@@ -175,4 +187,4 @@ int main(){
     print_books();
 
 	return 0;
-	}
+}
