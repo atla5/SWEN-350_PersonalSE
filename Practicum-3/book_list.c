@@ -146,13 +146,6 @@ void swap( int i, int j ){
  */
 void sort_by_rating(){
 
-    /*
-    for i ranging from 0 to the size of list - 1
-        for j ranging from i to the size of the list - 1
-            if list element i is out of order with respect to list element j
-                swap list elements i and j
-    */
-    
     int i,j;
     for(i=0;i<num_books;i++){
         for(j=i;j<num_books;j++){
@@ -186,38 +179,31 @@ void sort_by_title() {
 
 int main(){
 
+    //char arrays to write to for read_book
 	char in_title[MAXTITLE+1];
 	char in_rating[MAXCHARS+1];
     
-
-	/*
-	 *  (1) - Use read_book to get a book entry from stdin
-	 *	(2) - Populate the book_list structure with the new entry
-	 *	(3) - Continue (1) & (2) until EOF from stdin
-	 *	(4) - Print the book_list structure as read from stdin
-	 *  (5) - Compute and print the mean value of all book ratings
-	 *	(6) - Sort and print the book_list structure based on ratings- high (5) to low(1)
-	 *	(7) - Sort and print the book_list structure based on title (A-Z)
-	 *
-	*/
-
     //1-3. reads and adds book from stdin
     while( !(read_book(in_title,in_rating)) ){
         add_book(in_title, atoi(in_rating));
     }
 
+    //print books as entered, followed by mean
     printf("Books as entered:\n");
     print_books();
     printf("\nMean rating = %.1f\n\n",(float) mean_rating());
 
+    //print boks sorted by rating
     sort_by_rating();
     printf("Books sorted by rating:\n");
     print_books();
     printf("\n");
 
+    //print books sorted by title
     sort_by_title();
     printf("Books sorted by title:\n");
     print_books();
 
+    //end program
 	return 0;
 }
