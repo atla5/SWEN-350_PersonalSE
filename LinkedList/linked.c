@@ -1,4 +1,3 @@
-
 /* linked - linked list functions
    Mark Ardis, RIT, 10/30/2006
    T. Reichlmayr, RIT, 12/13/2010
@@ -15,22 +14,23 @@ static void appendNode( int data);
 static struct node *copyList();
 static void printList();
 
-typedef struct node {
+struct node {
   int data;
   struct node* next;
-}node ;
+};
 
-node *head;		        // pointer to head of linked list
-						// head is visible to all functions in this file
+struct node *head;		// pointer to head of linked list
+	        			// head is visible to all functions in this file
 
 /************************************************************
  length - return length of a list
  ************************************************************/
 int length() {
-  int count;
-  
-  // YOUR CODE HERE
-  
+  int count = 0;
+ 
+  struct node * current = head;
+  while(current->next!=NULL){ current = current->next; count++; }
+
   return count;
 }
 
@@ -40,9 +40,9 @@ int length() {
  ************************************************************/
 void push(int data) {
 
-    node * newNode = (node *) malloc(sizeof(struct node));
+    struct node * newNode = (struct node *) malloc(sizeof(struct node));
     newNode->data = data;
-    newNode->next = NULL;
+    newNode->next = head;
 
     head = newNode;
   
@@ -52,9 +52,9 @@ void push(int data) {
  pop - delete node at beginning of non-empty list and return its data
  ************************************************************/
 int pop() {
-  int val;
+  int val = head->data;
   
-// YOUR CODE HERE
+  head = head->next;
 
   return(val);
 }
@@ -64,7 +64,14 @@ int pop() {
  ************************************************************/
 void appendNode(int data) {
  
-  // YOUR CODE HERE
+  struct node * curr = head;
+  while(curr->next != NULL){ curr = curr->next; }
+  
+  struct node * newNode = (struct node *) malloc(sizeof(struct node));
+  newNode->data = data;
+  newNode->next = NULL;
+
+  curr->next = newNode;
   
 }
 
@@ -83,11 +90,15 @@ struct node* copyList() {
  printList - print linked list as "List: < 2, 5, 6 >" (example)
  ************************************************************/
 void printList() {
-  struct node* current;
+  struct node* current = head;
  
   printf("List: < ");
   
-  // YOUR CODE HERE
+  while(current->next != NULL){ 
+    printf("%d, ",current->data);
+    current = current->next;
+  }
+  printf("%d",current->data);
   
   printf(" >\n");
 }
@@ -97,7 +108,9 @@ void main() {
 	head = NULL;	// initialize empty list
 	
 	push( 2 );
-	printf("Length of list = %d\n", length());
+	push( 3 );
+    push( 4 );
+    printf("Length of list = %d\n", length());
 	printList();
 	
 	// add additional tests here....

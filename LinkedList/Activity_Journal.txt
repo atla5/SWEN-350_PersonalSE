@@ -1,0 +1,38 @@
+SWEN-250 Activity Reflection
+C - LinkedList
+
+Name: Aidan Sawyer
+
+================================================================
+Start
+Estimated Time	00 30
+Plan:
+(Order of implementation, testing approach, estimation technique)
+
+OI:
+  -create the push, add, and print methods
+  -work up from there to the other functions.
+  -test, debug, refactor
+
+TA:
+  -so far just using the main function and gdb, but that will change 
+   as more of the activity is assigned.
+  -will expand to run a bash script against known output, most likely.
+
+ET:
+  -pretty familiar with both linked lists and C by now and the documentation
+   is very decent for each function.
+
+Complete
+Actual Time	00 35
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+
+PE:
+  -had a bit of unexpected annoyance with 'struct node' instead of 
+   typedef-ing it, so i tried adding that and it didn't like it at
+   all (with the struct containing a pointer to a like structure).
+   had to change it back, but it worked shortly after.
+
+================================================================
+
