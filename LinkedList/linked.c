@@ -31,7 +31,7 @@ int length() {
   struct node * current = head;
   while(current->next!=NULL){ current = current->next; count++; }
 
-  return count;
+  return count+1;
 }
 
 
@@ -107,8 +107,11 @@ void main() {
 
 	head = NULL;	// initialize empty list
 	
+    push( 1 );
 	push( 2 );
-	push( 3 );
+    printf("Length of list = %d\n", length());
+    printList();
+    push( 3 );
     push( 4 );
     printf("Length of list = %d\n", length());
 	printList();
