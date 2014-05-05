@@ -90,13 +90,51 @@ void appendNode(int data) {
 }
 
 /************************************************************
+appendNodeToLList - add a new node to the end of a passed in list
+*************************************************************/
+void appendNodeToList(struct node *newNode, struct node *list){
+    
+    struct node * current = list;
+
+    if(current == NULL){ current = newNode; return; }
+    while(current->next != NULL){ current = current->next; }
+
+    newNode->next = NULL;
+    current->next = newNode;
+
+}
+
+/************************************************************
  copyList - return new copy of list
  ************************************************************/
-struct node* copyList() {
+struct node* copyList(){
  
- // YOUR CODE HERE
+    //create walker
+    struct node * current = head;
 
-  return NULL;
+    //create new linked list head
+    struct node * cpHead = NULL;
+
+    //if list is empty, return NULL
+    if(current == NULL){ return NULL; }
+
+    //traverse lirt, appending copies of nodes
+    while(current != NULL){
+        
+        //create new node
+        struct node *newNode = (struct node *) malloc(sizeof(struct node));
+        newNode->data = (*current).data;
+        newNode->next = (*current).next;
+        
+        //append newNode to copied list
+        appendNodeToList(newNode, cpHead);
+
+        //move through LL
+        current = current->next;
+    
+    }        
+
+    return cpHead;
 }
 
 
@@ -104,13 +142,15 @@ struct node* copyList() {
  printList - print linked list as "List: < 2, 5, 6 >" (example)
  ************************************************************/
 void printList() {
-
+ 
     //create pointer to current head
     struct node* current = head;
 
     //begin printout 
     printf("List: < ");
     
+    if(current==NULL){ printf(" >\n"); return; }
+
     //traverse entire list, printing each value
     while(current->next != NULL){ 
       printf("%d, ",current->data);
@@ -124,17 +164,37 @@ void printList() {
 
 void main() {
 
-	head = NULL;	// initialize empty list
-	
-    push( 1 );
-	push( 2 );
+    //initialize empty list
+	head = NULL;
+
+    //push and print 	
+    push( 2 );
+	push( 1 );
     printf("Length of list = %d\n", length());
     printList();
-    push( 3 );
-    push( 4 );
+
+    //append and print
+    appendNode( 3 );
+    appendNode( 4 );
     printf("Length of list = %d\n", length());
 	printList();
-	
-	// add additional tests here....
+
+    //copy list
+    printf("copying list..."); printList();
+    struct node* newList = copyList();
+
+    //pop and print until list is empty
+    struct node * current = head; int p;
+    while(current!=NULL){ 
+        p = pop();
+        printf("popped %d\n",p);
+        current = current->next;
+    }
+
+    //print copy after printing empty list
+    printList();
+    head = newList;
+    printList();
+    
 	
 }
