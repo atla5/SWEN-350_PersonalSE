@@ -27,10 +27,12 @@ struct node *head;		// pointer to head of linked list
  ************************************************************/
 int length() {
   int count = 0;
- 
+
+  //create pointing node, iterate through list incrementing count 
   struct node * current = head;
   while(current->next!=NULL){ current = current->next; count++; }
 
+  //return count+1 to account for ending at the second to last node
   return count+1;
 }
 
@@ -40,10 +42,12 @@ int length() {
  ************************************************************/
 void push(int data) {
 
+    //create new node with next of current head
     struct node * newNode = (struct node *) malloc(sizeof(struct node));
     newNode->data = data;
     newNode->next = head;
 
+    //set new node to the new head
     head = newNode;
   
 }
@@ -52,26 +56,36 @@ void push(int data) {
  pop - delete node at beginning of non-empty list and return its data
  ************************************************************/
 int pop() {
-  int val = head->data;
-  
-  head = head->next;
 
-  return(val);
+    //store value and address
+    struct node * oldHead = head;
+    int val = oldHead->data;
+    struct node * ptr = oldHead->next;
+  
+    //delete node and set head
+    free(oldHead);
+    head = ptr;
+
+    //return data of old head
+    return(val);
 }
 
 /************************************************************
  appendNode - add new node at end of list
  ************************************************************/
 void appendNode(int data) {
- 
-  struct node * curr = head;
-  while(curr->next != NULL){ curr = curr->next; }
-  
-  struct node * newNode = (struct node *) malloc(sizeof(struct node));
-  newNode->data = data;
-  newNode->next = NULL;
 
-  curr->next = newNode;
+    //create node pointer to traverse to end of list
+    struct node * curr = head;
+    while(curr->next != NULL){ curr = curr->next; }
+  
+    //create new node with passed in data and next of NULL
+    struct node * newNode = (struct node *) malloc(sizeof(struct node));
+    newNode->data = data;
+    newNode->next = NULL;
+
+    //link new node to the end of the LinkedList
+    curr->next = newNode;
   
 }
 
@@ -90,17 +104,22 @@ struct node* copyList() {
  printList - print linked list as "List: < 2, 5, 6 >" (example)
  ************************************************************/
 void printList() {
-  struct node* current = head;
- 
-  printf("List: < ");
+
+    //create pointer to current head
+    struct node* current = head;
+
+    //begin printout 
+    printf("List: < ");
+    
+    //traverse entire list, printing each value
+    while(current->next != NULL){ 
+      printf("%d, ",current->data);
+      current = current->next;
+    }
+    printf("%d",current->data);
   
-  while(current->next != NULL){ 
-    printf("%d, ",current->data);
-    current = current->next;
-  }
-  printf("%d",current->data);
-  
-  printf(" >\n");
+    //end printout
+    printf(" >\n");
 }
 
 void main() {
