@@ -23,7 +23,7 @@
 void addPatient( int patientID ){
   
   /* YOUR CODE HERE */
-  }
+}
 
 /*
 * addHealthType: add a new health type buffer for a given patient
@@ -34,7 +34,7 @@ void addPatient( int patientID ){
 void addHealthType( int patientID, int newType ){
   
   /* YOUR CODE HERE */ 
-  }
+}
   
 /*
 *  getChart: given a patientID, return a pointer to their Chart
@@ -45,7 +45,7 @@ Chartptr getChart( int patientID ){
   /* YOUR CODE HERE */
   
   return foundChart;
-  }
+}
 
 /* 
 *  getHealthType: given a patientID & healthType, return a pointer 
@@ -58,7 +58,7 @@ CBuffptr getHealthType( int patientID, int healthType ){
   /* YOUR CODE HERE */
   
   return foundType;
-  }
+}
  
 /*
 *  addHealthReading: given a pointer to CircularBuffer, add the passed
@@ -78,7 +78,7 @@ void addHealthReading( CBuffptr buffer, char* timestamp, int reading ){
 void removePatient( int patientID ){
 
   /* YOUR CODE HERE */
-  }
+}
  
 /*
 * Optional helper functions defined starting here:
@@ -86,3 +86,39 @@ void removePatient( int patientID ){
 * static void myOptionalFunc(){ }  // EXAMPLE
 *  
 */
+
+/*read a line of csv and write to remote variables*/
+int read_line(int *id, char *time[], int *type, float *val){
+
+    //'line' and 'field' for fgets() and strtok()
+    char line[MAXLINE];
+    char * field;
+
+    //get line from stdin using fgets(), return 'false' if EOF reached
+    if( fgets(line,MAXLINE,stdin) == NULL){ return 0; }
+
+    //tokenize line and write to appropriate fields
+    int i = 0;
+    field = strtok(line,", ");
+    while(field != NULL){
+
+        //write to appropriate field
+        if(i==0){       *id   = (int) atoi(field);
+        }else if(i==1){       strcpy(time, field);
+        }else if(i==2){ *type = (int) atoi(field);
+        }else if(i==3){ *val  = (int) atoi(field);
+        }else{ break; }
+
+        //update field and counter
+        field = strtok(NULL,", ");
+        i++;
+    }
+
+    //return true after successful run
+    return 1;
+
+}
+
+void print_patient(int id){
+
+}

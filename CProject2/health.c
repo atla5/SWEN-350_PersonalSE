@@ -29,6 +29,61 @@ printf("Welcome to the Health Monitoring System\n\n");
 *  (4) Continue (1)-(3) until EOF
 */
 
-printf("\nEnd of Input\n");
+//declare variables in a valid csvLine
+//  input FORMAT: "ID, HH:MM:SS, TYPE, VALUE"
+//        TYPES: int,  char[] , int , float
+int id, type;
+float value;
+char time[8+1] = "00:00:00\0";
+
+//read_line until EOF [CTRL-D]
+while( read_line(&id, &time, &type, &value) ){
+
+    switch(type){
+      
+      //ADD READING (e.g. Temp)
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+
+            //get appropriate cBuffer
+            CBuff * buffer;
+
+            //add reading
+            addHealthReading(buffer, time, value);
+            break;
+        
+      //PRINT COMMAND
+        case 6:
+            printPatient(id);
+            break;
+
+      //CHECK-IN Patient
+        case 7:
+            addPatient(id);
+            break;
+
+      //CHECK-OUT Patient
+        case 8:
+            removePatient(id);
+            break;
+        
+      //ADD HEALTH DATA TYPE
+        case 9:
+            addHealthType(id, value);
+            break;
+
+      //RESET Patient
+        case 0:
+            resetPatient(id);
+
+    }
+        
+  }
+
+
+  printf("\nEnd of Input\n");
 
 }

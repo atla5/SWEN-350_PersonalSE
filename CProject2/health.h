@@ -42,16 +42,21 @@ typedef struct chartEntry{
 }Chart;
 
 
-extern Chartptr patientList;   /* global declaration for start of the patient chart linked list */
 
-/*
-*  health_util function declarations
-*/
+/* global declaration for start of the patient chart linked list */
+extern Chartptr patientList;
+
+//health_util function declarations
 extern void addPatient( int patientID );
 extern void addHealthType( int patientID, int newType );
 extern Chartptr getChart( int patientID );
 extern CBuffptr getHealthType( int patientID, int healthType ); 
 extern void removePatient( int patientID );
 extern void addHealthReading( CBuffptr buffer, char* timestamp, int value );
+
+//own function declarations from health_util
+extern void read_line( int *id, char *time[], int *type, float *val);
+extern void printPatient(int id);
+extern void resetPatient(int id);
 
 #endif
