@@ -11,22 +11,35 @@
 * 
 */
 
-Chartptr patientList = NULL;    /* Define global variable patientList (declared in health.h) */
-								/* patientList is globaaly accessible in health_util.c    */
+//Define global variable patientList (also available in health_util)
+Chartptr patientList = NULL; 
+
 
 void main(){
 
-printf("Welcome to the Health Monitoring System\n\n");
+  printf("Welcome to the Health Monitoring System\n\n");
 
-//declare variables in a valid csvLine
-//  input FORMAT: "ID, HH:MM:SS, TYPE, VALUE"
-//        TYPES: int,  char[] , int , float
-int id, type;
-float value;
-char time[8+1] = "00:00:00";
+  //declare variables in a valid csvLine
+  //  input FORMAT: "ID, HH:MM:SS, TYPE, VALUE"
+  //        TYPES: int,  char[] , int , float
+  int id, type;
+  float value;
+  char time[8+1] = "00:00:00";
+
+  //extras for streamlining printing
+  char brk[] = "--------------------------------------------------";
+  char *typeKey[7];  // and array of char *
+    typeKey[0] = "<none>";
+    typeKey[1] = "Temperature";
+    typeKey[2] = "Heart Rate";
+    typeKey[3] = "Systolic Pressure";
+    typeKey[4] = "Diastolic Pressure";
+    typeKey[5] = "Respiration Rate";
+    typeKey[6] = "Print command entered";
+
 
 //read_line until EOF [CTRL-D]
-while( read_line(&id, &time, &type, &value) ){
+  while( read_line(&id, &time, &type, &value) ){
 
     //temporary print statement
     printf("patient: %d, timestamp: %s, type: %d, value: %.1f\n",
@@ -57,7 +70,16 @@ while( read_line(&id, &time, &type, &value) ){
 
       //CHECK-IN Patient
         case 7:
+            
+            //call helper function
             addPatient(id);
+
+            //print user
+            printf("%s\n",brk);
+            printf("%s: Patient ID = %d checking in\n", time, id);
+            printf("%s\n",brk);
+
+            //exit case
             break;
 
       //CHECK-OUT Patient

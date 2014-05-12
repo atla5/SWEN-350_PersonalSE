@@ -6,12 +6,6 @@
 
 /*
 * health_util.c - Helper functions for the Health Monitoring System
-*
-* Add any optional helper function declarations here, define 
-* the functions after the required functions below.
-*
-* static void myOptionalFunc();   // EXAMPLE 
-*
 */
 
 /*
@@ -23,8 +17,13 @@
 * (note that the variable patientList is globally accessible)
 */
 void addPatient( int patientID ){
-  
-  /* YOUR CODE HERE */
+ 
+    //allocate a new chart with set id
+    Chart * newPatient = (Chart *) malloc(sizeof(Chart));
+    newPatient->id = patientID;    
+
+    //add to global 'patientList'
+
 }
 
 /*
@@ -81,13 +80,8 @@ void removePatient( int patientID ){
 
   /* YOUR CODE HERE */
 }
- 
-/*
-* Optional helper functions defined starting here:
-*
-* static void myOptionalFunc(){ }  // EXAMPLE
-*  
-*/
+
+// --- OPTIONAL FUNCTIONS --- // 
 
 /*read a line of csv and write to remote variables*/
 int read_line(int *id, char *time[], int *type, float *val){
@@ -128,3 +122,118 @@ void printPatient(int id){
 void resetPatient(int id){
 
 }
+
+/* ---------- LINKED LIST CODE ------------- */
+
+
+/************************************************************
+ length - return length of a list
+ ************************************************************
+int length() {
+  int count = 0;
+
+  //create pointing node, iterate through list incrementing count 
+  struct node * current = head;
+  while(current->next!=NULL){ current = current->next; count++; }
+
+  //return count+1 to account for ending at the second to last node
+  return count+1;
+}
+*/
+
+
+/************************************************************
+ push - add new node at beginning of list
+ ************************************************************
+void push(int data) {
+
+    //create new node with next of current head
+    struct node * newNode = (struct node *) malloc(sizeof(struct node));
+    newNode->data = data;
+    newNode->next = head;
+
+    //set new node to the new head
+    head = newNode;
+  
+}
+*/
+
+/************************************************************
+ pop - delete node at beginning of non-empty list and return its data
+ ************************************************************
+int pop() {
+
+    //store value and address
+    struct node * oldHead = head;
+    int val = oldHead->data;
+    struct node * ptr = oldHead->next;
+  
+    //delete node and set head
+    free(oldHead);
+    head = ptr;
+
+    //return data of old head
+    return(val);
+}
+*/
+
+/************************************************************
+ appendNode - add new node at end of list
+ ************************************************************
+void appendNode(int data) {
+
+    //create node pointer to traverse to end of list
+    struct node * curr = head;
+    while(curr->next != NULL){ curr = curr->next; }
+  
+    //create new node with passed in data and next of NULL
+    struct node * newNode = (struct node *) malloc(sizeof(struct node));
+    newNode->data = data;
+    newNode->next = NULL;
+
+    //link new node to the end of the LinkedList
+    curr->next = newNode;
+  
+}
+*/
+
+/************************************************************
+ appendNodeToLList - add a new node to the end of a passed in list
+ ************************************************************
+void appendNodeToList(struct node *newNode, struct node *list){
+    
+    struct node * current = list;
+
+    if(current == NULL){ current = newNode; return; }
+    while(current->next != NULL){ current = current->next; }
+
+    newNode->next = NULL;
+    current->next = newNode;
+
+}
+*/
+
+/************************************************************
+ printList - print linked list as "List: < 2, 5, 6 >" (example)
+ ************************************************************
+void printList() {
+ 
+    //create pointer to current head
+    struct node* current = head;
+
+    //begin printout 
+    printf("List: < ");
+    
+    if(current==NULL){ printf(" >\n"); return; }
+
+    //traverse entire list, printing each value
+    while(current->next != NULL){ 
+      printf("%d, ",current->data);
+      current = current->next;
+    }
+    printf("%d",current->data);
+  
+    //end printout
+    printf(" >\n");
+}
+*/
