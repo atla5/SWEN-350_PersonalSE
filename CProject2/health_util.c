@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
 #include "health.h"
 
 /*
@@ -119,6 +121,10 @@ int read_line(int *id, char *time[], int *type, float *val){
 
 }
 
-void print_patient(int id){
+void printPatient(int id){
+
+}
+
+void resetPatient(int id){
 
 }

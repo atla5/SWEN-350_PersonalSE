@@ -18,27 +18,22 @@ void main(){
 
 printf("Welcome to the Health Monitoring System\n\n");
 
-/*
-*  YOUR CODE GOES HERE:
-*  (1) Read an input csv line from stdin 
-*  (2) Parse csv line into appropriate fields
-*  (3) Take action based on input type:
-*  		 - Check-in or check-out a patient with a given ID
-*        - Add a new health data type for a given patient
-*        - Store health data in patient record or print if requested
-*  (4) Continue (1)-(3) until EOF
-*/
-
 //declare variables in a valid csvLine
 //  input FORMAT: "ID, HH:MM:SS, TYPE, VALUE"
 //        TYPES: int,  char[] , int , float
 int id, type;
 float value;
-char time[8+1] = "00:00:00\0";
+char time[8+1] = "00:00:00";
 
 //read_line until EOF [CTRL-D]
 while( read_line(&id, &time, &type, &value) ){
 
+    //temporary print statement
+    printf("patient: %d, timestamp: %s, type: %d, value: %.1f\n",
+            id, time, type, value);
+   
+
+    //perform various tasks based on the value of type
     switch(type){
       
       //ADD READING (e.g. Temp)
@@ -49,10 +44,10 @@ while( read_line(&id, &time, &type, &value) ){
         case 5:
 
             //get appropriate cBuffer
-            CBuff * buffer;
+            //CBuffptr * buffer;
 
             //add reading
-            addHealthReading(buffer, time, value);
+            //addHealthReading(buffer, time, value);
             break;
         
       //PRINT COMMAND
@@ -78,7 +73,12 @@ while( read_line(&id, &time, &type, &value) ){
       //RESET Patient
         case 0:
             resetPatient(id);
+            break;
 
+     //print error line if type is not recognized
+        default:
+            printf("type not recognized by switch()\n");
+            break;
     }
         
   }

@@ -10,6 +10,7 @@
 
 #define MAXREADINGS 10
 #define MAXTIME 8
+#define MAXLINE 25+1
 
 /* One health type reading: timestamp + actual value */
 typedef struct{
@@ -23,11 +24,11 @@ typedef struct{
 typedef struct healthEntry* CBuffptr; /* pointer to a CircularBuffer */
 
 typedef struct healthEntry{
-	int type;		       /* health data type (1-5) */
-	int start;	               /* index of oldest reading */
-	int end;		       /* index of most current reading */
+	int type;		               /* health data type (1-5) */
+	int start;	                   /* index of oldest reading */
+	int end;		               /* index of most current reading */
 	Element reading[MAXREADINGS];  /* fixed array of readings */
-	CBuffptr next;		       /* pointer to next health type buffer */
+	CBuffptr next;		           /* pointer to next health type buffer */
 }CircularBuffer;
 
 /*
@@ -41,8 +42,6 @@ typedef struct chartEntry{
 	Chartptr  next;			/* pointer to next patient */
 }Chart;
 
-
-
 /* global declaration for start of the patient chart linked list */
 extern Chartptr patientList;
 
@@ -55,7 +54,7 @@ extern void removePatient( int patientID );
 extern void addHealthReading( CBuffptr buffer, char* timestamp, int value );
 
 //own function declarations from health_util
-extern void read_line( int *id, char *time[], int *type, float *val);
+extern int read_line( int *id, char *time[], int *type, float *val);
 extern void printPatient(int id);
 extern void resetPatient(int id);
 
