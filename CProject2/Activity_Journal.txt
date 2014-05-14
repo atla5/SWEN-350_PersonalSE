@@ -39,19 +39,33 @@ TT: 105/90 = 1.1666
 
 ===========  Stage 2  ==========================================
 Start
-Estimated Time	HH MM
+Estimated Time	00 25
 Plan:
 (Order of implementation, testing approach, estimation technique)
 
+OI:
+  -fill in addHealthType() 
+  -fill in printPatient() so that I can see that it worked
+
+TA: 
+  -another text file
+  -print statements
+
 Complete
-Actual Time	HH MM
+Actual Time	00 25
 Observations:
 (Lessons learned, problems encountered, obstacles overcome, etc.)
+
+LL:
+  -i'm getting a lot better with C.
+
+PE:
+  -none
 
 
 ===========  Stage 3  ==========================================
 Start
-Estimated Time	HH MM
+Estimated Time	00 00
 Plan:
 (Order of implementation, testing approach, estimation technique)
 
