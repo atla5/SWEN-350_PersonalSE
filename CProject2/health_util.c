@@ -27,9 +27,6 @@ void addPatient( int patientID ){
 
 /*
 * addHealthType: add a new health type buffer for a given patient
-*	(1) allocate a new CircularBuffer
-*	(2) initialize the buffer
-* 	(3) link it to the existing patient's Chart
 */
 void addHealthType( int patientID, int newType ){
 
@@ -44,6 +41,15 @@ void addHealthType( int patientID, int newType ){
     newBuffer->type = newType;
     newBuffer->next = chart->buffer;
     
+    int i;
+    for(i=0; i<MAXREADINGS; i++){
+        Element e; 
+        e.value = 0; 
+        strcpy(e.timestamp, "00:00:00");
+        
+        newBuffer->reading[i] = e;
+    }
+
     //link buffer to chart
     chart->buffer = newBuffer;
   
@@ -102,14 +108,14 @@ void addHealthReading( CBuffptr buffer, char* timestamp, int reading ){
 
     //*note* buffer assumed correct as NULL tossing done in getHealthType above
 
-    //check start and end
     /*
-    if( cmpTimes(timestamp, buffer.start) < 0){ 
-        strcpy(buffer.start, timestamp);
+    //check start and end
+    if( cmpTimes(timestamp, buffer->start) < 0){ 
+        strcpy(buffer->start, timestamp);
     } 
 
-    if( cmpTimes(timestamp, buffer.end) > 0){
-        strcpy(buffer.end, timestamp);
+    if( cmpTimes(timestamp, buffer->end) > 0){
+        strcpy(buffer->end, timestamp);
     }
     */
 
@@ -130,7 +136,9 @@ void addHealthReading( CBuffptr buffer, char* timestamp, int reading ){
 */
 void removePatient( int patientID ){
 
-  /* YOUR CODE HERE */
+    Chartptr chart = getChart(patientID);
+    free(chart);
+
 }
 
 // --- OPTIONAL FUNCTIONS --- // 
@@ -232,7 +240,7 @@ void resetPatient(int id){
 *
 *  |note: atoi() stops converting to an integer at first non-digit|
 */
-int compareTimes(char t1[], char t2[]){
+int cmpTimes(char t1[], char t2[]){
 
     //check the length of each character array.
     //  [strlen("##:##:##") = 8]
@@ -262,119 +270,3 @@ int convertTime(char time[]){
     return t;
 
 }
-
-
-/* ---------- LINKED LIST CODE ------------- */
-
-
-/************************************************************
- length - return length of a list
- ************************************************************
-int length() {
-  int count = 0;
-
-  //create pointing node, iterate through list incrementing count 
-  struct node * current = head;
-  while(current->next!=NULL){ current = current->next; count++; }
-
-  //return count+1 to account for ending at the second to last node
-  return count+1;
-}
-*/
-
-
-/************************************************************
- push - add new node at beginning of list
- ************************************************************
-void push(int data) {
-
-    //create new node with next of current head
-    struct node * newNode = (struct node *) malloc(sizeof(struct node));
-    newNode->data = data;
-    newNode->next = head;
-
-    //set new node to the new head
-    head = newNode;
-  
-}
-*/
-
-/************************************************************
- pop - delete node at beginning of non-empty list and return its data
- ************************************************************
-int pop() {
-
-    //store value and address
-    struct node * oldHead = head;
-    int val = oldHead->data;
-    struct node * ptr = oldHead->next;
-  
-    //delete node and set head
-    free(oldHead);
-    head = ptr;
-
-    //return data of old head
-    return(val);
-}
-*/
-
-/************************************************************
- appendNode - add new node at end of list
- ************************************************************
-void appendNode(int data) {
-
-    //create node pointer to traverse to end of list
-    struct node * curr = head;
-    while(curr->next != NULL){ curr = curr->next; }
-  
-    //create new node with passed in data and next of NULL
-    struct node * newNode = (struct node *) malloc(sizeof(struct node));
-    newNode->data = data;
-    newNode->next = NULL;
-
-    //link new node to the end of the LinkedList
-    curr->next = newNode;
-  
-}
-*/
-
-/************************************************************
- appendNodeToLList - add a new node to the end of a passed in list
- ************************************************************
-void appendNodeToList(struct node *newNode, struct node *list){
-    
-    struct node * current = list;
-
-    if(current == NULL){ current = newNode; return; }
-    while(current->next != NULL){ current = current->next; }
-
-    newNode->next = NULL;
-    current->next = newNode;
-
-}
-*/
-
-/************************************************************
- printList - print linked list as "List: < 2, 5, 6 >" (example)
- ************************************************************
-void printList() {
- 
-    //create pointer to current head
-    struct node* current = head;
-
-    //begin printout 
-    printf("List: < ");
-    
-    if(current==NULL){ printf(" >\n"); return; }
-
-    //traverse entire list, printing each value
-    while(current->next != NULL){ 
-      printf("%d, ",current->data);
-      current = current->next;
-    }
-    printf("%d",current->data);
-  
-    //end printout
-    printf(" >\n");
-}
-*/
