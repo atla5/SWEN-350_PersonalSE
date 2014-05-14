@@ -69,11 +69,20 @@ Estimated Time	00 00
 Plan:
 (Order of implementation, testing approach, estimation technique)
 
+OI: [all functionality completed in Stage2 code)
+
+TA: 
+  -same text file
+  -printPatient()
+
 Complete
-Actual Time	HH MM
+Actual Time	00 00
 Observations:
 (Lessons learned, problems encountered, obstacles overcome, etc.)
 
+LL: 
+  -planning ahead saves time and effort
+  -building up effectively from the beginning saves unnecessary change cost
 
 ===========  Stage 4  ==========================================
 Start
