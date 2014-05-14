@@ -24,14 +24,6 @@ void main(){
 
   //extras for streamlining printing
   char brk[] = "--------------------------------------------------";
-  char *typeKey[7];  // and array of char *
-    typeKey[0] = "<none>";
-    typeKey[1] = "Temperature";
-    typeKey[2] = "Heart Rate";
-    typeKey[3] = "Systolic Pressure";
-    typeKey[4] = "Diastolic Pressure";
-    typeKey[5] = "Respiration Rate";
-    typeKey[6] = "Print command entered";
 
   //read_line until EOF [CTRL-D]
   while( read_line(&id, &time, &type, &value) ){

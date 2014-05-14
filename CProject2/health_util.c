@@ -7,15 +7,6 @@
 /*
 * health_util.c - Helper functions for the Health Monitoring System
 */
-
-/*
-* addPatient: check-in a new patient
-*   (1) allocate a new Chart for the patient
-*   (2) initialize the chart with the passed patientID
-*   (3) new patients are inserted at the start of the patient list
-*
-* (note that the variable patientList is globally accessible)
-*/
 void addPatient( int patientID ){
  
     //allocate a new chart with set id
@@ -41,8 +32,21 @@ void addPatient( int patientID ){
 * 	(3) link it to the existing patient's Chart
 */
 void addHealthType( int patientID, int newType ){
+
+    //get relevant chart
+    Chartptr chart = getChart(patientID);
+
+    //do nothing if chart does not exist
+    if(chart == NULL){ return; }
+
+    //create and initialize buffer
+    CBuffptr newBuffer = (CBuffptr) malloc(sizeof(CircularBuffer));
+    newBuffer->type = newType;
+    newBuffer->next = chart->buffer;
+    
+    //link buffer to chart
+    chart->buffer = newBuffer;
   
-  /* YOUR CODE HERE */ 
 }
   
 /*
@@ -175,9 +179,48 @@ void printAll(){
 
 void printPatient(int id){
 
+    //print header
+    printf("Readings for Patient ID = %d are:\n", id);
+
+    //make printing headers easier
+    char *typeKey[7]; 
+      typeKey[0] = "<none>";
+      typeKey[1] = "Temperature";
+      typeKey[2] = "Heart Rate";
+      typeKey[3] = "Systolic Pressure";
+      typeKey[4] = "Diastolic Pressure";
+      typeKey[5] = "Respiration Rate";
+
+    //print each type
+    int i;
+    for(i=1;i<=5;i++){
+        
+        //print header for reading
+        printf("%s:\n",typeKey[i]);
+        
+        //get and print readings
+        CBuffptr cBuff = getHealthType(id, i);
+        
+        if(cBuff == NULL){
+            printf("%s\n",typeKey[0]);
+        }else{
+            Element e = cBuff->reading[0];
+            printf("%s: ", e.timestamp);
+
+            //account for temperature
+            if(i==1){ 
+                printf("%.1f\n",e.value/10.0);
+            }else{
+                printf("%d\n",e.value);
+            }
+        }
+    }
 }
 
 void resetPatient(int id){
+
+    free( getChart(id) );
+    addPatient(id);
 
 }
 
