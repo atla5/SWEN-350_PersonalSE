@@ -51,7 +51,7 @@ extern void addHealthType( int patientID, int newType );
 extern Chartptr getChart( int patientID );
 extern CBuffptr getHealthType( int patientID, int healthType ); 
 extern void removePatient( int patientID );
-extern void addHealthReading( CBuffptr buffer, char* timestamp, int value );
+extern void addHealthReading( CBuffptr buffer, char* timestamp, float value );
 
 //own function declarations from health_util
 extern int read_line( int *id, char *time[], int *type, float *val);

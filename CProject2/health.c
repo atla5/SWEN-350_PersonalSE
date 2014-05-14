@@ -8,7 +8,6 @@
 * Main function for the Health Monitoring System. Primarily responsible for
 * processing input of csv lines and printing as required. Data structures are
 * maintained using the helper functions in health_util.c
-* 
 */
 
 //Define global variable patientList (also available in health_util)
@@ -20,8 +19,6 @@ void main(){
   printf("Welcome to the Health Monitoring System\n\n");
 
   //declare variables in a valid csvLine
-  //  input FORMAT: "ID, HH:MM:SS, TYPE, VALUE"
-  //        TYPES: int,  char[] , int , float
   int id, type;
   float value;
   char time[8+1] = "00:00:00";
@@ -37,8 +34,7 @@ void main(){
     typeKey[5] = "Respiration Rate";
     typeKey[6] = "Print command entered";
 
-
-//read_line until EOF [CTRL-D]
+  //read_line until EOF [CTRL-D]
   while( read_line(&id, &time, &type, &value) ){
 
     //temporary print statement
@@ -57,15 +53,22 @@ void main(){
         case 5:
 
             //get appropriate cBuffer
-            //CBuffptr * buffer;
+            CBuffptr buffer = getHealthType(id, type);
+            if(buffer == NULL){ break; }
+
 
             //add reading
-            //addHealthReading(buffer, time, value);
+            addHealthReading(buffer, time, value);
+            
             break;
         
       //PRINT COMMAND
         case 6:
+
+            printf("%s\n", brk);
             printPatient(id);
+            printf("%s\n", brk);
+
             break;
 
       //CHECK-IN Patient
@@ -85,8 +88,13 @@ void main(){
       //CHECK-OUT Patient
         case 8:
             removePatient(id);
-            break;
+            
+            printf("%s\n",brk);
+            printf("%s: Patient ID = %d checking out\n", time, id);
+            printf("%s\n",brk);
         
+            break;
+
       //ADD HEALTH DATA TYPE
         case 9:
             addHealthType(id, value);
@@ -94,7 +102,13 @@ void main(){
 
       //RESET Patient
         case 0:
+
             resetPatient(id);
+            
+            printf("%s\n",brk);
+            printf("%s: Patient ID = %d reset data\n", time, id);
+            printf("%s\n",brk);
+
             break;
 
      //print error line if type is not recognized
@@ -104,7 +118,6 @@ void main(){
     }
         
   }
-
 
   printf("\nEnd of Input\n");
 

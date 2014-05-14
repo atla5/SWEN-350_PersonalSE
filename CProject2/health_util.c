@@ -21,9 +21,17 @@ void addPatient( int patientID ){
     //allocate a new chart with set id
     Chart * newPatient = (Chart *) malloc(sizeof(Chart));
     newPatient->id = patientID;    
+    newPatient->next = NULL;
 
-    //add to global 'patientList'
+    //if list is empty, set to new head.
+    if(patientList == NULL){ patientList = newPatient;}
 
+    //append as last item onto non-empty list
+    Chartptr current = patientList;
+    
+    while(current->next != NULL){ current = current->next;
+    
+    current->next = newPatient;
 }
 
 /*
@@ -41,11 +49,17 @@ void addHealthType( int patientID, int newType ){
 *  getChart: given a patientID, return a pointer to their Chart
 */
 Chartptr getChart( int patientID ){
-  Chartptr foundChart = NULL;
+
+    //set foundChart to head of patientList
+    Chartptr foundChart = patientList;
+
+    //walk to correct chart or end of patientList (NULL)
+    while(foundChart != NULL && foundChart->id != patientID){
+        foundChart=foundChart->next;
+    }
   
-  /* YOUR CODE HERE */
-  
-  return foundChart;
+    //return correct chart or NULL (conditions of break)
+    return foundChart;
 }
 
 /* 
@@ -54,11 +68,26 @@ Chartptr getChart( int patientID ){
 *  for that patient, return NULL
 */
 CBuffptr getHealthType( int patientID, int healthType ){
-  CBuffptr foundType = NULL;
+    
+    //get appropriate chart
+    Chartptr foundChart = getChart(patientID);
+    if( foundChart == NULL){ return NULL; }
+
+    //try to find CBuffer
+    CBuffptr CBuffHead = foundChart.buffer;
+    CBuffptr current = CBuffHead;
+
+    while(current != NULL){
+        
+        //if types are equal, return current CBuffptr
+        if( strcmp(current->type, healthType) == 0){ return current; }
+
+        current = current->next;
+
+    }
   
-  /* YOUR CODE HERE */
-  
-  return foundType;
+    //correct CBuffptr not found (does not exist)
+    return NULL;
 }
  
 /*
@@ -67,7 +96,26 @@ CBuffptr getHealthType( int patientID, int healthType ){
 */
 void addHealthReading( CBuffptr buffer, char* timestamp, int reading ){
 
-  /* YOUR CODE HERE */
+    //*note* buffer assumed correct as NULL tossing done in getHealthType above
+
+    //check start and end
+    /*
+    if( cmpTimes(timestamp, buffer.start) < 0){ 
+        strcpy(buffer.start, timestamp);
+    } 
+
+    if( cmpTimes(timestamp, buffer.end) > 0){
+        strcpy(buffer.end, timestamp);
+    }
+    */
+
+    //create new reading and edit buffer's
+    Element * newReading = (Element *) malloc(sizeof(Element));
+    strcpy(newReading->timestamp, timestamp);
+    newReading->value = reading;
+
+    buffer.reading[0] = *newReading;   
+
 }
   
 /*
@@ -122,6 +170,9 @@ void printPatient(int id){
 void resetPatient(int id){
 
 }
+
+/* ---------- MISC HELPERS ----------------- */
+
 
 /* ---------- LINKED LIST CODE ------------- */
 
