@@ -83,25 +83,30 @@ Observations:
 LL: 
   -planning ahead saves time and effort
   -building up effectively from the beginning saves unnecessary change cost
-
-===========  Stage 4  ==========================================
-Start
-Estimated Time	00 00
-Plan:
-(Order of implementation, testing approach, estimation technique)
-
-OI: [all functionality completed in Stage2 code]
-
-Complete
-Actual Time	00 00
-Observations:
-(Lessons learned, problems encountered, obstacles overcome, etc.)
-
-LL:
   -don't write unnecessary code. if you know you're going to have to write
    a formal print funciton and you want to see if your function is working
    by adding a print statement, just write the formal one and save yourself
    some time
+
+===========  Stage 4  ==========================================
+Start
+Estimated Time	00 30
+Plan:
+(Order of implementation, testing approach, estimation technique)
+
+OI:
+  -initialize reading[] for each new healthType
+  -fix the hardcoded 'reading[0]' in addHealthReading()
+  -fix the hardcoded 'reading[0]' in printPatient()
+
+Complete
+Actual Time	00 45
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+
+PE:
+  -strcpy is really annoying. i didn't get burned by it or anything,
+   i just had to edit things i didn't want to.
 
 ===========  Stage 5  ==========================================
 Start

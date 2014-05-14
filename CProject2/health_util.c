@@ -124,7 +124,10 @@ void addHealthReading( CBuffptr buffer, char* timestamp, int reading ){
     strcpy(newReading->timestamp, timestamp);
     newReading->value = (float) reading;
 
-    buffer->reading[0] = *newReading;   
+    int i = 0;
+    while( strcmp(buffer->reading[i].timestamp, "00:00:00") != 0 ){ i++; }
+
+    buffer->reading[i] = *newReading;   
 
 }
   
@@ -200,7 +203,7 @@ void printPatient(int id){
       typeKey[5] = "Respiration Rate";
 
     //print each type
-    int i;
+    int i, j;
     for(i=1;i<=5;i++){
         
         //print header for reading
@@ -212,14 +215,21 @@ void printPatient(int id){
         if(cBuff == NULL){
             printf("%s\n",typeKey[0]);
         }else{
-            Element e = cBuff->reading[0];
-            printf("%s: ", e.timestamp);
+            
+            j=0;
+            while( strcmp(cBuff->reading[j].timestamp, "00:00:00") != 0 ){
+            
+                Element e = cBuff->reading[j];
+                printf("%s: ", e.timestamp);
 
-            //account for temperature
-            if(i==1){ 
-                printf("%.1f\n",e.value/10.0);
-            }else{
-                printf("%d\n",e.value);
+                //account for temperature
+                if(i==1){ 
+                    printf("%.1f\n",e.value/10.0);
+                }else{
+                    printf("%d\n",e.value);
+                }
+                
+                j++;
             }
         }
     }
