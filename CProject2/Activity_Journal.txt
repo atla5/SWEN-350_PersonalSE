@@ -5,14 +5,37 @@ Name: Aidan Sawyer
 
 ===========  Stage 1  ==========================================
 Start
-Estimated Time	HH MM
+Estimated Time	01 30
 Plan:
 (Order of implementation, testing approach, estimation technique)
 
+OI: 
+  -copy over read_line() and some main() functionality from CP1
+  -write main() function in health.c using functions from health_util.c
+  -start filling out the empty functions in health_util.c in order of
+   the prompt (levels)
+
+TA:
+  -input file
+  -print statements (printAll)
+
 Complete
-Actual Time	HH MM
+Actual Time	01 45
 Observations:
 (Lessons learned, problems encountered, obstacles overcome, etc.)
+
+LL:
+  -switch(type) looks really nice. comes with small complications,
+   but i like how it turned out.
+  -setting it up correctly like this is really nice. shouldn't take
+   much each level from here, i think.
+
+PE:
+  -cannot declare things inside of a switch statement
+
+TT: 105/90 = 1.1666
+  -taking a fair amount of time setting things up well. hopefully
+   it's worth it.
 
 ===========  Stage 2  ==========================================
 Start

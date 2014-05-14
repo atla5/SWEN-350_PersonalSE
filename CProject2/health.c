@@ -19,8 +19,7 @@ void main(){
   printf("Welcome to the Health Monitoring System\n\n");
 
   //declare variables in a valid csvLine
-  int id, type;
-  float value;
+  int id, type, value;
   char time[8+1] = "00:00:00";
 
   //extras for streamlining printing
@@ -38,9 +37,11 @@ void main(){
   while( read_line(&id, &time, &type, &value) ){
 
     //temporary print statement
-    printf("patient: %d, timestamp: %s, type: %d, value: %.1f\n",
-            id, time, type, value);
+    //printf("patient: %d, timestamp: %s, type: %d, value: %.1f\n",
+    //        id, time, type, value);
    
+
+    CBuffptr buffer;
 
     //perform various tasks based on the value of type
     switch(type){
@@ -53,7 +54,7 @@ void main(){
         case 5:
 
             //get appropriate cBuffer
-            CBuffptr buffer = getHealthType(id, type);
+            buffer = getHealthType(id, type);
             if(buffer == NULL){ break; }
 
 
@@ -67,6 +68,7 @@ void main(){
 
             printf("%s\n", brk);
             printPatient(id);
+            //printAll();
             printf("%s\n", brk);
 
             break;

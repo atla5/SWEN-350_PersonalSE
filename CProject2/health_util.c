@@ -21,17 +21,17 @@ void addPatient( int patientID ){
     //allocate a new chart with set id
     Chart * newPatient = (Chart *) malloc(sizeof(Chart));
     newPatient->id = patientID;    
-    newPatient->next = NULL;
 
     //if list is empty, set to new head.
-    if(patientList == NULL){ patientList = newPatient;}
+    if(patientList == NULL){ 
+        newPatient->next = NULL;
+        patientList = newPatient;
+    //if list is not empty, add to front
+    }else{ 
+        newPatient->next = patientList;
+        patientList = newPatient;
+    }
 
-    //append as last item onto non-empty list
-    Chartptr current = patientList;
-    
-    while(current->next != NULL){ current = current->next;
-    
-    current->next = newPatient;
 }
 
 /*
@@ -74,13 +74,13 @@ CBuffptr getHealthType( int patientID, int healthType ){
     if( foundChart == NULL){ return NULL; }
 
     //try to find CBuffer
-    CBuffptr CBuffHead = foundChart.buffer;
+    CBuffptr CBuffHead = foundChart->buffer;
     CBuffptr current = CBuffHead;
 
     while(current != NULL){
         
         //if types are equal, return current CBuffptr
-        if( strcmp(current->type, healthType) == 0){ return current; }
+        if( current->type==healthType){ return current; }
 
         current = current->next;
 
@@ -112,9 +112,9 @@ void addHealthReading( CBuffptr buffer, char* timestamp, int reading ){
     //create new reading and edit buffer's
     Element * newReading = (Element *) malloc(sizeof(Element));
     strcpy(newReading->timestamp, timestamp);
-    newReading->value = reading;
+    newReading->value = (float) reading;
 
-    buffer.reading[0] = *newReading;   
+    buffer->reading[0] = *newReading;   
 
 }
   
@@ -132,7 +132,7 @@ void removePatient( int patientID ){
 // --- OPTIONAL FUNCTIONS --- // 
 
 /*read a line of csv and write to remote variables*/
-int read_line(int *id, char *time[], int *type, float *val){
+int read_line(int *id, char *time[], int *type, int *val){
 
     //'line' and 'field' for fgets() and strtok()
     char line[MAXLINE];
@@ -163,6 +163,16 @@ int read_line(int *id, char *time[], int *type, float *val){
 
 }
 
+void printAll(){
+
+    Chartptr current = patientList;
+    while(current != NULL){
+        printf(">Patient with ID = %d\n",current->id);
+        current = current->next;
+    }
+
+}
+
 void printPatient(int id){
 
 }
@@ -172,6 +182,43 @@ void resetPatient(int id){
 }
 
 /* ---------- MISC HELPERS ----------------- */
+
+/*
+* converts timestamps into integers, compares, returns + if t1>t2
+*   and - if t1<t2. return 0 if timestamp is an incorrent length
+*
+*  |note: atoi() stops converting to an integer at first non-digit|
+*/
+int compareTimes(char t1[], char t2[]){
+
+    //check the length of each character array.
+    //  [strlen("##:##:##") = 8]
+
+    if(strlen(t1) != 8 || strlen(t2) != 8){
+        printf("timestamp is of incorrect length\n");
+        return 0;
+    }
+
+    else{
+        //return comparison
+        if(convertTime(t1) >= convertTime(t2)) { return 1; }
+        else { return -1; }
+    }
+}
+
+/* convert a char[] "##:##:##" to an int ######
+*   |note: atoi() stops converting to an integer at first non-digit|
+*/
+int convertTime(char time[]){
+
+    //multiply by factors of ten to maintain hierarchy of hour/min
+    int t = atoi(time) * 10000;
+    t += atoi(time + 3) * 100;
+    t += atoi(time + 6);
+
+    return t;
+
+}
 
 
 /* ---------- LINKED LIST CODE ------------- */
