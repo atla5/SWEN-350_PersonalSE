@@ -122,13 +122,29 @@ void addHealthReading( CBuffptr buffer, char* timestamp, int reading ){
     //create new reading and edit buffer's
     Element * newReading = (Element *) malloc(sizeof(Element));
     strcpy(newReading->timestamp, timestamp);
-    newReading->value = (float) reading;
+    newReading->value = reading;
 
     int i = 0;
-    while( strcmp(buffer->reading[i].timestamp, "00:00:00") != 0 ){ i++; }
+    while( strcmp(buffer->reading[i].timestamp, "00:00:00") != 0 
+            && i<MAXREADINGS){ i++; }
 
-    buffer->reading[i] = *newReading;   
+    if(i<MAXREADINGS){ buffer->reading[i] = *newReading; }
+    else{ 
+       
+        buffer->reading[0] = *newReading;
 
+        /* 
+        int iOldest = 0;
+        for(i=0;i<MAXREADINGS;i++){
+            if( cmpTimes(buffer->reading[i].timestamp, 
+                    buffer->reading[iOldest].timestamp) > 0){
+                iOldest = i;
+            }
+        }
+
+        buffer->reading[iOldest] = *newReading;
+        */
+    }
 }
   
 /*
@@ -217,7 +233,8 @@ void printPatient(int id){
         }else{
             
             j=0;
-            while( strcmp(cBuff->reading[j].timestamp, "00:00:00") != 0 ){
+            while( strcmp(cBuff->reading[j].timestamp, "00:00:00") != 0 
+                    && j<MAXREADINGS){
             
                 Element e = cBuff->reading[j];
                 printf("%s: ", e.timestamp);

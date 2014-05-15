@@ -98,6 +98,7 @@ OI:
   -initialize reading[] for each new healthType
   -fix the hardcoded 'reading[0]' in addHealthReading()
   -fix the hardcoded 'reading[0]' in printPatient()
+  -fix the rewriting old entries
 
 Complete
 Actual Time	00 45
@@ -107,6 +108,9 @@ Observations:
 PE:
   -strcpy is really annoying. i didn't get burned by it or anything,
    i just had to edit things i didn't want to.
+  -had some trouble with when the readings are overwritten. had to just
+   hardcode back to reading[0]. which is unfortunate. left commented code
+   for what i'd wanted
 
 ===========  Stage 5  ==========================================
 Start
