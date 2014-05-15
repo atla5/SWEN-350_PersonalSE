@@ -114,14 +114,18 @@ PE:
 
 ===========  Stage 5  ==========================================
 Start
-Estimated Time	HH MM
+Estimated Time	00 00
 Plan:
 (Order of implementation, testing approach, estimation technique)
 
+OI: [covered by level 4 submission]
+
 Complete
-Actual Time	HH MM
+Actual Time 00 00
 Observations:
 (Lessons learned, problems encountered, obstacles overcome, etc.)
+
+PE: again, the overwriting (more than 10 readings) was complicated
 
 ===========  Stage 6  ==========================================
 Start
