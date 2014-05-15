@@ -145,15 +145,21 @@ PE: these stages are really hard to keep track of
 
 ===========  Stage 7  ==========================================
 Start
-Estimated Time	HH MM
+Estimated Time	00 25
 Plan:
 (Order of implementation, testing approach, estimation technique)
 
+OI: 
+  -edit resetPatient() to 
+    -free entire chart
+    -create new 
+
 Complete
-Actual Time	HH MM
+Actual Time	00 20
 Observations:
 (Lessons learned, problems encountered, obstacles overcome, etc.)
 
+PE: i can't use valgrind, so i'm not actually sure if there are memory leaks.
 
 ===========  PROJECT SUMMARY REFLECTION  =======================
 (Replace this text with a couple of paragraphs summarizing your
@@ -162,3 +168,20 @@ was the most challenging technical problem you faced? How
 did your estimated and actual time compare? Did your estimates
 improve as you advanced to later stages? Why or why not?)
 ================================================================
+
+  This project (part 2) was pretty simple. I wish valgrind was installed 
+on these and we'd covered more advace forms of free()ing. as is, i'm 
+pretty sure that i should be going deeper down, temporarily storing them, 
+and freeing those as i go through the list, but this seems to work on top.
+
+  The most challenging technical issue for a while was thinking that i
+needed to write all the extra code for abstract linked lists, but when i 
+got to actually going through and writing the individual functions, it was
+unnecessary. the main was actually really simple to write and i'm pretty 
+happy with how simple and nice it worked in the end. 
+
+  my biggest complaint was getting lost in all the stage names. separating
+dealing with multiple patients from dealing with individual ones seemed odd
+to me, since there's never really a reason to code it so badly as to require
+doing them individually, especially given the way that the helper functions
+were declared in health.h
