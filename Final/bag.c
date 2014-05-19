@@ -38,19 +38,18 @@ void insert_value(char *value) {
     //create walker
     struct node* current = first;
 
-    
-
-    //
+    //walk through list until case (a) or (b)
     while( current !=NULL && current->next != NULL 
            && strcmp(current->value, value) != 0){
         current = current->next;
     }
 
+    //case (a): increment current's count
     if(current != NULL && strcmp(current->value, value) == 0){
         current->count++;
     }
 
-    //create a node and insert it into the list
+    //case (b): create and insert new node
     else{ 
         struct node* newNode = make_node(value);
 
@@ -66,13 +65,19 @@ void insert_value(char *value) {
  * Case (a) returns the total count of all items in the bag
  * Case (b) return 0 if the list is empty
  */
-
-
 unsigned int total_count() {
 	int count = 0;
-	/* YOUR CODE HERE */
 
-	return count;
+    //create walker
+    struct node* current = first;
+        
+    //walk to end, adding each's count to sum
+    while(current != NULL){ 
+        count += current->count;
+        current = current->next;
+    }
+
+    return count;
 }
 
 /* remove_value
