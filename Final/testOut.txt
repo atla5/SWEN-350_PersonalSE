@@ -1,0 +1,53 @@
+rm -f *.o bag
+gcc -g -c bag.c
+gcc -g -c main.c
+gcc -o bag main.o bag.o
+./bag
+
+===Testing make_node===
+        Node successfully created! Good work. Keep going...
+
+===Insert Value===
+Adding ann...
+        ann     1
+Adding zeke
+        zeke    1
+        ann     1
+Adding zeke again...
+        zeke    2
+        ann     1
+
+===Total Count===
+Total count should be 3: 3
+Adding mike...
+        mike    1
+        zeke    2
+        ann     1
+Total count should be 4: 4
+
+===Remove===
+Removing first zeke...
+        mike    1
+        zeke    1
+        ann     1
+Removing second zeke...
+        mike    1
+        zeke    0
+        ann     1
+Try to remove zeke a third time...
+        mike    1
+        zeke    0
+        ann     1
+Total count should be 2: 2
+
+===Garbage Collect===
+Garbage collect zeke
+        mike    1
+        ann     1
+Remove mike and garbage collect.
+        ann     1
+Total count should be 1: 1
+
+===Clean house===
+Total count should be 0: 0
+
