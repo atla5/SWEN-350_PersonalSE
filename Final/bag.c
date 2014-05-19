@@ -94,7 +94,22 @@ unsigned int total_count() {
  */
 
 void remove_value(char *value) {
-	/* YOUR CODE HERE */
+
+    //create walker
+    struct node* current = first;
+
+    //walk until case (a) or (b)
+    while(current != NULL && strcmp(current->value, value) != 0){
+        current = current->next; 
+    }
+ 
+    //case (a): increment current's count
+    if(current != NULL && strcmp(current->value, value) == 0 ){
+        if((current->count)>0){ current->count--; }
+    }
+    
+    //case(b)
+    else{ return; }
 
 }
 
