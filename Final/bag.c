@@ -7,17 +7,16 @@ struct node *first = NULL ;		/* initially the list is empty */
 
 
 /* Create and return a new node with passed value, count 1, and next NULL */
-struct node *make_node(char *value) {
+struct node* make_node(char *value) {
 	
     struct node *np = (struct node*) malloc(sizeof(struct node));
-
-    //printf("value: '%s', pointer to node: %p\n", value, np);   
- 
-    strcpy(np->value,value);
+    np->value = (char *) malloc(sizeof(char)*strlen(value));
+    
+    strcpy(np->value, value); 
     np->count = 1;
     np->next = NULL;
     
-	return np ;
+	return np;
 }
 
 
@@ -35,7 +34,24 @@ struct node *make_node(char *value) {
  */
 
 void insert_value(char *value) {
-	/* YOUR CODE HERE */
+
+    //create walker
+    struct node* current = first;
+
+    //
+    while( current->next != NULL && strcmp(current->value, value) != 0){
+        current = current->next;
+    }
+
+    //increment count if value exists in set
+    if(current->value == value){ current->count++; }
+
+    //create a node and insert it into the list
+    else{
+        struct node* newNode = make_node(value);
+        current->next = newNode;
+    }
+
 }
 
 /* total_count
