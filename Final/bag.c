@@ -1,5 +1,7 @@
 #include "bag.h"
+#include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 struct node *first = NULL ;		/* initially the list is empty */
 
@@ -7,7 +9,10 @@ struct node *first = NULL ;		/* initially the list is empty */
 /* Create and return a new node with passed value, count 1, and next NULL */
 struct node *make_node(char *value) {
 	
-    struct node *np = NULL;
+    struct node *np = (struct node*) malloc(sizeof(struct node));
+
+    //printf("value: '%s', pointer to node: %p\n", value, np);   
+ 
     strcpy(np->value,value);
     np->count = 1;
     np->next = NULL;
