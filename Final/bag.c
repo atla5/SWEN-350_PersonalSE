@@ -38,20 +38,25 @@ void insert_value(char *value) {
     //create walker
     struct node* current = first;
 
+    
+
     //
-    while( current->next != NULL && strcmp(current->value, value) != 0){
+    while( current !=NULL && current->next != NULL 
+           && strcmp(current->value, value) != 0){
         current = current->next;
     }
 
-    //increment count if value exists in set
-    if(current->value == value){ current->count++; }
-
-    //create a node and insert it into the list
-    else{
-        struct node* newNode = make_node(value);
-        current->next = newNode;
+    if(current != NULL && strcmp(current->value, value) == 0){
+        current->count++;
     }
 
+    //create a node and insert it into the list
+    else{ 
+        struct node* newNode = make_node(value);
+
+        if(current==NULL){ first = newNode; }
+        else{current->next = newNode; }
+    }
 }
 
 /* total_count
