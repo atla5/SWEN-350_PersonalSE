@@ -17,7 +17,7 @@
 int main(){
 	printf("\n===Testing make_node===\n");
 	struct node* bobby = make_node("bobby");
-    if(bobby != NULL && bobby->count==1 && strcmp(bobby->value,"bobby")==0 && bobby->next == NULL){
+	if(bobby != NULL && bobby->count==1 && strcmp(bobby->value,"bobby")==0 && bobby->next == NULL){
 		free(bobby->value);
 		free(bobby);
 		printf("\tNode successfully created! Good work. Keep going...\n");
