@@ -125,7 +125,29 @@ void remove_value(char *value) {
  * Hint: keep an extra pointer to the PREVIOUS item in the list
  */
 void garbage_collect(){
-	/* YOUR CODE HERE */
+
+    struct node* current = first;
+    struct node* previous = NULL;
+
+    while(current != NULL){
+
+        //remove from list
+        if(current->count == 0){
+    
+            if(previous == NULL){ first = NULL; }
+            else{ previous->next = current->next; }
+        }
+
+        //free from memory
+        previous = current;
+        if(previous != NULL && previous->count == 0){ 
+            free(previous); 
+        }
+
+        previous = current;
+        current = current->next;   
+    }
+
 }
 
 /* print_bag
