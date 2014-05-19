@@ -8,14 +8,17 @@ struct node *first = NULL ;		/* initially the list is empty */
 
 /* Create and return a new node with passed value, count 1, and next NULL */
 struct node* make_node(char *value) {
-	
+
+    //mallocate space in the heap	
     struct node *np = (struct node*) malloc(sizeof(struct node));
     np->value = (char *) malloc(sizeof(char)*strlen(value));
     
+    //set fields
     strcpy(np->value, value); 
     np->count = 1;
     np->next = NULL;
     
+    //return node pointer
 	return np;
 }
 
@@ -53,7 +56,10 @@ void insert_value(char *value) {
     else{ 
         struct node* newNode = make_node(value);
 
+        //if list is empty, make new head
         if(current==NULL){ first = newNode; }
+
+        //if list is not empty, insert at end of list
         else{current->next = newNode; }
     }
 }
@@ -108,7 +114,7 @@ void remove_value(char *value) {
         if((current->count)>0){ current->count--; }
     }
     
-    //case(b)
+    //case(b): do nothing.
     else{ return; }
 
 }
@@ -126,6 +132,7 @@ void remove_value(char *value) {
  */
 void garbage_collect(){
 
+    //create node pointers for previous and current
     struct node* current = first;
     struct node* previous = NULL;
 
@@ -134,7 +141,10 @@ void garbage_collect(){
         //remove from list
         if(current->count == 0){
     
+            //if list is one entry, set head to NULL
             if(previous == NULL){ first = NULL; }
+
+            //if the list is more than two entries, do linking
             else{ previous->next = current->next; }
         }
 
@@ -144,6 +154,7 @@ void garbage_collect(){
             free(previous); 
         }
 
+        //update previous and current for next iteration
         previous = current;
         current = current->next;   
     }
