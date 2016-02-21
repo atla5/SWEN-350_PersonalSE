@@ -1,0 +1,9 @@
+switch(c) {
+  case "a":
+    printf("hello world\n");  
+    break;
+  case "b":
+    printf("goodbye world\n");
+    break;
+  default:
+   

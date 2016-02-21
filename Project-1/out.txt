@@ -1,0 +1,28 @@
+Summary information for grades file
+
+Last 
+First 
+Exam 50%
+Homework 30%
+Attendance 20%
+
+Last: Awesome
+First: Abigail
+Exam: a+
+Homework: 95
+Attendance: 100
+Final Numeric Grade = 97 Letter = A
+
+Last: Doofus
+First: Douglas
+Exam: 75
+Homework: D
+Attendance: 60
+Final Numeric Grade = 69 Letter = D
+
+A = 1
+B = 0
+C = 0
+D = 1
+F = 0
+Class GPA = 2.50 

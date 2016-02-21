@@ -1,2 +1,2 @@
 linked: linked.o
-	gcc -o linked linked.c
+	gcc -g -Wall -o linked linked.c

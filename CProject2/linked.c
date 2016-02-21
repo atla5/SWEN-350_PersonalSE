@@ -1,38 +1,14 @@
-/* linked - linked list functions
-   Mark Ardis, RIT, 10/30/2006
-   T. Reichlmayr, RIT, 12/13/2010
-   Aidan Sawyer, RIT, 05/02/2014
-*/
-
-#include <stdio.h>
-#include <stdlib.h>
-
-static int length();
-static void push( int data);
-static int pop();
-static void appendNode( int data);
-static struct node *copyList();
-static void printList();
-
-struct node {
-  int data;
-  struct node* next;
-};
-
-struct node *head;	// pointer to head of linked list
-	        		// head is visible to all functions in file
-
 /************************************************************
  length - return length of a list
  ************************************************************/
 int length() {
   int count = 0;
 
-  //create walker, iterate through list incrementing count 
+  //create pointing node, iterate through list incrementing count 
   struct node * current = head;
   while(current->next!=NULL){ current = current->next; count++; }
 
-  //return count+1 to account for ending at second to last node
+  //return count+1 to account for ending at the second to last node
   return count+1;
 }
 
@@ -165,7 +141,7 @@ void printList() {
 /************************************************************
  main - test above functions.
  ************************************************************/
-int main() {
+void main() {
 
     //initialize empty list
 	head = NULL;
@@ -195,7 +171,7 @@ int main() {
 
     //pop and print until list is empty
     printf("--POP--\n");
-    //struct node * current = head; int p;
+    struct node * current = head; int p;
     pop();
     pop();
 
@@ -212,5 +188,5 @@ int main() {
     head = newList;
     printList();
     
-    return 1;	
+	
 }

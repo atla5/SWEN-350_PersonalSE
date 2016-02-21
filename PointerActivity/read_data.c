@@ -26,7 +26,7 @@ int read_data( char *c, int *i, double *d ) {
     
     //store c
     if(line[0]==EOF){return 0;}
-    else{*c = line[0];}
+    //else{*c = line[0];}
     
     //use strtok with '$' 
     char * field = NULL;

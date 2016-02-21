@@ -1,0 +1,14 @@
+#id, time, type, value
+
+TYPE KEY:
+1 means Temperature
+2 means Heart Rate
+3 means Systolic Pressure
+4 means Diastolic Pressure
+5 means Respiration Rate
+6 means PRINT patient (command)
+7 CHECK-IN  patient (command)
+8 CHECK-OUT patient (command)
+9 ADD_DATA_TYPE newType:val (command) 
+0 RESET patient (command)
+
